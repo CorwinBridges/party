@@ -1,8 +1,32 @@
+import { Route, Routes } from "react-router-dom"
+import { Home, About, Shop, Contact } from './pages'
+
 const App = () => {
   return (
-    <h1 className="text-9xl font-bold underline flex justify-center items-center h-screen">
-      Hello world!
-    </h1>
+    <>
+    <nav>
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/About">About</Link>
+        </li>
+        <li>
+          <Link to="/Shop">Shop</Link>
+        </li>
+        <li>
+          <Link to="/Contact">Contact</Link>
+        </li>
+      </ul>
+    </nav>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/About" element={<About />} />
+      <Route path="/Shop" element={<Shop />} />
+      <Route path="/Contact" element={<Contact />} />
+    </Routes>
+    </>
   )
 }
 
