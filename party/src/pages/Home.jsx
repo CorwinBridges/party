@@ -1,7 +1,6 @@
-import React from 'react'
 
 const Home = () => (
-    <div>Home</div>
+    <h1 className="text-9xl font-bold underline flex justify-center items-center h-screen">Home</h1>
   )
 
 export default Home
