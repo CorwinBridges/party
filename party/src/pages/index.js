@@ -1,15 +1,13 @@
-import About from './About';
-import Contact from './Contact';
-import Home from './Home';
-import Shop from './Shop';
-import Navbar from './Navbar'
-import Hero from './Hero'
-import Testimonials from './Testimonials'
-import Benefits from './Benefits'
-import Features from './Features'
-import FAQ from './FAQ'
-import CTA from './CTA'
-import Footer from './Footer'
+import About from './About/About'
+import Contact from './Contact/Contact'
+import Home from '../pages/Home/Home'
+import Shop from '../pages/Shop/Shop'
+import Hero from '../pages/Home/Hero'
+import Testimonials from '../pages/Home/Testimonials'
+import Benefits from '../pages/Home/Benefits'
+import Features from '../pages/Home/Features'
+import FAQ from '../pages/Home/FAQ'
+import CTA from '../pages/Home/CTA'
 
 
 export {
@@ -17,12 +15,10 @@ export {
     Contact, 
     Home, 
     Shop,
-    Navbar,
     Hero,
     Testimonials, 
     Benefits,
     Features,
     FAQ,
     CTA,
-    Footer,
 };
