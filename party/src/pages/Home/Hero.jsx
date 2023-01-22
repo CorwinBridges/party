@@ -46,5 +46,3 @@ const Hero = () => {
 }
 
 export default Hero
-
-// best icons, search bar, navbar
