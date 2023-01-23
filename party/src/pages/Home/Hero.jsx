@@ -1,6 +1,7 @@
 import {gift, gift3d, gifthand, partyboy, gift3d2} from '../../assets'
 import {useNavigate} from 'react-router-dom'
 import {HiChevronRight} from "react-icons/hi2";
+import index from '../../index.css'
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -8,7 +9,6 @@ const Hero = () => {
   const shopPage = () => {
     navigate('/Shop')
   }
-
   return (
     <div className=' text-white mb-40 mt-16'>
       <div className='flex'>
@@ -19,16 +19,13 @@ const Hero = () => {
             an instant celebration in seconds!</div>
           <button
             type="button"
-            className="group mt-10 font-medium rounded-full border-4 hover:bg-white border-white focus:ring-8 focus:outline-none focus:ring-gray-500 text-5xl px-10 py-5 text-center mr-2 mb-2 hover:border-gray-900"
+            /*glassy*/
+            className="btn-primary"
             onClick={shopPage}> {/* figure out this button style */}
-            <span
-              className='bg-gradient-to-b from-white to-white bg-white group-hover:from-[#5400BF] group-hover:to-[#1D0043] bg-clip-text text-transparent'>
-              <span className=''>
                 SHOP OUR PRODUCTS
-              </span>
+              
               {/* <HiChevronRight className='ml-3'/> arrow or no??? */}
               {/* make glassy */}
-            </span>
           </button>
         </div>
         <div className="w-1/2 relative z-10">
@@ -38,9 +35,9 @@ const Hero = () => {
         </div>
 
         <div
-          className="absolute z-0 top-0 left-0 w-1/2 h-1/2 rounded-full bg-[#D3ACF1] opacity-[0.87] blur-[269px]"/>
+          className="absolute z-0 top-0 left-0 w-1/2 h-1/2 rounded-full bg-[#D3ACF1] opacity-[0.84] blur-[130px]"/>
         <div
-          className="absolute z-0 top-0 right-0 w-1/2 h-1/2 rounded-full bg-[#F97FC8] opacity-[0.94] blur-[269px]"/>
+          className="absolute z-0 top-0 right-0 w-1/2 h-1/2 rounded-full bg-[#F97FC8] opacity-[0.94] blur-[130px]"/>
       </div>
     </div>
   )

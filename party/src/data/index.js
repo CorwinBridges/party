@@ -38,4 +38,8 @@ export const names = [{
         id: "10",
         title: "Coach B",
     },
+    {
+        id: "11",
+        title: "Elena Korth",
+    },
 ];

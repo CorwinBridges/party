@@ -15,6 +15,11 @@ import { Cart } from '.';
 
 const Navbar = () => {
   const [sidebarState, setSidebarState] = useState(false);
+  const[query, setQuery] = useState('')
+
+  const filteredNames = query ? names.filter(name => name.title.toLowerCase().includes(query.toLowerCase())): []
+
+
   const handleClick = () => {
     setSidebarState(current => !current);
   };
@@ -39,23 +44,41 @@ const Navbar = () => {
           <Menu.Button className={({ open }) => (open ? activeSearch : normalSearch)}><HiOutlineSearch/></Menu.Button>
           <Menu.Items className="absolute right-0 z-20 mt-11 w-72 origin-top-right rounded-md bg-white">
             <Menu.Item disabled>
-              <Combobox as='div' className='text-black relative'>
+              <Combobox as='div' 
+              onChange={(name) => {
+                setIsOpen(false)
+                // todo router.push(`/$(name.id)`)
+              }}
+              className='text-black relative'>
                 <div className='divide-y divide-pink-600'>
                   <div className='flex items-center px-3 py-1'>
                     <HiOutlineSearch className='text-pink-600'/>
-                    <Combobox.Input className='flex w-full items-center rounded-md px-4 py-2 text-2xl h-10 focus:outline-0' placeholder='Search...'/>
+                    <Combobox.Input 
+                    onChange={() => {
+                      setQuery(event.target.value)
+                    }}
+                    className='flex w-full items-center rounded-md px-4 py-2 text-2xl h-10 focus:outline-0' placeholder='Search...'/>
                   </div>
-                  <Combobox.Options static className='py-1 text-xl max-h-96 overflow-y-auto px-1'>
-                    {names.map((name) => (
-                      <Combobox.Option key={name.id}>
-                        {({ active }) => (
-                          <div className={`px-4 py-2 rounded-md ${active ? 'bg-pink-600 text-white' : ''}`}>
-                            {name.title}
-                          </div>
-                        )} 
-                      </Combobox.Option>
-                    ))}
-                  </Combobox.Options>
+                  {filteredNames.length > 0 && (
+                    <Combobox.Options static className='p-1 text-xl max-h-96 overflow-y-auto'>
+                      {filteredNames.map((name) => (
+                        <Combobox.Option key={name.id} value={name}>
+                          {({ active }) => (
+                            <div className={`px-4 py-2 rounded-md ${active ? 'bg-pink-600 text-white' : ''}`}>
+                              {name.title}
+                            </div>
+                          )} 
+                        </Combobox.Option>
+                      ))}
+                    </Combobox.Options>
+                  )}
+                  {
+                    query && filteredNames.length === 0 &&  (
+                      <div className='p-1'>
+                        <p className='px-4 py-2 text-xl'>No results found</p>
+                      </div>
+                    )
+                  }
                 </div>
               </Combobox>
             </Menu.Item>
