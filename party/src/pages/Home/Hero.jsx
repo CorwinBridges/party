@@ -27,6 +27,7 @@ const Hero = () => {
                 SHOP OUR PRODUCTS
               </span>
               {/* <HiChevronRight className='ml-3'/> arrow or no??? */}
+              {/* make glassy */}
             </span>
           </button>
         </div>
