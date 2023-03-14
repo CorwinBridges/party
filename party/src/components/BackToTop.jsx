@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { FaArrowUp } from "react-icons/fa";
+import { useState, useEffect } from "react"
+import { FaArrowUp } from "react-icons/fa"
 
-
-
-import { motion } from "framer-motion";
-
+import { motion } from "framer-motion"
 
 const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -34,7 +31,7 @@ const BackToTop = () => {
 
   return (
     <motion.button
-      className={`fixed bottom-12 right-12 z-50 bg-pink-700 p-2 rounded-full text-white ${
+      className={`glass fixed bottom-12 right-12 z-50 p-2 text-white ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
       onClick={handleBackToTop}

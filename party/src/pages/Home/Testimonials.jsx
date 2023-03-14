@@ -110,7 +110,7 @@ const Testimonials = () => {
         <div className="relative bottom-0 z-0 h-[475px] w-[475px] rounded-[50%] bg-gradient-to-b from-[#9940EB]/[0.54] to-[#F05EC0]/[0.68] opacity-[0.75] blur-[3px]" />
       </div>
       {quotesToShow.length > 0 && (
-        <div className="grid grid-cols-1 gap-10 text-white md:grid-cols-4 2xl:grid-cols-3">
+        <div className="grid grid-cols-1 gap-10 text-white lg:grid-cols-4 2xl:grid-cols-3">
           {quotesToShow.map((quote, index) => (
             <div
               key={index}
@@ -131,8 +131,8 @@ const Testimonials = () => {
             </div>
           ))}
           {/* Counter */}
-          <div className="relative z-10 order-first md:col-span-2 md:col-start-2 2xl:order-last 2xl:col-span-1">
-            <div className="mt-8 text-center text-6xl font-bold md:text-5xl xl:text-6xl 2xl:text-start">
+          <div className="relative z-10 order-first lg:col-span-4 2xl:order-last 2xl:col-span-1">
+            <div className="mt-8 text-center text-6xl font-bold md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-start">
               <div>Join</div>
               <InView triggerOnce>
                 {({ inView, ref }) => (
@@ -154,7 +154,7 @@ const Testimonials = () => {
               </InView>
               <div className="mt-2">Partiers</div>
             </div>
-            <div className="mt-6 text-2xl font-normal md:text-center 2xl:mx-0 2xl:text-start">
+            <div className="mt-6 text-center text-2xl font-normal md:mx-16 lg:mx-40 xl:mx-56 2xl:mx-0 2xl:text-start">
               You'll never have to worry about party planning again. Let us take
               care of the details while you sit back and enjoy the celebration!
             </div>

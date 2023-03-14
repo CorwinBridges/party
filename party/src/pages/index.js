@@ -20,6 +20,7 @@ import Hero from "../pages/Home/Hero"
 import Home from "../pages/Home/Home"
 import Logos from "../pages/Home/Logos"
 import Testimonials from "../pages/Home/Testimonials"
+import Steps from "../pages/Home/Steps"
 // Shop
 import Carousel from "../pages/Shop/Carousel"
 import Filter from "../pages/Shop/Filter"
@@ -58,4 +59,5 @@ export {
   Logos,
   ContactInfo,
   ContactForm,
+  Steps,
 }

@@ -8,6 +8,7 @@ import {
   FAQ,
   CTA,
   Logos,
+  Steps,
 } from "../../pages"
 
 const Home = () => {
@@ -22,12 +23,15 @@ const Home = () => {
       <div className="section-container">
         <Testimonials />
       </div>
-        <Logos />
+      <Logos />
       <div className="section-container">
         <Benefits />
       </div>
       <div className="section-container">
         <Features />
+      </div>
+      <div className="section-container">
+        <Steps />
       </div>
       <div className="section-container">
         <FAQ />

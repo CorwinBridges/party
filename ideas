@@ -6,3 +6,10 @@ also flesh out our contact page design
 and ui and ux of store
 blender/spline??
 we need some good assets
+
+blogs?
+account login using google OAuth with a customer account and admin account
+admin account has dashboard with charts with fake data like sales, traffic, customer, shipping. It also can manage accounts and view their demographics and wallet data, edit their account, edit roles/permissions
+customer account can edit profile info like profile pic, name, email, password, address, phone number and view their liked products, cart items, order history, comments, reviews, and notifications
+
+a section of different memberships

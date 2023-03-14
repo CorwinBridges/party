@@ -1,46 +1,65 @@
+import { FiAward, FiMove, FiRefreshCw, FiSettings } from "react-icons/fi"
+import { Link } from "react-router-dom"
+
 const featureData = [
   {
-    title: "Step 1:",
+    title: "Patented Design",
     desc: "Description for feature 1",
-    image: "https://via.placeholder.com/200x200/FF0000/FFFFFF?text=Image+1",
+    icon: <FiAward />,
   },
   {
-    title: "Step 2:",
+    title: "Portable",
     desc: "Description for feature 2",
-    image: "https://via.placeholder.com/200x200/00FF00/FFFFFF?text=Image+2",
+    icon: <FiMove />,
   },
   {
-    title: "Step 3:",
+    title: "Reusable",
     desc: "Description for feature 3",
-    image: "https://via.placeholder.com/200x200/0000FF/FFFFFF?text=Image+3",
+    icon: <FiRefreshCw />,
+  },
+  {
+    title: "Set Up & Clean Up",
+    desc: "Description for feature 4",
+    icon: <FiSettings />,
   },
 ]
 
 const Features = () => {
   return (
     <section className="py-5 text-white lg:py-16">
-      {featureData.map((feature, index) => (
-        <div
-          key={index}
-          className={`flex ${
-            index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-          } glass mb-6 items-center justify-center gap-8 rounded-[69px] p-10 lg:mb-12 lg:p-16`}
-        >
-          <div className="w-1/2 text-center">
-            <h2 className="mb-4 text-3xl font-bold lg:text-6xl">
-              {feature.title}
-            </h2>
-            <p className="text-md lg:text-lg">{feature.desc}</p>
-          </div>
-          <div className="w-1/2">
-            <img
-              src={feature.image}
-              alt={feature.title}
-              className="mx-auto rounded-[69px] shadow-md"
-            />
-          </div>
+      <div className="grid grid-cols-2 gap-8">
+        <div className="col-span-1 grid grid-cols-2 grid-rows-2 gap-4 text-center">
+          {featureData.map((feature, index) => (
+            <div key={index} className={`glass rounded-[69px] p-8`}>
+              <div className="mb-5 flex justify-center text-9xl">
+                {feature.icon}
+              </div>
+              <h2 className="mb-5 text-2xl font-semibold lg:text-3xl">
+                {feature.title}
+              </h2>
+              <p className="text-sm lg:text-lg">{feature.desc}</p>
+            </div>
+          ))}
         </div>
-      ))}
+        <div className="col-span-1 mt-8">
+          <h1 className="text-6xl font-bold">What is Party in a Box?</h1>
+          <p className="mt-8 text-xl">
+            Party in a Box is the ultimate hassle-free party solution. With
+            hundreds of customizable themes, this revolutionary box uses
+            advanced nanotechnology and cutting-edge artificial intelligence to
+            instantly set up and clean your party in seconds. Try Party in a Box
+            today and enjoy the ultimate party experience.
+          </p>
+          <Link to="Shop">
+            <button
+              type="button"
+              className="glass mt-8 mr-2 mb-2 px-6 py-3 text-center text-2xl duration-200 ease-in-out hover:scale-110"
+            >
+              SHOP NOW
+            </button>
+          </Link>
+        </div>
+      </div>
     </section>
   )
 }
@@ -48,4 +67,3 @@ const Features = () => {
 export default Features
 
 //TODO: tweak design, maybe flow chart thing
-//TODO: styling and responsivenss

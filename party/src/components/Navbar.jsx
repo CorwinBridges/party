@@ -12,13 +12,13 @@ import { useStateContext } from "../context/StateContext"
 
 // Navbar styling classes
 const activeLink =
-  "relative z-10 mx-5 text-2xl underline decoration-pink-600 decoration-4 underline-offset-8"
+  "underline decoration-pink-600 decoration-4 underline-offset-8"
 const normalLink =
-  "relative z-10 mx-5 text-2xl decoration-pink-600 decoration-4 underline-offset-8 hover:underline"
+  "decoration-pink-600 decoration-4 underline-offset-8 hover:underline"
 
 // search bar styling classes
-const activeSearch = "relative z-10 mx-5 text-2xl text-pink-600"
-const normalSearch = "relative z-10 mx-5 text-2xl hover:text-pink-600"
+const activeSearch = "text-pink-600"
+const normalSearch = "hover:text-pink-600"
 
 const Navbar = () => {
   const { totalQuantities, setQuery, setIsShowing } = useStateContext()
@@ -32,7 +32,7 @@ const Navbar = () => {
             <img
               src={partylogo}
               alt="Logo"
-              className="relative z-10 mr-3 h-20"
+              className="relative z-10 mx-5 h-20"
             />
           </Link>
         </div>
@@ -46,7 +46,7 @@ const Navbar = () => {
             open ? "block" : "hidden"
           } w-full items-end text-white lg:flex lg:w-auto lg:items-center`}
         >
-          <div className="flex flex-col items-end lg:flex-row lg:justify-between lg:text-xl">
+          <div className="relative z-20 flex flex-col items-end space-x-10 text-xl lg:flex-row lg:justify-between lg:text-2xl">
             <NavLink
               to="/About"
               className={({ isActive }) => (isActive ? activeLink : normalLink)}
@@ -67,7 +67,7 @@ const Navbar = () => {
             </NavLink>
             <Popover
               as="div"
-              className="relative my-auto flex text-left"
+              className="my-auto flex text-left"
               onClick={() => {
                 setQuery("")
               }}
@@ -87,7 +87,7 @@ const Navbar = () => {
                 onClick={() => {
                   setIsShowing((isShowing) => !isShowing)
                 }}
-                className="relative z-10 mx-5 px-5 py-2.5 text-6xl"
+                className="relative z-10 px-5 py-2.5 text-6xl"
               >
                 <HiOutlineShoppingBag className="hover:text-pink-600" />
                 <span className="absolute top-12 rounded-full border-4 border-white bg-pink-600 px-2 text-center text-xs font-semibold">
@@ -106,7 +106,7 @@ const Navbar = () => {
             onClick={() => {
               setIsShowing((isShowing) => !isShowing)
             }}
-            className="relative z-10 mx-5 px-5 py-2.5 text-6xl"
+            className="relative z-10 px-5 py-2.5 text-6xl"
           >
             <HiOutlineShoppingBag className="hover:text-pink-600" />
             <span className="absolute top-12 rounded-full border-4 border-white bg-pink-600 px-2 text-center text-lg font-semibold">

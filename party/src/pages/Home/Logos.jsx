@@ -29,7 +29,7 @@ const logos = [
 
 const Logos = () => {
   return (
-    <section className="grade-fade py-16">
+    <section className="py-16">
       <Marquee gradient={false} speed={30} className="">
         <div className="flex h-20 text-white brightness-0 invert">
           {logos.map((logo, index) => (
