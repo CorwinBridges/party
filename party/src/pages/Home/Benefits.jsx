@@ -52,16 +52,18 @@ const Benefits = () => {
   return (
     <section className="py-16 text-white">
       <h1 className="glass relative rounded-[69px] py-32 text-center text-4xl font-bold lg:py-40 lg:text-6xl">
-        Achieve Party Planning Perfection
+        Achieve Party Planning{" "}
+        <span className="bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-transparent">
+          Perfection
+        </span>
       </h1>
-      <div className="relative bottom-24 z-10 mx-16 grid grid-rows-2 gap-6 md:grid-cols-2 lg:gap-4 xl:grid-cols-3">
+      <div className="relative bottom-24 z-10 mx-16 -mb-24 grid grid-rows-2 gap-6 md:grid-cols-2 xl:grid-cols-3">
         {benefits.map((benefit, index) => (
-          <div
-            key={index}
-            className="glass rounded-[69px] p-8 text-center"
-          >
-            <div className="flex justify-center text-9xl mb-5">{benefit.icon}</div>
-            <div className="mb-5 text-2xl font-semibold lg:text-3xl">
+          <div key={index} className="glass rounded-[69px] p-8 text-center">
+            <div className="mb-6 flex justify-center text-9xl">
+              {benefit.icon}
+            </div>
+            <div className="mb-6 text-2xl font-semibold lg:text-3xl">
               {benefit.title}
             </div>
             <div className="text-sm lg:text-lg">{benefit.description}</div>

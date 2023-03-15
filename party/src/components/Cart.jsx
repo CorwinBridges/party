@@ -53,7 +53,7 @@ const Cart = () => {
                       <div className="flex items-start justify-between">
                         <Dialog.Title className="text-lg font-medium text-gray-900">
                           Shopping cart
-                          <span className="ml-2.5 text-pink-600">
+                          <span className="ml-2.5 text-pink-500">
                             ({totalQuantities} items)
                           </span>
                         </Dialog.Title>
@@ -87,7 +87,7 @@ const Cart = () => {
                           <button
                             type="button"
                             onClick={() => setShowCart(false)}
-                            className="bg-pink-600 w-full px-6 py-3 mt-10 rounded-md text-white"
+                            className="bg-pink-500 w-full px-6 py-3 mt-10 rounded-md text-white"
                           >
                             Continue Shopping
                           </button>
@@ -128,7 +128,7 @@ const Cart = () => {
                                     <div className="flex">
                                       <button
                                         type="button"
-                                        className="font-medium text-pink-600 hover:text-pink-500"
+                                        className="font-medium text-pink-500 hover:text-pink-500"
                                         onClick={() => onRemove(item)}
                                       >
                                         Remove
@@ -153,7 +153,7 @@ const Cart = () => {
                       <div className="mt-6">
                         <a
                           href="#"
-                          className="flex items-center justify-center rounded-md border border-transparent bg-pink-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-pink-700"
+                          className="flex items-center justify-center rounded-md border border-transparent bg-pink-500 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-pink-700"
                         >
                           Checkout
                         </a>
@@ -163,7 +163,7 @@ const Cart = () => {
                           or
                           <button
                             type="button"
-                            className="font-medium text-pink-600 hover:text-pink-500"
+                            className="font-medium text-pink-500 hover:text-pink-500"
                             onClick={() => {
                               setIsShowing((isShowing) => !isShowing)
                             }}

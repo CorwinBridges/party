@@ -9,8 +9,8 @@ import Story from "../pages/About/Story"
 import Team from "../pages/About/Team"
 // Contact
 import Contact from "../pages/Contact/Contact"
-import ContactForm from "../pages/Contact/ContactForm"
 import ContactInfo from "../pages/Contact/ContactInfo"
+import CForm from "../pages/Contact/CForm"
 // Home
 import Benefits from "../pages/Home/Benefits"
 import CTA from "../pages/Home/CTA"
@@ -19,8 +19,8 @@ import Features from "../pages/Home/Features"
 import Hero from "../pages/Home/Hero"
 import Home from "../pages/Home/Home"
 import Logos from "../pages/Home/Logos"
-import Testimonials from "../pages/Home/Testimonials"
 import Steps from "../pages/Home/Steps"
+import Testimonials from "../pages/Home/Testimonials"
 // Shop
 import Carousel from "../pages/Shop/Carousel"
 import Filter from "../pages/Shop/Filter"
@@ -58,6 +58,6 @@ export {
   HQ,
   Logos,
   ContactInfo,
-  ContactForm,
+  CForm,
   Steps,
 }

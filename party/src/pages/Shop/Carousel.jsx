@@ -50,10 +50,10 @@ const Carousel = () => {
         loop={true}
       >
         <button type="button" className="swiper-button-prev">
-          {/* <HiChevronLeft className="glass bg-gradient-to-135 absolute text-7xl text-white hover:bg-pink-600" /> */}
+          {/* <HiChevronLeft className="glass bg-gradient-to-135 absolute text-7xl text-white hover:bg-pink-500" /> */}
         </button>
         <button type="button" className="swiper-button-next">
-          {/* <HiChevronRight className="glass bg-gradient-to-135 absolute text-7xl text-white hover:bg-pink-600" /> */}
+          {/* <HiChevronRight className="glass bg-gradient-to-135 absolute text-7xl text-white hover:bg-pink-500" /> */}
         </button>
         {slide_images.map((slide, index) => (
           <SwiperSlide key={index}>
@@ -92,13 +92,13 @@ export default Carousel
 //       <button type="button">
 //         <HiChevronLeft
 //           onClick={prevSlide}
-//           className="glass bg-gradient-to-135 absolute top-40 left-5 -translate-y-1/2 text-5xl text-white hover:bg-pink-600 lg:top-1/2 lg:-left-5 lg:text-7xl"
+//           className="glass bg-gradient-to-135 absolute top-40 left-5 -translate-y-1/2 text-5xl text-white hover:bg-pink-500 lg:top-1/2 lg:-left-5 lg:text-7xl"
 //         />
 //       </button>
 //       <button type="button">
 //         <HiChevronRight
 //           onClick={nextSlide}
-//           className="glass bg-gradient-to-135 absolute top-40 right-5 -translate-y-1/2 text-5xl text-white hover:bg-pink-600 lg:top-1/2 lg:-right-5 lg:text-7xl"
+//           className="glass bg-gradient-to-135 absolute top-40 right-5 -translate-y-1/2 text-5xl text-white hover:bg-pink-500 lg:top-1/2 lg:-right-5 lg:text-7xl"
 //         />
 //       </button>
 //       {slide_images.map((slider, index) => (

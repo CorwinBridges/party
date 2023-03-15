@@ -26,16 +26,16 @@ const NavbarSearch = () => {
         setQuery("")
         navigate(`/${name.id}`)
       }}
-      className="relative text-black"
+      className="relative text-white"
     >
-      <div className="divide-y divide-pink-600">
+      <div className="divide-y divide-pink-500">
         <div className="flex items-center px-3 py-1">
-          <HiOutlineSearch className="text-3xl text-pink-600" />
+          <HiOutlineSearch className="text-3xl text-pink-500" />
           <Combobox.Input
             onChange={(e) => {
               setQuery(e.target.value)
             }}
-            className="flex h-10 w-full items-center rounded-md px-4 py-2 text-2xl focus:outline-0"
+            className="flex h-10 w-full items-center bg-inherit px-4 py-2 text-2xl focus:outline-0 placeholder:text-white/70"
             placeholder="Search..."
           />
         </div>
@@ -50,7 +50,7 @@ const NavbarSearch = () => {
                   {({ active }) => (
                     <div
                       className={`cursor-pointer rounded-md px-4 py-2 ${
-                        active ? "bg-pink-600 text-white" : ""
+                        active ? "bg-pink-500 text-white" : ""
                       }`}
                     >
                       {name.title}

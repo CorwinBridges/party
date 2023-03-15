@@ -12,13 +12,13 @@ import { useStateContext } from "../context/StateContext"
 
 // Navbar styling classes
 const activeLink =
-  "underline decoration-pink-600 decoration-4 underline-offset-8"
+  "underline decoration-pink-500 decoration-4 underline-offset-8"
 const normalLink =
-  "decoration-pink-600 decoration-4 underline-offset-8 hover:underline"
+  "decoration-pink-500 decoration-4 underline-offset-8 hover:underline"
 
 // search bar styling classes
-const activeSearch = "text-pink-600"
-const normalSearch = "hover:text-pink-600"
+const activeSearch = "text-pink-500"
+const normalSearch = "hover:text-pink-500"
 
 const Navbar = () => {
   const { totalQuantities, setQuery, setIsShowing } = useStateContext()
@@ -77,7 +77,7 @@ const Navbar = () => {
               >
                 <HiOutlineSearch />
               </Popover.Button>
-              <Popover.Panel className="absolute right-0 z-20 mt-10 w-72 origin-top-right rounded-md bg-white">
+              <Popover.Panel className="absolute right-0 z-20 mt-10 w-72 origin-top-right glass rounded-md">
                 <NavbarSearch />
               </Popover.Panel>
             </Popover>
@@ -89,8 +89,8 @@ const Navbar = () => {
                 }}
                 className="relative z-10 px-5 py-2.5 text-6xl"
               >
-                <HiOutlineShoppingBag className="hover:text-pink-600" />
-                <span className="absolute top-12 rounded-full border-4 border-white bg-pink-600 px-2 text-center text-xs font-semibold">
+                <HiOutlineShoppingBag className="hover:text-pink-500" />
+                <span className="absolute top-12 rounded-full border-4 border-white bg-pink-500 px-2 text-center text-xs font-semibold">
                   {totalQuantities}
                 </span>
               </button>
@@ -108,8 +108,8 @@ const Navbar = () => {
             }}
             className="relative z-10 px-5 py-2.5 text-6xl"
           >
-            <HiOutlineShoppingBag className="hover:text-pink-600" />
-            <span className="absolute top-12 rounded-full border-4 border-white bg-pink-600 px-2 text-center text-lg font-semibold">
+            <HiOutlineShoppingBag className="hover:text-pink-500" />
+            <span className="absolute top-12 rounded-full border-4 border-white bg-pink-500 px-2 text-center text-lg font-semibold">
               {totalQuantities}
             </span>
           </button>

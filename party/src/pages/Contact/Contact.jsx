@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 
-import { ContactInfo, ContactForm } from "../../pages"
+import { ContactInfo, CForm } from "../../pages"
 
 const Contact = () => {
   useEffect(() => {
@@ -12,7 +12,7 @@ const Contact = () => {
         <ContactInfo />
       </div>
       <div className="section-container">
-        <ContactForm />
+        <CForm />
       </div>
     </>
   )

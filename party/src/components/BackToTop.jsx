@@ -31,9 +31,10 @@ const BackToTop = () => {
 
   return (
     <motion.button
-      className={`glass fixed bottom-12 right-12 z-50 p-2 text-white ${
+      className={`glass fixed bottom-12 right-12 z-50 p-3 text-white ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
+      type="button"
       onClick={handleBackToTop}
       initial={{ opacity: 0 }}
       animate={{ opacity: isVisible ? 1 : 0 }}

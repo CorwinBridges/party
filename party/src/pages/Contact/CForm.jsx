@@ -2,7 +2,7 @@ import { Formik, Field, Form, ErrorMessage } from "formik"
 
 import { blob } from "../../assets"
 
-const ContactForm = () => {
+const CForm = () => {
   return (
     <section className="py-16">
       <div className="absolute -left-20 -top-20">
@@ -53,7 +53,7 @@ const ContactForm = () => {
                         name="firstName"
                         type="text"
                         placeholder="First Name"
-                        className="glass w-full rounded-[69px] bg-inherit py-1 px-3 text-base leading-8 text-white outline-none transition-colors duration-200 ease-in-out focus:border-pink-600"
+                        className="glass w-full rounded-[69px] bg-inherit py-1 px-3 text-base leading-8 text-white outline-none transition-colors duration-200 ease-in-out placeholder:text-white/70 focus:border-pink-500"
                       />
                       <ErrorMessage name="firstName" />
                     </div>
@@ -69,7 +69,7 @@ const ContactForm = () => {
                         name="lastName"
                         type="text"
                         placeholder="Last Name"
-                        className="glass w-full rounded-[69px] bg-inherit py-1 px-3 leading-8 text-white outline-none transition-colors duration-200 ease-in-out focus:border-pink-600"
+                        className="glass w-full rounded-[69px] bg-inherit py-1 px-3 leading-8 text-white outline-none transition-colors duration-200 ease-in-out placeholder:text-white/70 focus:border-pink-500"
                       />
                       <ErrorMessage name="lastName" />
                     </div>
@@ -85,7 +85,7 @@ const ContactForm = () => {
                         name="email"
                         type="email"
                         placeholder="Email"
-                        className="glass w-full rounded-[69px] bg-inherit py-1 px-3 leading-8 text-white outline-none transition-colors duration-200 ease-in-out focus:border-pink-600"
+                        className="glass w-full rounded-[69px] bg-inherit py-1 px-3 leading-8 text-white outline-none transition-colors duration-200 ease-in-out placeholder:text-white/70 focus:border-pink-500"
                       />
                       <ErrorMessage name="email" />
                     </div>
@@ -100,14 +100,14 @@ const ContactForm = () => {
                         name="message"
                         placeholder="Leave a message"
                         as="textarea"
-                        className="glass h-32 w-full resize-none rounded-[25px] bg-inherit py-1 px-3 text-base leading-6 text-white outline-none transition-colors duration-200 ease-in-out focus:border-pink-600"
+                        className="glass h-32 w-full resize-none rounded-[25px] bg-inherit py-1 px-3 text-base leading-6 text-white outline-none transition-colors duration-200 ease-in-out placeholder:text-white/70 focus:border-pink-500"
                       />
                       <ErrorMessage name="message" />
                     </div>
                   </div>
                   <div className="w-full p-2">
                     <button
-                      className="glass mx-auto flex rounded-[69px]  bg-pink-600 py-2 px-5 text-sm text-white hover:bg-pink-700 focus:outline-none lg:px-8 lg:text-lg xl:text-xl"
+                      className="glass mx-auto flex rounded-[69px] bg-pink-500 py-2 px-5 text-sm text-white hover:bg-pink-700 focus:outline-none lg:px-8 lg:text-lg xl:text-xl"
                       type="submit"
                     >
                       Submit
@@ -123,4 +123,4 @@ const ContactForm = () => {
   )
 }
 
-export default ContactForm
+export default CForm

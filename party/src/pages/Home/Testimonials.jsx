@@ -35,7 +35,7 @@ const quotes = [
     reviewer: "Romantic Rachel",
     role: "Dysfunctional Newlywed",
     quote:
-      "Using Party in a Box for my wedding was a total game-changer. It was like having a wedding planner, caterer, and DJ all rolled into one. And the best part? I didn't have to deal with any bridezilla meltdowns, because everything was so easy and stress-free. Now if only I could use Party in a Box for my marriage!",
+      "Party in a Box changed the game for my wedding. It was like having a wedding planner, caterer, and DJ all in one. No bridezilla moments for me because it was easy and stress-free. Now if only Party in a Box could help with the marriage too!",
     profilepic:
       "https://media.istockphoto.com/id/157293077/photo/unhappy-bride.jpg?s=612x612&w=0&k=20&c=Z2LxuHxaaxa-TVnny3LaRHNVtlO-m19R_BEYH38hO5c=",
   },
@@ -43,7 +43,7 @@ const quotes = [
     reviewer: "Splashy Samuel",
     role: "Incompetent Swimmer",
     quote:
-      "I'm not exactly Michael Phelps, but thanks to Party in a Box, I felt like a swimming superstar! The pool noodles, floaties, and other fun pool accessories made me look like I knew what I was doing, even though I was just doggy-paddling my way around the shallow end. Plus, the quick and easy cleanup meant I could get back to my true calling: lounging on the pool deck with a cold drink in my hand!",
+      "Thanks to Party in a Box, I felt like a swimming superstar, even though I'm no Michael Phelps. The pool accessories had me looking like a pro, even while doggy-paddling. And the fast cleanup meant I could quickly get back to my true calling: lounging poolside with a cold drink!",
     profilepic:
       "http://3.bp.blogspot.com/-Olz3UC0WMxE/VbB5HXMudvI/AAAAAAAAazM/PxS1HZPzE-o/s1600/Edit_Champs_Swim_Meet_2015_0503.JPG",
   },
@@ -59,7 +59,7 @@ const quotes = [
     reviewer: "Birthday Brittany",
     role: "Egotistical 5-Year-Old",
     quote:
-      "I don't always have parties, but when I do, I use Party in a Box. Because let's face it, without me, there would be no party. I'm the star of the show, the life of the party, the queen of the castle. And with Party in a Box, I get to be all those things and more, without even breaking a sweat. It's just one more thing to add to the list of things that make me awesome.",
+      "I don't always party, but when I do, it's with Party in a Box. Because let's face it, I'm the star of the show, the life of the party, the queen of the castle. With Party in a Box, I get to be all that and more, without breaking a sweat. Just another thing that adds to my awesomeness!",
     profilepic:
       "https://d.newsweek.com/en/full/2067542/file-photo-screaming-girl.jpg",
   },
@@ -67,7 +67,7 @@ const quotes = [
     reviewer: "Quarterback Quentin",
     role: "Local Football Hero",
     quote:
-      "Let me tell you, folks, I've thrown a lot of game-winning touchdowns in my time, but Party in a Box was the real MVP of my Super Bowl party. It's like having a secret weapon in your back pocket - one minute you're setting up, and the next minute, boom, you've got a full-blown party on your hands. And when the game was over, cleanup was a breeze. I didn't even have to throw a Hail Mary to get my house back in order. Party in a Box, you've earned yourself a spot in the Hall of Fame!",
+      "With Party in a Box, I don't need to be a party planner or a quarterback to throw a winning Super Bowl watch party. It's like having a personal assistant that sets up a themed party in seconds, and cleans up just as fast. Plus, it's made with vibranium, so you know it's tough enough to handle my rowdy friends. Party in a Box: the MVP of party supplies!",
     profilepic:
       "https://media.npr.org/assets/img/2016/02/26/johncastello1_wide-98b9425f315a0a266d391480d4921584b88c936e-s1400-c100.jpg",
   },
@@ -75,7 +75,7 @@ const quotes = [
     reviewer: "Pepperoni Pete",
     role: "Italian Cuisine Connoisseur",
     quote:
-      "I gotta say, Party in a Box really delivered the goods for my pizza party! With their decorations, it was like my living room turned into a pizzeria, but without the weird smell and the creepy guy behind the counter. And with everything so easy to set up, I had plenty of time to focus on what really matters - eating as much pizza as humanly possible! Thanks, Party in a Box - you're the real MVP of pizza parties!",
+      "Party in a Box nailed it for my pizza party! Their decorations transformed my living room into a pizzeria, minus the weird smell and creepy guy behind the counter. And with easy setup, I had more time for what mattered - eating all the pizza I could handle! Thanks Party in a Box, you're the MVP of pizza parties!",
     profilepic:
       "https://cdn.dailyvoice.com/image/upload/c_fill,dpr_2,f_auto,q_auto:eco,w_640/Screenshot_966_n77eqe",
   },
@@ -83,17 +83,31 @@ const quotes = [
 
 const Testimonials = () => {
   const [quotesToShow, setQuotesToShow] = useState([])
+  const [previousQuoteIndexes, setPreviousQuoteIndexes] = useState([])
 
-  useEffect(() => {
-    const randomIndexes = Array.from({ length: 2 }, () =>
-      Math.floor(Math.random() * quotes.length)
-    )
-    while (randomIndexes[0] === randomIndexes[1]) {
-      randomIndexes[1] = Math.floor(Math.random() * quotes.length)
+  const generateRandomQuotes = () => {
+    let randomIndexes = []
+    while (randomIndexes.length < 2) {
+      const index = Math.floor(Math.random() * quotes.length)
+      if (
+        !previousQuoteIndexes.includes(index) &&
+        !randomIndexes.includes(index)
+      ) {
+        randomIndexes.push(index)
+      }
     }
     const randomQuotes = randomIndexes.map((index) => quotes[index])
+    setPreviousQuoteIndexes(randomIndexes)
     setQuotesToShow(randomQuotes)
+  }
+
+  useEffect(() => {
+    generateRandomQuotes()
   }, [])
+
+  const handleViewMoreStories = () => {
+    generateRandomQuotes()
+  }
 
   return (
     <section className="py-14 lg:py-16">
@@ -114,7 +128,7 @@ const Testimonials = () => {
           {quotesToShow.map((quote, index) => (
             <div
               key={index}
-              className="glass relative z-10 rounded-[69px] p-8 md:col-span-2 2xl:col-span-1"
+              className="glass relative z-10 rounded-[69px] p-8 lg:col-span-2 2xl:col-span-1"
             >
               <div className="aspect-square w-20 overflow-hidden rounded-full">
                 <img
@@ -136,7 +150,10 @@ const Testimonials = () => {
               <div>Join</div>
               <InView triggerOnce>
                 {({ inView, ref }) => (
-                  <div className="mt-2" ref={ref}>
+                  <div
+                    className="mt-2 bg-gradient-to-tr from-red-400 to-pink-500 bg-clip-text text-transparent"
+                    ref={ref}
+                  >
                     {inView ? (
                       <CountUp
                         end={10000000}
@@ -147,21 +164,24 @@ const Testimonials = () => {
                         start={69}
                       />
                     ) : (
-                      <div className="mt-2">69</div>
+                      <div className="mt-2 bg-gradient-to-tr from-red-400 to-pink-500 bg-clip-text text-transparent">
+                        69
+                      </div>
                     )}
                   </div>
                 )}
               </InView>
               <div className="mt-2">Partiers</div>
             </div>
-            <div className="mt-6 text-center text-2xl font-normal md:mx-16 lg:mx-40 xl:mx-56 2xl:mx-0 2xl:text-start">
+            <div className="mx-auto mt-6 w-full text-center text-2xl font-normal sm:w-[90%] md:w-[80%] lg:w-[60%] 2xl:mx-0 2xl:w-full 2xl:text-start">
               You'll never have to worry about party planning again. Let us take
               care of the details while you sit back and enjoy the celebration!
             </div>
             <div className="flex justify-center 2xl:block">
               <button
+                onClick={handleViewMoreStories}
                 type="button"
-                className="glass mt-10 mr-2 mb-2 px-6 py-3 text-center text-2xl duration-200 ease-in-out hover:scale-110"
+                className="glass mt-10 mr-2 mb-2 px-8 py-4 text-center text-2xl font-medium duration-200 ease-in-out hover:scale-110"
               >
                 View more stories
               </button>
