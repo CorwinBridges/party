@@ -9,10 +9,10 @@ import gift from "./gift.svg"
 import gifthand from "./gifthand.png"
 import money from "./money.png"
 import partyboy from "./partyboy.png"
+import partyhq from "./partyhq.jpg"
 import partylogo from "./partylogo.png"
 import partylogonowords from "./partylogonowords.png"
 import swirl from "./swirl.png"
-import partyhq from "./partyhq.jpg"
 
 export {
   partylogo,

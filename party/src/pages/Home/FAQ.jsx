@@ -34,10 +34,10 @@ const faqData = [
 const FAQ = () => {
   return (
     <section className="py-20 text-white lg:py-16">
-      <h1 className="text-center text-4xl font-bold lg:text-7xl">FAQ</h1>
+      <h1 className="text-center text-4xl font-bold lg:text-7xl ">FAQ</h1>
       {faqData.map((faq, index) => (
         <div key={index}>
-          <hr className="my-8 border-b-2" />
+          <hr className="my-8 border-b-2 bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500" />
           <Disclosure>
             {({ open }) => (
               <>

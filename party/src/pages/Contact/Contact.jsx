@@ -1,15 +1,18 @@
 import { useEffect } from "react"
 
-import { ContactInfo, CForm } from "../../pages"
+import { CInfo, CForm } from "../../pages"
 
 const Contact = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
   }, [])
+  useEffect(() => {
+    document.title = "Contact | Party in a Box"
+  }, [])
   return (
     <>
       <div className="section-container">
-        <ContactInfo />
+        <CInfo />
       </div>
       <div className="section-container">
         <CForm />

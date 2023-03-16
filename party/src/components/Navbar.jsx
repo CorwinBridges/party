@@ -7,7 +7,7 @@ import { NavLink, Link } from "react-router-dom"
 import { Popover } from "@headlessui/react"
 
 import { Cart, NavbarSearch } from "."
-import { partylogo } from "../assets"
+import { partylogo, partylogonowords } from "../assets"
 import { useStateContext } from "../context/StateContext"
 
 // Navbar styling classes
@@ -30,7 +30,7 @@ const Navbar = () => {
         <div className="pt-2">
           <Link to="/">
             <img
-              src={partylogo}
+              src={partylogonowords}
               alt="Logo"
               className="relative z-10 mx-5 h-20"
             />

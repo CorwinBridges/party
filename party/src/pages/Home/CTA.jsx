@@ -10,7 +10,7 @@ const CTA = () => {
         </span>
         !
       </h1>
-      <p className="mx-auto mt-5 w-full text-xl font-light sm:w-[90%] sm:text-3xl">
+      <p className="mx-auto mt-5 text-xl font-light sm:text-3xl max-w-5xl">
         Make your next party unforgettable with Party in a Box. Everything you
         need for a successful celebration, all in one convenient package!
       </p>

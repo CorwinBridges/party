@@ -15,6 +15,9 @@ const Home = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
   }, [])
+  useEffect(() => {
+    document.title = "Home | Party in a Box"
+  }, [])
   return (
     <>
       <div className="section-container">

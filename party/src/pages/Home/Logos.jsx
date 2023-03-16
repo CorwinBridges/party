@@ -1,4 +1,5 @@
-import Marquee from "react-fast-marquee"
+import Marquee from "react-fast-marquee";
+
 
 const logos = [
   {
@@ -24,6 +25,34 @@ const logos = [
   {
     src: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Logo_Toys_R_Us.svg/1280px-Logo_Toys_R_Us.svg.png",
     alt: "Toys R Us",
+  },
+  {
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1200px-Netflix_2015_logo.svg.png",
+    alt: "Netflix",
+  },
+  {
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/NBC_logo_2022_%28vertical%29.svg/1200px-NBC_logo_2022_%28vertical%29.svg.png",
+    alt: "NBC",
+  },
+  {
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Logo_NIKE.svg/2560px-Logo_NIKE.svg.png",
+    alt: "Nike",
+  },
+  {
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Adidas_Logo.svg/139px-Adidas_Logo.svg.png",
+    alt: "Adidas",
+  },
+  {
+    src: "https://upload.wikimedia.org/wikipedia/commons/0/0e/FortniteLogo.svg",
+    alt: "Fortnite",
+  },
+  {
+    src: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Roblox_Logo_2022.svg",
+    alt: "Roblox",
+  },
+  {
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Sears_Logo_1994.svg/1200px-Sears_Logo_1994.svg.png",
+    alt: "Sears",
   },
 ]
 
