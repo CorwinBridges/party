@@ -6,7 +6,7 @@ const Start = () => {
       <div className="glass relative rounded-[50px] p-10 pb-10 text-white lg:pb-20">
         <div className="  text-left">
           <span className="bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-3xl font-bold text-transparent md:text-4xl lg:text-5xl">
-            How We Started
+            HOW WE STARTED
           </span>
         </div>
         <div className="text-md md:text-xl lg:px-10 lg:text-2xl">

@@ -21,7 +21,7 @@ const Process = () => {
     <section className="py-5 text-white lg:py-16">
       <h1 className="mb-16 text-left text-3xl font-bold md:text-4xl lg:text-5xl">
         <span className="bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-3xl font-bold text-transparent md:text-4xl lg:text-5xl">
-          Our Process
+          OUR PROCESS
         </span>
       </h1>
       <div className="mx-auto flex grid-cols-9 flex-col lg:grid">
@@ -36,8 +36,8 @@ const Process = () => {
             // left
             <div className="flex flex-row-reverse lg:contents" key={index}>
               <div className="glass col-start-1 col-end-5 my-4 rounded-[69px] p-8">
-                <h3 className="mb-3 text-left text-3xl font-medium md:text-4xl lg:text-right lg:text-5xl">
-                  <div className="bg-gradient-to-r from-red-400 via-pink-500 to-violet-500 bg-clip-text text-transparent">
+                <h3 className="mb-4 text-left  text-2xl font-medium md:text-3xl lg:text-right  lg:text-4xl">
+                  <div className="bg-gradient-to-r from-violet-500 via-red-400 to-pink-500  bg-clip-text text-transparent">
                     {timeline.title}
                   </div>
                 </h3>
@@ -52,9 +52,6 @@ const Process = () => {
                 </div>
                 {/* Dot */}
                 <div className="glass absolute top-1/2 -mt-3 h-6 w-6" />
-              </div>
-              <div className="col-span-1 col-start-6 hidden items-center justify-center text-8xl lg:flex">
-                {timeline.icon}
               </div>
             </div>
           ) : (
@@ -74,8 +71,8 @@ const Process = () => {
                 <div className="glass absolute top-1/2 -mt-3 h-6 w-6" />
               </div>
               <div className="glass col-start-6 col-end-10 my-4 rounded-[69px] p-8">
-                <h3 className="mb-3 text-left text-2xl font-medium md:text-3xl lg:text-left lg:text-4xl">
-                  <div className="bg-gradient-to-r from-red-400 via-pink-500 to-violet-500 bg-clip-text text-transparent">
+                <h3 className="mb-4 text-left text-2xl font-medium md:text-3xl lg:text-left lg:text-4xl">
+                  <div className="bg-gradient-to-r from-violet-500 via-red-400 to-pink-500 bg-clip-text text-transparent">
                     {timeline.title}
                   </div>
                 </h3>

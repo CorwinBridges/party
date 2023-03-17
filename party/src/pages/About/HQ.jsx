@@ -9,7 +9,7 @@ const HQ = () => {
       <div className="glass relative rounded-[50px] p-10 pb-10 text-white md:px-40 lg:px-20 lg:pb-20 ">
         <div className="  text-center">
           <span className="bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-3xl font-bold text-transparent md:text-4xl lg:text-5xl">
-            Our HQ
+            OUR HQ
           </span>
         </div>
 
