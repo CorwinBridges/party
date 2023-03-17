@@ -124,7 +124,7 @@ const Testimonials = () => {
         <div className="relative bottom-0 z-0 h-[475px] w-[475px] rounded-[50%] bg-gradient-to-b from-[#9940EB]/[0.54] to-[#F05EC0]/[0.68] opacity-[0.75] blur-[3px]" />
       </div>
       {quotesToShow.length > 0 && (
-        <div className="grid grid-cols-1 gap-10 text-white lg:grid-cols-4 2xl:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 text-white lg:grid-cols-4 2xl:grid-cols-3">
           {quotesToShow.map((quote, index) => (
             <div
               key={index}
@@ -137,7 +137,7 @@ const Testimonials = () => {
                   className="h-full w-full object-cover object-center"
                 />
               </div>
-              <div className="mt-3 text-2xl font-bold">{quote.reviewer}</div>
+              <div className="mt-4 text-2xl font-bold">{quote.reviewer}</div>
               <div className="mt-1 text-xl font-medium">{quote.role}</div>
               <div className="text-md mt-4 font-normal 2xl:text-lg">
                 “{quote.quote}”
@@ -173,7 +173,7 @@ const Testimonials = () => {
               </InView>
               <div className="mt-2">Partiers</div>
             </div>
-            <div className="mx-auto mt-6 w-full text-center text-2xl font-normal sm:w-[90%] md:w-[80%] lg:w-[60%] 2xl:mx-0 2xl:w-full 2xl:text-start">
+            <div className="mx-auto mt-4 w-full text-center text-2xl font-normal sm:w-[90%] md:w-[80%] lg:w-[60%] 2xl:mx-0 2xl:w-full 2xl:text-start">
               You'll never have to worry about party planning again. Let us take
               care of the details while you sit back and enjoy the celebration!
             </div>
@@ -181,7 +181,7 @@ const Testimonials = () => {
               <button
                 onClick={handleViewMoreStories}
                 type="button"
-                className="glass mt-10 mr-2 mb-2 px-8 py-4 text-center text-2xl font-medium duration-200 ease-in-out hover:scale-110"
+                className="glass mt-8 px-8 py-4 text-center text-2xl font-medium duration-200 ease-in-out hover:scale-110"
               >
                 View more stories
               </button>

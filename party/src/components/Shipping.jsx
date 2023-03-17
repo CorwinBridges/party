@@ -3,15 +3,13 @@ import { useEffect } from "react"
 const Shipping = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
-  }, [])
-  useEffect(() => {
     document.title = "Shipping | Party in a Box"
   }, [])
   return (
     <div className="section-container">
       <section className="py-16 text-white">
         <div className="mx-auto max-w-5xl">
-          <h1 class="mb-8 text-center text-5xl font-bold">Shipping Policy</h1>
+          <h1 className="mb-8 text-center text-5xl font-bold">Shipping Policy</h1>
           <h2 className="mb-4 text-2xl font-semibold">
             1. Shipping Method and Timing:
           </h2>
@@ -101,11 +99,15 @@ const Shipping = () => {
               returning or exchanging products.
             </li>
           </ul>
-          <h3 className="mb-8 text-xl">
+          <p className="mb-8">
             Thank you for choosing Party in a Box for your party needs. If you
             have any questions or concerns regarding our shipping policy, please
-            don't hesitate to contact us.
-          </h3>
+            don't hesitate to contact us at{" "}
+            <a href="mailto:support@partyinabox.com" className="underline">
+              support@partyinabox.com
+            </a>
+            .
+          </p>
         </div>
       </section>
     </div>

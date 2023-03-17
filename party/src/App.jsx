@@ -1,6 +1,15 @@
 import { Route, Routes } from "react-router-dom"
 
-import { Footer, Navbar, BackToTop, Notfound, Terms, Privacy, Returns, Shipping } from "./components"
+import {
+  Footer,
+  Navbar,
+  BackToTop,
+  NotFound,
+  Terms,
+  Privacy,
+  Returns,
+  Shipping,
+} from "./components"
 import { StateContext } from "./context/StateContext"
 import "./index.css"
 import { About, Contact, Home, Shop } from "./pages"
@@ -14,14 +23,14 @@ const App = () => {
         </div>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/About" element={<About />} />
-          <Route path="Shop" element={<Shop />} />
-          <Route path="/Contact" element={<Contact />} />
-          <Route path="/Terms" element={<Terms />} />
-          <Route path="/Privacy" element={<Privacy />} />
-          <Route path="/Shipping" element={<Shipping />} />
-          <Route path="/Returns" element={<Returns />} />
-          <Route path="*" element={<Notfound />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/shipping" element={<Shipping />} />
+          <Route path="/returns" element={<Returns />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
         <BackToTop />

@@ -48,19 +48,19 @@ const Navbar = () => {
         >
           <div className="relative z-20 flex flex-col items-end space-x-10 text-xl lg:flex-row lg:justify-between lg:text-2xl">
             <NavLink
-              to="/About"
+              to="/about"
               className={({ isActive }) => (isActive ? activeLink : normalLink)}
             >
               About
             </NavLink>
             <NavLink
-              to="/Shop"
+              to="/shop"
               className={({ isActive }) => (isActive ? activeLink : normalLink)}
             >
               Shop
             </NavLink>
             <NavLink
-              to="/Contact"
+              to="/contact"
               className={({ isActive }) => (isActive ? activeLink : normalLink)}
             >
               Contact
@@ -77,7 +77,7 @@ const Navbar = () => {
               >
                 <HiOutlineSearch />
               </Popover.Button>
-              <Popover.Panel className="absolute right-0 z-20 mt-10 w-72 origin-top-right glass rounded-md">
+              <Popover.Panel className="glass absolute right-0 z-20 mt-10 origin-top-right rounded-md">
                 <NavbarSearch />
               </Popover.Panel>
             </Popover>

@@ -60,7 +60,7 @@ const Steps = () => {
             // left
             <div className="flex flex-row-reverse lg:contents" key={index}>
               <div className="glass col-start-1 col-end-5 my-4 rounded-[69px] p-8">
-                <h3 className="mb-3 text-5xl font-medium lg:text-right">
+                <h3 className="mb-4 text-5xl font-medium lg:text-right">
                   <div className="bg-gradient-to-r from-red-400 via-pink-500 to-violet-500 bg-clip-text text-transparent">
                     {timeline.title}
                   </div>
@@ -77,14 +77,14 @@ const Steps = () => {
                 {/* Dot */}
                 <div className="glass absolute top-1/2 -mt-3 h-6 w-6" />
               </div>
-              <div className="col-span-1 col-start-6 hidden items-center justify-center text-8xl lg:flex">
+              <div className="col-span-1 col-start-6 hidden items-center justify-center text-7xl lg:flex">
                 {timeline.icon}
               </div>
             </div>
           ) : (
             // right
             <div className="flex lg:contents" key={index}>
-              <div className="col-span-1 col-start-4 hidden items-center justify-center text-8xl lg:flex">
+              <div className="col-span-1 col-start-4 hidden items-center justify-center text-7xl lg:flex">
                 {timeline.icon}
               </div>
               <div className="relative col-start-5 col-end-6 mr-10 lg:mx-auto">
@@ -98,7 +98,7 @@ const Steps = () => {
                 <div className="glass absolute top-1/2 -mt-3 h-6 w-6" />
               </div>
               <div className="glass col-start-6 col-end-10 my-4 rounded-[69px] p-8">
-                <h3 className="mb-3 text-5xl font-medium lg:text-left">
+                <h3 className="mb-4 text-5xl font-medium lg:text-left">
                   <div className="bg-gradient-to-r from-red-400 via-pink-500 to-violet-500 bg-clip-text text-transparent">
                     {timeline.title}
                   </div>

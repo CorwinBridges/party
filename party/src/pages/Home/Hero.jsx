@@ -13,26 +13,24 @@ const Hero = () => {
         <div className="absolute top-0 right-0 z-0 h-[50vh] w-1/2 rounded-full bg-[#F97FC8] opacity-[0.94] blur-[130px]" />
         {/* Left column */}
         <div className="relative z-10 order-1 text-white lg:order-none">
-          <div className="mt-10 text-center text-6xl font-black uppercase lg:mt-0 lg:text-start lg:text-6xl xl:text-7xl 2xl:text-8xl">
+          <div className="mt-8 text-center text-6xl font-black uppercase lg:mt-0 lg:text-start lg:text-6xl xl:text-7xl 2xl:text-8xl">
             The{" "}
             <span className="bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent">
               perfect party
             </span>{" "}
             all in one box
           </div>
-          <div className="mt-3 text-center text-3xl font-normal lg:text-start lg:text-2xl xl:text-3xl 2xl:text-4xl">
+          <div className="mt-4 text-center text-3xl font-normal lg:text-start lg:text-2xl xl:text-3xl 2xl:text-4xl">
             Transform any space into a party paradise with Party in a Box,
             Simply open the box and watch as it sets up an instant celebration
             in seconds!
           </div>
           <div className="flex justify-center lg:justify-start">
-            <Link to="Shop">
-              <button
-                type="button"
-                className="glass mt-5 px-10 py-5 text-center text-2xl duration-200 ease-in-out hover:scale-110 lg:mt-10 xl:text-4xl"
-              >
-                SHOP OUR PRODUCTS
-              </button>
+            <Link
+              to="/shop"
+              className="glass mt-4 px-10 py-5 text-center text-2xl uppercase duration-200 ease-in-out hover:scale-110 lg:mt-8 xl:text-4xl"
+            >
+              Shop our products
             </Link>
           </div>
         </div>

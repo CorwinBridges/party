@@ -5,8 +5,6 @@ import { Story, Start, Mission, HQ, Process, Awards, Team } from "../../pages"
 const About = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
-  }, [])
-  useEffect(() => {
     document.title = "About | Party in a Box"
   }, [])
   return (

@@ -49,12 +49,9 @@ const Carousel = () => {
         }}
         loop={true}
       >
-        <button type="button" className="swiper-button-prev">
-          {/* <HiChevronLeft className="glass bg-gradient-to-135 absolute text-7xl text-white hover:bg-pink-500" /> */}
-        </button>
-        <button type="button" className="swiper-button-next">
-          {/* <HiChevronRight className="glass bg-gradient-to-135 absolute text-7xl text-white hover:bg-pink-500" /> */}
-        </button>
+        <HiChevronLeft className="swiper-button-prev glass text-7xl text-white hover:bg-pink-500" />
+        <HiChevronRight className="swiper-button-next glass text-7xl text-white hover:bg-pink-500" />
+
         {slide_images.map((slide, index) => (
           <SwiperSlide key={index}>
             <div className="h-[60vh] rounded-[50px] bg-purple-600 p-5">

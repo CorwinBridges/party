@@ -3,8 +3,6 @@ import { useEffect } from "react"
 const Privacy = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
-  }, [])
-  useEffect(() => {
     document.title = "Privacy | Party in a Box"
   }, [])
   return (
@@ -111,7 +109,11 @@ const Privacy = () => {
           <ul className="ml-8 mb-4">
             <li className="mb-4">
               If you have any questions or concerns about our Privacy Policy,
-              please contact us at privacy@partyinabox.com.
+              please contact us at{" "}
+              <a href="mailto:support@partyinabox.com" className="underline">
+                support@partyinabox.com
+              </a>
+              .
             </li>
           </ul>
         </div>

@@ -3,7 +3,7 @@ import Cart from "./Cart"
 import Footer from "./Footer"
 import Navbar from "./Navbar"
 import NavbarSearch from "./NavbarSearch"
-import Notfound from "./Notfound"
+import NotFound from "./NotFound"
 import Privacy from "./Privacy"
 import Returns from "./Returns"
 import Shipping from "./Shipping"
@@ -13,7 +13,7 @@ export {
   Navbar,
   Footer,
   Cart,
-  Notfound,
+  NotFound,
   NavbarSearch,
   BackToTop,
   Terms,

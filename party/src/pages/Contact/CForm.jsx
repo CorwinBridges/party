@@ -18,8 +18,8 @@ const CForm = () => {
 
       <div className="absolute top-0 right-0 z-0 h-[50vh] w-1/2 rounded-full bg-[#F2F2F2] opacity-[0.94] blur-[130px]" />
 
-      <div className="glass mx-auto w-[60%] rounded-[69px] text-white">
-        <div className="px-5 py-10">
+      <div className="glass mx-auto max-w-3xl rounded-[69px] text-white">
+        <div className="p-8">
           <div className="mb-12 text-center">
             <h1 className="mb-4 text-3xl font-medium lg:text-5xl xl:text-6xl">
               Contact Us

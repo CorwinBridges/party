@@ -51,21 +51,19 @@ const benefits = [
 const Benefits = () => {
   return (
     <section className="py-16 text-white">
-      <h1 className="glass relative rounded-[69px] py-32 text-center text-4xl font-bold lg:py-40 lg:text-6xl">
+      <h1 className="glass relative rounded-[69px] py-32 text-center text-4xl font-bold lg:py-40 lg:text-7xl">
         Achieve Party Planning{" "}
         <span className="bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-transparent">
           Perfection
         </span>
       </h1>
-      <div className="relative bottom-24 z-10 mx-16 -mb-24 grid grid-rows-2 gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <div className="relative bottom-24 z-10 mx-28 -mb-24 grid grid-rows-2 gap-8 md:grid-cols-2 xl:grid-cols-3">
         {benefits.map((benefit, index) => (
           <div key={index} className="glass rounded-[69px] p-8 text-center">
-            <div className="mb-6 flex justify-center text-9xl">
+            <div className="mb-4 flex justify-center text-7xl">
               {benefit.icon}
             </div>
-            <div className="mb-6 text-2xl font-semibold lg:text-3xl">
-              {benefit.title}
-            </div>
+            <div className="mb-4 text-2xl font-semibold">{benefit.title}</div>
             <div className="text-sm lg:text-lg">{benefit.description}</div>
           </div>
         ))}

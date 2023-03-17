@@ -50,7 +50,10 @@ const Footer = () => {
                 <span className="font-bold">Phone:</span> (731) 420-6969
               </p>
               <p className="mb-2">
-                <span className="font-bold">Email:</span> support@partyinabox.com
+                <span className="font-bold">Email:</span>{" "}
+                <a href="mailto:support@partyinabox.com" className="underline">
+                  support@partyinabox.com
+                </a>{" "}
               </p>
               <p className="mb-2">
                 <span className="font-bold">Hours:</span> Mon-Fri 6am-9pm
@@ -58,25 +61,37 @@ const Footer = () => {
             </div>
             <div className="text-lg">
               <h3 className="mb-4 bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-2xl font-bold uppercase text-transparent">
-                Other Info
+                Policies
               </h3>
               <p className="mb-2">
-                <Link className="hover:decoration-pink-500 decoration-2 underline" to="/Terms">
+                <Link
+                  className="underline decoration-2 hover:decoration-pink-500"
+                  to="/terms"
+                >
                   Terms and Conditions
                 </Link>
               </p>
               <p className="mb-2">
-                <Link className="hover:decoration-pink-500 decoration-2 underline" to="/Privacy">
+                <Link
+                  className="underline decoration-2 hover:decoration-pink-500"
+                  to="/privacy"
+                >
                   Privacy Policy
                 </Link>
               </p>
               <p className="mb-2">
-                <Link className="hover:decoration-pink-500 decoration-2 underline" to="/Shipping">
+                <Link
+                  className="underline decoration-2 hover:decoration-pink-500"
+                  to="/shipping"
+                >
                   Shipping Policy
                 </Link>
               </p>
               <p className="mb-2">
-                <Link className="hover:decoration-pink-500 decoration-2 underline" to="/Returns">
+                <Link
+                  className="underline decoration-2 hover:decoration-pink-500"
+                  to="/returns"
+                >
                   Return Policy
                 </Link>
               </p>

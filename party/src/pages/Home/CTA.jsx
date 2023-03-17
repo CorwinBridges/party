@@ -10,18 +10,18 @@ const CTA = () => {
         </span>
         !
       </h1>
-      <p className="mx-auto mt-5 text-xl font-light sm:text-3xl max-w-5xl">
+      <p className="mx-auto mt-8 max-w-5xl text-xl font-light sm:text-3xl">
         Make your next party unforgettable with Party in a Box. Everything you
         need for a successful celebration, all in one convenient package!
       </p>
-      <Link to="Shop">
-        <button
-          type="button"
-          className="glass mt-10 px-10 py-5 text-center text-xl duration-200 ease-in-out hover:scale-110 lg:text-3xl xl:text-4xl"
+      <div className="flex justify-center">
+        <Link
+          to="/shop"
+          className="glass mt-8 px-10 py-5 text-center text-xl duration-200 ease-in-out hover:scale-110 lg:text-3xl xl:text-4xl"
         >
           SHOP NOW
-        </button>
-      </Link>
+        </Link>
+      </div>
     </section>
   )
 }

@@ -3,16 +3,14 @@ import { useEffect } from "react"
 const Returns = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
-  }, [])
-  useEffect(() => {
     document.title = "Returns | Party in a Box"
   }, [])
   return (
     <div className="section-container">
       <section className="py-16 text-white">
-        <div class="mx-auto max-w-5xl">
-          <h1 class="mb-8 text-center text-5xl font-bold">Return Policy</h1>
-          <ol class="mb-4 list-inside list-decimal">
+        <div className="mx-auto max-w-5xl">
+          <h1 className="mb-8 text-center text-5xl font-bold">Return Policy</h1>
+          <ol className="mb-8 list-inside list-decimal text-2xl">
             <li>Items must be returned within 30 days of the delivery date.</li>
             <li>
               All items must be in their original packaging, unused and in the
@@ -31,7 +29,7 @@ const Returns = () => {
           </ol>
           <p className="mb-8">
             To initiate a return, please contact our customer service team at{" "}
-            <a href="mailto:support@partyinabox.com" class="underline">
+            <a href="mailto:support@partyinabox.com" className="underline">
               support@partyinabox.com
             </a>{" "}
             with your order number and reason for the return. We will provide

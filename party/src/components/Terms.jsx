@@ -3,8 +3,6 @@ import { useEffect } from "react"
 const Terms = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
-  }, [])
-  useEffect(() => {
     document.title = "Terms | Party in a Box"
   }, [])
   return (
@@ -116,7 +114,10 @@ const Terms = () => {
           <h2 className="mb-4 text-2xl font-bold">10. Contact Us</h2>
           <p>
             If you have any questions about these terms and conditions or our
-            website, please contact us at support@partyinabox.com.
+            website, please contact us at{" "}
+            <a href="mailto:support@partyinabox.com" className="underline">
+              support@partyinabox.com
+            </a>{" "}
           </p>
         </div>
       </section>

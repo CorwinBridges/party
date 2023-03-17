@@ -29,13 +29,13 @@ const NavbarSearch = () => {
       className="relative text-white"
     >
       <div className="divide-y divide-pink-500">
-        <div className="flex items-center px-3 py-1">
+        <div className="flex items-center px-4 py-2">
           <HiOutlineSearch className="text-3xl text-pink-500" />
           <Combobox.Input
             onChange={(e) => {
               setQuery(e.target.value)
             }}
-            className="flex h-10 w-full items-center bg-inherit px-4 py-2 text-2xl focus:outline-0 placeholder:text-white/70"
+            className="flex h-10 w-full items-center bg-inherit ml-4 text-2xl focus:outline-0 placeholder:text-white/70"
             placeholder="Search..."
           />
         </div>
