@@ -1,18 +1,18 @@
 import { Route, Routes } from "react-router-dom"
 
+import { Footer, Navbar, BackToTop, NotFound } from "./components"
+import { StateContext } from "./context/StateContext"
+import "./index.css"
 import {
-  Footer,
-  Navbar,
-  BackToTop,
-  NotFound,
+  About,
+  Contact,
+  Home,
+  Shop,
   Terms,
   Privacy,
   Returns,
   Shipping,
-} from "./components"
-import { StateContext } from "./context/StateContext"
-import "./index.css"
-import { About, Contact, Home, Shop } from "./pages"
+} from "./pages"
 
 const App = () => {
   return (

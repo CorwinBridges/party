@@ -10,7 +10,7 @@
   }
 
   .section-container {
-    @apply container mx-auto w-4/5;
+    @apply container mx-auto w-[75%];
   }
 }
 
@@ -30,3 +30,5 @@
 .gradient-bottom {
   mask: linear-gradient(to top, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 50%);
 }
+
+/* TODO: add scroll bar style and cursor */

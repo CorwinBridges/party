@@ -7,10 +7,6 @@ const Hero = () => {
   return (
     <section className="py-14 lg:py-16">
       <div className="grid lg:grid-cols-2">
-        {/* Left gradient circle */}
-        <div className="absolute top-0 left-0 z-0 h-[50vh] w-1/2 rounded-full bg-[#D3ACF1] opacity-[0.84] blur-[130px]" />
-        {/* Right gradient circle */}
-        <div className="absolute top-0 right-0 z-0 h-[50vh] w-1/2 rounded-full bg-[#F97FC8] opacity-[0.94] blur-[130px]" />
         {/* Left column */}
         <div className="relative z-10 order-1 text-white lg:order-none">
           <div className="mt-8 text-center text-6xl font-black uppercase lg:mt-0 lg:text-start lg:text-6xl xl:text-7xl 2xl:text-8xl">
@@ -39,6 +35,10 @@ const Hero = () => {
           <img src={gift3d} alt="Gift" />
         </div>
       </div>
+      {/* Left gradient circle */}
+      <div className="absolute top-0 left-0 z-0 h-[50vh] w-1/2 rounded-full bg-[#D3ACF1] opacity-[0.84] blur-[130px]" />
+      {/* Right gradient circle */}
+      <div className="absolute top-0 right-0 z-0 h-[50vh] w-1/2 rounded-full bg-[#F97FC8] opacity-[0.94] blur-[130px]" />
     </section>
   )
 }

@@ -7,9 +7,10 @@ import Process from "../pages/About/Process"
 import Start from "../pages/About/Start"
 import Story from "../pages/About/Story"
 import Team from "../pages/About/Team"
-import CForm from "../pages/Contact/CForm"
 // Contact
 import Contact from "../pages/Contact/Contact"
+import CInfo from "../pages/Contact/CInfo"
+import CForm from "../pages/Contact/CForm"
 // Home
 import Benefits from "../pages/Home/Benefits"
 import CTA from "../pages/Home/CTA"
@@ -29,7 +30,11 @@ import Product from "../pages/Shop/Product"
 import Search from "../pages/Shop/Search"
 import Shop from "../pages/Shop/Shop"
 import Sort from "../pages/Shop/Sort"
-import CInfo from "./Contact/CInfo"
+// Policies
+import Privacy from "../pages/Policies/Privacy"
+import Terms from "../pages/Policies/Terms"
+import Shipping from "../pages/Policies/Shipping"
+import Returns from "../pages/Policies/Returns"
 
 export {
   About,
@@ -60,4 +65,8 @@ export {
   CInfo,
   CForm,
   Steps,
+  Privacy,
+  Terms,
+  Shipping,
+  Returns,
 }
