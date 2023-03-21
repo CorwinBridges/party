@@ -46,7 +46,7 @@ const Navbar = () => {
             open ? "block" : "hidden"
           } w-full items-end text-white lg:flex lg:w-auto lg:items-center`}
         >
-          <div className="relative z-20 flex flex-col items-end space-x-10 text-xl lg:flex-row lg:justify-between lg:text-2xl">
+          <div className="relative z-20 flex flex-col items-end space-x-8 text-xl lg:flex-row lg:justify-between lg:text-2xl">
             <NavLink
               to="/about"
               className={({ isActive }) => (isActive ? activeLink : normalLink)}

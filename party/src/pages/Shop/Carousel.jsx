@@ -11,7 +11,6 @@ import "swiper/css"
 import "swiper/css/autoplay"
 import "swiper/css/effect-coverflow"
 import "swiper/css/keyboard"
-import "swiper/css/navigation"
 import "swiper/css/pagination"
 import { Swiper, SwiperSlide } from "swiper/react"
 
@@ -30,49 +29,67 @@ const Carousel = () => {
         keyboard={{
           enabled: true,
         }}
-        slidesPerView={2}
-        spaceBetween={75}
         navigation={{
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         }}
+        slidesPerView={2}
         pagination={{ clickable: true }}
-        effect={"coverflow"}
         grabCursor={true}
         centeredSlides={true}
-        coverflowEffect={{
-          rotate: 50,
-          stretch: 0,
-          depth: 250,
-          modifier: 1,
-          slideShadows: false,
-        }}
         loop={true}
+        breakpoints={{
+          // xs
+          480: {
+            spaceBetween: 50,
+            slidesPerView: 2,
+          },
+          // sm
+          640: {
+            spaceBetween: 50,
+          },
+          // md
+          768: {
+            spaceBetween: 25,
+          },
+          // lg
+          1024: {
+            spaceBetween: 50,
+          },
+          // xl
+          1280: {
+            spaceBetween: 50,
+          },
+          // 2xl
+          1536: {
+            spaceBetween: 275,
+          },
+        }}
       >
-        <HiChevronLeft className="swiper-button-prev glass text-7xl text-white hover:bg-pink-500" />
-        <HiChevronRight className="swiper-button-next glass text-7xl text-white hover:bg-pink-500" />
+        <HiChevronLeft className="swiper-button-prev glass absolute top-1/2 left-[15%] z-10 -translate-y-1/2 text-5xl text-white hover:bg-pink-500 lg:text-7xl" />
+        <HiChevronRight className="swiper-button-next glass absolute top-1/2 right-[23%] z-10 -translate-y-1/2 text-5xl text-white hover:bg-pink-500 lg:text-7xl" />
 
         {slide_images.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div className="h-[60vh] rounded-[50px] bg-purple-600 p-5">
+            <div className="mb-12 h-[60vh] rounded-[50px] bg-purple-600 p-6">
               <img
                 src={slide.image}
                 alt={slide.title}
                 className="h-full w-full rounded-[50px] object-cover"
               />
-              <div className="glass absolute left-24 bottom-16 z-10 rounded-[50px] text-white">
-                <h1 className="mt-5 text-center text-3xl font-bold">
+              <div className="glass aspect-square max-w-xs absolute -left-32 bottom-6 z-10 rounded-[50px] p-8 text-white">
+                <h1 className="text-center text-4xl font-bold">
                   {slide.title}
                 </h1>
-                <p className="ml-10 mt-3 text-xl font-normal">
-                  {slide.description}
-                </p>
-                <button
-                  type="button"
-                  className="glass ml-10 mt-3 p-5 text-4xl font-medium"
-                >
-                  See More
-                </button>
+                <p className="mt-2 text-xl font-normal">{slide.description} Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, alias.</p>
+                <div className="flex justify-center">
+                  <button
+                    type="button"
+                    className="glass mt-4 px-4 py-2 text-4xl font-medium"
+                  >
+                    See More
+                  </button>
+                </div>
               </div>
             </div>
           </SwiperSlide>

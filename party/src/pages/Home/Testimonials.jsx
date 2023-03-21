@@ -112,16 +112,34 @@ const Testimonials = () => {
   return (
     <section className="py-14 lg:py-16">
       {/* Left-side swirl image */}
-      <div className="absolute -left-20 w-1/2">
+      <div className="z-1 absolute -left-[7%] bottom-[1700px] lg:h-[700px] lg:w-[700px] h-[400px] w-[400px]">
         <img src={swirl} alt="swirl" className="relative top-80 blur" />
       </div>
-      {/* Right-side background circle with gradient */}
-      <div className="absolute -right-32">
-        <div className="relative bottom-72 z-0 h-[600px] w-[600px] rounded-[50%] bg-gradient-to-b from-[#C194EA] to-[#EE77C7]/[0.94] opacity-[0.75] blur-[3px]" />
+      {/* right-side swirl image */}
+      <div className="z-1 absolute -right-[7%] bottom-[5000px] lg:h-[700px] lg:w-[700px] h-[400px] w-[400px]">
+        <img src={swirl} alt="swirl" className="relative top-80 blur" />
       </div>
-      {/* Right-side foreground circle with gradient */}
-      <div className="absolute right-72">
-        <div className="relative bottom-0 z-0 h-[475px] w-[475px] rounded-[50%] bg-gradient-to-b from-[#9940EB]/[0.54] to-[#F05EC0]/[0.68] opacity-[0.75] blur-[3px]" />
+      {/* Left-side swirl image */}
+      <div className="z-1 absolute -left-[7%] bottom-[7200px] lg:h-[700px] lg:w-[700px] h-[400px] w-[400px]">
+        <img src={swirl} alt="swirl" className="relative top-80 blur" />
+      </div>
+      {/* blur */}
+      <div className="absolute -right-40 z-0 h-[50vh] w-1/2 bottom-[4000px] rounded-full bg-[#F97FC8] opacity-[0.94] blur-[130px]" />
+      {/* Right-side background circle with gradient */}
+      <div className="absolute -right-[6%]">
+        <div className="relative bottom-72 z-0 aspect-square lg:h-[600px] h-[400px] rounded-[50%] bg-gradient-to-b from-[#C194EA] to-[#EE77C7]/[0.94] opacity-[0.75] blur-[3px]" />
+      </div>
+      {/* left-side foreground circle with gradient */}
+      <div className="absolute right-[40%]">
+        <div className="relative lg:top-[7500px] top-[9900px] z-0 aspect-square lg:h-[475px] h-[300px] rounded-[50%] bg-gradient-to-b from-[#9940EB]/[0.54] to-[#F05EC0]/[0.68] opacity-[0.75] blur-[3px]" />
+      </div>
+      {/* left-side background circle with gradient */}
+      <div className="absolute -left-[6%]">
+        <div className="relative lg:top-[7700px] top-[9700px] z-0 aspect-square  lg:h-[600px] h-[400px] rounded-[50%] bg-gradient-to-b from-[#C194EA] to-[#EE77C7]/[0.94] opacity-[0.75] blur-[3px]" />
+      </div>
+      {/* right-side foreground circle with gradient */}
+      <div className="absolute left-[40%]">
+        <div className="relative bottom-[0px] z-0 aspect-square lg:h-[475px] h-[300px] rounded-[50%] bg-gradient-to-b from-[#9940EB]/[0.54] to-[#F05EC0]/[0.68] opacity-[0.75] blur-[3px]" />
       </div>
       {quotesToShow.length > 0 && (
         <div className="grid grid-cols-1 gap-8 text-white lg:grid-cols-4 2xl:grid-cols-3">
@@ -146,7 +164,7 @@ const Testimonials = () => {
           ))}
           {/* Counter */}
           <div className="relative z-10 order-first lg:col-span-4 2xl:order-last 2xl:col-span-1">
-            <div className="mt-8 text-center text-6xl font-bold md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-start">
+            <div className="mt-8 text-center text-5xl font-bold md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-start">
               <div>Join</div>
               <InView triggerOnce>
                 {({ inView, ref }) => (

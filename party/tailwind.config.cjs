@@ -1,10 +1,17 @@
 /** @type {import('tailwindcss').Config} */
-const plugin = require("tailwindcss/plugin");
+const plugin = require("tailwindcss/plugin")
+const defaultTheme = require("tailwindcss/defaultTheme")
 
 module.exports = {
   mode: "jit",
   content: ["./index.html", "./src/**/*.{js,jsx}"],
-  theme: {},
+  theme: {
+    screens: {
+      "2xs": "320px",
+      "xs": "480px",
+      ...defaultTheme.screens,
+    },
+  },
   plugins: [
     plugin(function ({ matchUtilities, theme }) {
       matchUtilities(
@@ -31,7 +38,7 @@ module.exports = {
             }
           ),
         }
-      );
+      )
     }),
   ],
-};
+}

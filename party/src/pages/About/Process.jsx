@@ -1,3 +1,4 @@
+import { blob } from "../../assets"
 const timelineData = [
   {
     title: "1. Research and Development",
@@ -18,9 +19,9 @@ const timelineData = [
 
 const Process = () => {
   return (
-    <section className="py-5 text-white lg:py-16">
-      <h1 className="mb-16 text-left text-3xl font-bold md:text-4xl lg:text-5xl">
-        <span className="bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-3xl font-bold text-transparent md:text-4xl lg:text-5xl">
+    <section className="py-5 text-white lg:py-16 z-10 ">
+      <h1 className="mb-16 text-left text-3xl font-bold md:text-4xl lg:text-5xl ">
+        <span className="bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-3xl font-bold text-transparent md:text-4xl lg:text-5xl z-10">
           OUR PROCESS
         </span>
       </h1>
@@ -82,7 +83,10 @@ const Process = () => {
           )
         })}
       </div>
+
+      <img src={blob} alt="blob" className="z-1 absolute bottom-[1200px] h-[300px] lg:h-[450px] -left-20 opacity-[0.60] lg:opacity-[0.75] blur-[3px] "/>
     </section>
+    
   )
 }
 
