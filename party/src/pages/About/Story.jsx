@@ -2,10 +2,10 @@ import { group } from "../../assets"
 
 const Story = () => {
   return (
-    <section className="py-16 max-w-xl mx-auto">
-      <div className="glass relative rounded-[69px] z-10 p-8">
+    <section className="mx-auto max-w-xl py-16">
+      <div className="glass relative z-10 rounded-[69px] p-8">
         {/* us */}
-        <div className="flex justify-center mb-4">
+        <div className="mb-4 flex justify-center">
           <img src={group} />
         </div>
         <div className="text-center">

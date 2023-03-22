@@ -1,14 +1,13 @@
-
 const Start = () => {
   return (
     <section className="py-16 md:px-40 lg:px-10">
-      <div className="glass relative rounded-[50px] p-8 text-white z-10">
-        <div className="text-left mb-4">
+      <div className="glass relative z-10 rounded-[50px] p-8 text-white">
+        <div className="mb-4 text-left">
           <span className="bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-3xl font-bold text-transparent md:text-4xl lg:text-5xl">
             HOW WE STARTED
           </span>
         </div>
-        <div className="text-md md:text-xl lg:px-10 lg:text-2xl mb-8">
+        <div className="text-md mb-8 md:text-xl lg:px-10 lg:text-2xl">
           Party in a Box was started by a group of wild and crazy party
           enthusiasts who were tired of the hassle of planning and setting up
           parties. One day, while they were throwing a rager in a forest, they
@@ -30,7 +29,6 @@ const Start = () => {
         <div className="z-1 relative -top-20 h-[250px] w-[250px] rounded-[50%] bg-gradient-to-b from-[#E8C483]/[0.54] to-[#E25D67]/[0.68] opacity-[0.75] blur-[3px]" />
       </div>
     </section>
-    
   )
 }
 

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Confetti from "react-confetti"
 import { FiMenu } from "react-icons/fi"
 import { HiOutlineSearch, HiSearch } from "react-icons/hi"
 import { HiOutlineShoppingBag } from "react-icons/hi2"
@@ -98,7 +99,6 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-
         {/*shopping cart */}
         <div className="hidden text-white lg:flex">
           <button

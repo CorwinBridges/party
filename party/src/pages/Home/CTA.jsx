@@ -2,15 +2,15 @@ import { Link } from "react-router-dom"
 
 const CTA = () => {
   return (
-    <section className="py-20 text-center text-white lg:py-40">
-      <h1 className="lg:text-5xl font-bold uppercase text-4xl">
+    <section className=" z-10 py-20 text-center text-white lg:py-40">
+      <h1 className=" text-4xl font-bold uppercase lg:text-5xl">
         Let's get this party{" "}
         <span className="bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-transparent">
           startied
         </span>
         !
       </h1>
-      <p className="mx-auto mt-8 max-w-5xl lg:text-2xl font-light text-xl">
+      <p className="mx-auto mt-8 max-w-5xl text-xl font-light lg:text-2xl">
         Make your next party unforgettable with Party in a Box. Everything you
         need for a successful celebration, all in one convenient package!
       </p>

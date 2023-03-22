@@ -47,7 +47,14 @@ const timelineData = [
 const Steps = () => {
   return (
     <section className="py-5 text-white lg:py-16">
-      <h1 className="mb-16 text-center lg:text-7xl text-4xl font-bold">Getting Started</h1>
+      {/* Right-side background circle with gradient */}
+      <div className="absolute -right-[6%]">
+        <div className="relative bottom-[600px] z-0 aspect-square h-[300px] rounded-[50%] bg-gradient-to-b from-[#C194EA] to-[#EE77C7]/[0.94] opacity-[0.60] blur-[3px] lg:h-[500px]" />
+      </div>
+
+      <h1 className="mb-16 text-center text-4xl font-bold lg:text-7xl">
+        Getting Started
+      </h1>
       <div className="mx-auto flex grid-cols-9 flex-col lg:grid">
         {timelineData.map((timeline, index) => {
           let firstAndLast = ""
@@ -60,12 +67,14 @@ const Steps = () => {
             // left
             <div className="flex flex-row-reverse lg:contents" key={index}>
               <div className="glass col-start-1 col-end-5 my-4 rounded-[69px] p-8">
-                <h3 className="mb-4 lg:text-5xl text-4xl font-medium lg:text-right">
+                <h3 className="mb-4 text-4xl font-medium lg:text-right lg:text-5xl">
                   <div className="bg-gradient-to-r from-red-400 via-pink-500 to-violet-500 bg-clip-text text-transparent">
                     {timeline.title}
                   </div>
                 </h3>
-                <p className="lg:text-lg text-md lg:text-right">{timeline.description}</p>
+                <p className="text-md lg:text-right lg:text-lg">
+                  {timeline.description}
+                </p>
               </div>
               <div className="relative col-start-5 col-end-6 mr-10 lg:mx-auto ">
                 {/* Line */}
@@ -98,12 +107,14 @@ const Steps = () => {
                 <div className="glass absolute top-1/2 -mt-3 h-6 w-6" />
               </div>
               <div className="glass col-start-6 col-end-10 my-4 rounded-[69px] p-8">
-                <h3 className="mb-4 lg:text-5xl text-4xl font-medium lg:text-left">
+                <h3 className="mb-4 text-4xl font-medium lg:text-left lg:text-5xl">
                   <div className="bg-gradient-to-r from-red-400 via-pink-500 to-violet-500 bg-clip-text text-transparent">
                     {timeline.title}
                   </div>
                 </h3>
-                <p className="lg:text-lg text-md lg:text-left">{timeline.description}</p>
+                <p className="text-md lg:text-left lg:text-lg">
+                  {timeline.description}
+                </p>
               </div>
             </div>
           )

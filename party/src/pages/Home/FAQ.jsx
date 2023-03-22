@@ -3,6 +3,8 @@ import { HiChevronUp } from "react-icons/hi"
 import { Disclosure } from "@headlessui/react"
 import { motion, AnimatePresence } from "framer-motion"
 
+import { swirl } from "../../assets"
+
 const faqData = [
   {
     question: "What is the meaning of life?",
@@ -33,11 +35,15 @@ const faqData = [
 
 const FAQ = () => {
   return (
-    <section className="relative z-10 py-20 text-white lg:py-16">
-      <h1 className="text-center text-4xl font-bold lg:text-7xl">FAQ</h1>
+    <section className="relative py-20 text-white lg:py-16">
+      {/* Left-side swirl image */}
+      <div className="absolute -left-[27%] z-0 h-[400px] w-[400px] lg:h-[700px] lg:w-[700px]">
+        <img src={swirl} alt="swirl" className="relative top-80 blur" />
+      </div>
+      <h1 className="z-10 text-center text-4xl font-bold lg:text-7xl">FAQ</h1>
       {faqData.map((faq, index) => (
         <div key={index}>
-          <hr className="my-8 border-b-2" />
+          <hr className="relative z-10  my-8 border-b-2" />
           <Disclosure>
             {({ open }) => (
               <>
@@ -59,7 +65,10 @@ const FAQ = () => {
                       }}
                       transition={{ duration: 0.3 }}
                     >
-                      <motion.div className="px-8 pt-8 text-2xl" key="content">
+                      <motion.div
+                        className="relative z-10 px-8 pt-8 text-2xl"
+                        key="content"
+                      >
                         {faq.answer}
                       </motion.div>
                     </motion.div>
@@ -70,7 +79,7 @@ const FAQ = () => {
           </Disclosure>
         </div>
       ))}
-      <hr className="mt-8 border-b-2" />
+      <hr className="relative z-10 mt-8 border-b-2" />
     </section>
   )
 }

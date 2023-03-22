@@ -35,9 +35,9 @@ const Hero = () => {
           <img src={gift3d} alt="Gift" />
         </div>
       </div>
-      {/* Left gradient circle */}
+      {/* Left blur circle */}
       <div className="absolute top-0 left-0 z-0 h-[50vh] w-1/2 rounded-full bg-[#D3ACF1] opacity-[0.84] blur-[130px]" />
-      {/* Right gradient circle */}
+      {/* Right blur circle */}
       <div className="absolute top-0 right-0 z-0 h-[50vh] w-1/2 rounded-full bg-[#F97FC8] opacity-[0.94] blur-[130px]" />
     </section>
   )

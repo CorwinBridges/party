@@ -7,6 +7,7 @@ import {
   FaEdit,
 } from "react-icons/fa"
 
+import { swirl } from "../../assets"
 import { money, clock, clean, family, balloons } from "../../assets"
 
 const benefits = [
@@ -51,6 +52,10 @@ const benefits = [
 const Benefits = () => {
   return (
     <section className="py-16 text-white">
+      {/* right-side swirl image */}
+      <div className=" z-0 absolute -right-[7%] h-[400px] w-[400px] lg:h-[700px] lg:w-[700px]">
+        <img src={swirl} alt="swirl" className="relative top-80 blur" />
+      </div>
       <h1 className="glass relative rounded-[69px] py-32 text-center text-4xl font-bold lg:py-40 lg:text-7xl">
         Achieve Party Planning{" "}
         <span className="bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-transparent">

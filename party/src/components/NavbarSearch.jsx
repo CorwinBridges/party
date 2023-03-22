@@ -35,7 +35,7 @@ const NavbarSearch = () => {
             onChange={(e) => {
               setQuery(e.target.value)
             }}
-            className="flex h-10 w-full items-center bg-inherit ml-4 text-2xl focus:outline-0 placeholder:text-white/70"
+            className="ml-4 flex h-10 w-full items-center bg-inherit text-2xl placeholder:text-white/70 focus:outline-0"
             placeholder="Search..."
           />
         </div>
