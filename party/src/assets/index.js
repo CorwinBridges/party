@@ -22,6 +22,7 @@ import partylogonowords from "./partylogonowords.png"
 import smitty from "./smitty.png"
 import swirl from "./swirl.png"
 import worldcup from "./worldcup.png"
+import x_shape from "./x_shape.png"
 
 export {
   partylogo,
@@ -48,4 +49,5 @@ export {
   corwin1,
   corwin2,
   group,
+  x_shape,
 }

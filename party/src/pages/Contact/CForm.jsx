@@ -21,10 +21,10 @@ const CForm = () => {
       <div className="glass mx-auto max-w-3xl rounded-[69px] text-white">
         <div className="p-8">
           <div className="mb-12 text-center">
-            <h1 className="mb-4 text-3xl font-medium lg:text-5xl xl:text-6xl">
+          <span className="bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-3xl font-bold text-transparent md:text-4xl lg:text-5xl">
               Contact Us
-            </h1>
-            <p className="text-xl leading-relaxed lg:text-2xl xl:text-3xl">
+          </span>
+            <p className="text-xl leading-relaxed lg:text-2xl xl:text-3xl pt-7">
               Questions you may have will be answered
             </p>
           </div>
@@ -43,7 +43,7 @@ const CForm = () => {
             <Form>
               <div className="mx-4">
                 <div className="flex flex-wrap">
-                  <div className="w-1/2 p-2">
+                  <div className="lg:w-1/2 w-full p-2">
                     <div className="relative">
                       <label
                         htmlFor="first_name"
@@ -58,7 +58,7 @@ const CForm = () => {
                       <ErrorMessage name="firstName" />
                     </div>
                   </div>
-                  <div className="w-1/2 p-2">
+                  <div className="lg:w-1/2 w-full p-2">
                     <div className="relative">
                       <label
                         htmlFor="last_name"

@@ -19,7 +19,7 @@ const Search = () => {
   const results = fuse.search(productQuery)
   const nameResults = results.map((result) => result.item)
   return (
-    <section className="pb-16 text-2xl text-white">
+    <section className="pb-16 lg:text-2xl text-lg text-white">
       <Combobox
         as="div"
         onChange={(name) => {
@@ -34,7 +34,7 @@ const Search = () => {
           }}
           type="text"
           placeholder="search..."
-          className="glass w-full bg-transparent py-4 px-8 pr-10 leading-tight placeholder:text-white/70 focus:outline-none"
+          className="glass w-full bg-transparent py-2 px-8 pr-10 leading-tight placeholder:text-white/70 focus:outline-none"
         />
 
         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-5 text-2xl">

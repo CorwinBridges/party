@@ -10,7 +10,7 @@
   }
 
   .section-container {
-    @apply container mx-auto w-[75%];
+    @apply container mx-auto lg:w-[75%] w-[95%];
   }
 }
 

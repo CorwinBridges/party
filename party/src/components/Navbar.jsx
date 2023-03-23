@@ -1,5 +1,5 @@
-import { useState } from "react"
-import Confetti from "react-confetti"
+import { useState, useCallback, useRef } from "react"
+import ReactCanvasConfetti from "react-canvas-confetti"
 import { FiMenu } from "react-icons/fi"
 import { HiOutlineSearch, HiSearch } from "react-icons/hi"
 import { HiOutlineShoppingBag } from "react-icons/hi2"
@@ -8,9 +8,19 @@ import { NavLink, Link } from "react-router-dom"
 import { Popover } from "@headlessui/react"
 
 import { Cart, NavbarSearch } from "."
-import { partylogo, partylogonowords } from "../assets"
+import { partylogonowords } from "../assets"
 import { useStateContext } from "../context/StateContext"
 
+// Canvas styling
+const canvasStyles = {
+  position: "fixed",
+  pointerEvents: "none",
+  width: "100%",
+  height: "100%",
+  top: 0,
+  left: 0,
+  zIndex: 100,
+}
 // Navbar styling classes
 const activeLink =
   "underline decoration-pink-500 decoration-4 underline-offset-8"
@@ -24,12 +34,98 @@ const normalSearch = "hover:text-pink-500"
 const Navbar = () => {
   const { totalQuantities, setQuery, setIsShowing } = useStateContext()
   const [open, setOpen] = useState(false)
+
+  // Canvas confetti
+  const refAnimationInstance = useRef(null)
+
+  // Get canvas instance
+  const getInstance = useCallback((instance) => {
+    refAnimationInstance.current = instance
+  }, [])
+
+  // Make confetti shot
+  const makeShot = useCallback((particleRatio, opts, mouseX, mouseY) => {
+    // Make sure the confetti has been initialized
+    refAnimationInstance.current &&
+      refAnimationInstance.current({
+        ...opts,
+        // Get mouse position
+        origin: {
+          x: mouseX / window.innerWidth,
+          y: mouseY / window.innerHeight,
+        },
+        // Get particle count
+        particleCount: Math.floor(200 * particleRatio),
+      })
+  }, [])
+
+  // Fire confetti
+  const fireConfetti = useCallback(
+    (event) => {
+      const mouseX = event.clientX
+      const mouseY = event.clientY
+
+      makeShot(
+        0.25,
+        {
+          spread: 6.5,
+          startVelocity: 55,
+        },
+        mouseX,
+        mouseY
+      )
+
+      makeShot(
+        0.2,
+        {
+          spread: 15,
+        },
+        mouseX,
+        mouseY
+      )
+
+      makeShot(
+        0.35,
+        {
+          spread: 25,
+          decay: 0.91,
+          scalar: 0.8,
+        },
+        mouseX,
+        mouseY
+      )
+
+      makeShot(
+        0.1,
+        {
+          spread: 45,
+          startVelocity: 25,
+          decay: 0.92,
+          scalar: 1.2,
+        },
+        mouseX,
+        mouseY
+      )
+
+      makeShot(
+        0.1,
+        {
+          spread: 45,
+          startVelocity: 45,
+        },
+        mouseX,
+        mouseY
+      )
+    },
+    [makeShot]
+  )
   return (
     <nav>
-      <div className="flex w-full flex-wrap items-center justify-between p-4">
+      <ReactCanvasConfetti refConfetti={getInstance} style={canvasStyles} />
+      <div className="flex w-full flex-wrap items-center justify-between px-4 py-0 sm:py-4">
         {/* logo */}
         <div className="pt-2">
-          <Link to="/">
+          <Link to="/" onClick={fireConfetti}>
             <img
               src={partylogonowords}
               alt="Logo"

@@ -121,7 +121,7 @@ const Testimonials = () => {
       </div>
 
       {quotesToShow.length > 0 && (
-        <div className="grid grid-cols-1 gap-8 text-white lg:grid-cols-4 2xl:grid-cols-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 text-white lg:grid-cols-4 2xl:grid-cols-3">
           {quotesToShow.map((quote, index) => (
             <div
               key={index}
@@ -142,7 +142,7 @@ const Testimonials = () => {
             </div>
           ))}
           {/* Counter */}
-          <div className="relative z-10 order-first lg:col-span-4 2xl:order-last 2xl:col-span-1">
+          <div className="relative z-10 order-first sm:col-span-2 lg:col-span-4 2xl:order-last 2xl:col-span-1">
             <div className="mt-8 text-center text-5xl font-bold md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-start">
               <div>Join</div>
               <InView triggerOnce>

@@ -1,26 +1,26 @@
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi"
 
-import {
-  Navigation,
-  Pagination,
-  EffectCoverflow,
-  Autoplay,
-  Keyboard,
-} from "swiper"
+import { Navigation, Pagination, Autoplay, Keyboard } from "swiper"
 import "swiper/css"
 import "swiper/css/autoplay"
-import "swiper/css/effect-coverflow"
 import "swiper/css/keyboard"
 import "swiper/css/pagination"
 import { Swiper, SwiperSlide } from "swiper/react"
 
+import { x_shape } from "../../assets"
 import { slide_images } from "../../data"
 
 const Carousel = () => {
   return (
     <section className="py-16">
+      {/* Left-side x image */}
+      <div className="absolute z-0 -top-[400px] lg:w-1/4 w-1/2 lg:-left-20 -left-10  ">
+        <img src={x_shape} alt="x" className="relative top-80 blur" />
+      </div>
+      {/* {blur} */}
+      <div className="absolute top-0 -right-10 z-0 h-[50vh] w-1/2 rounded-full bg-[#7CFE7A] opacity-[0.94] blur-[110px]" />
       <Swiper
-        modules={[Navigation, Pagination, EffectCoverflow, Autoplay, Keyboard]}
+        modules={[Navigation, Pagination, Autoplay, Keyboard]}
         autoplay={{
           delay: 10000,
           disableOnInteraction: false,
@@ -39,13 +39,18 @@ const Carousel = () => {
         centeredSlides={true}
         loop={true}
         breakpoints={{
+          100: {
+            spaceBetween: 275,
+            slidesPerView: 1,
+          },
           // xs
           480: {
-            spaceBetween: 50,
+            spaceBetween: 275,
           },
           // sm
           640: {
             spaceBetween: 275,
+            slidesPerView: 1,
           },
           // md
           768: {
@@ -54,6 +59,7 @@ const Carousel = () => {
           // lg
           1024: {
             spaceBetween: 275,
+            slidesPerView: 2,
           },
           // xl
           1280: {
@@ -65,33 +71,21 @@ const Carousel = () => {
           },
         }}
       >
-        <HiChevronLeft className="swiper-button-prev glass absolute top-1/2 left-[16%] z-10 -translate-y-1/2 text-5xl text-white hover:bg-pink-500 lg:text-7xl" />
-        <HiChevronRight className="swiper-button-next glass absolute top-1/2 right-[16%] z-10 -translate-y-1/2 text-5xl text-white hover:bg-pink-500 lg:right-[23%] lg:text-7xl" />
+        <HiChevronLeft className="swiper-button-prev glass absolute top-1/2 left-[16%] z-10 -translate-y-1/2 text-5xl text-white shadow-transparent hover:bg-pink-500 lg:text-7xl" />
+        <HiChevronRight className="swiper-button-next glass absolute top-1/2 right-[16%] z-10 -translate-y-1/2 text-5xl text-white shadow-transparent hover:bg-pink-500 lg:right-[23%] lg:text-7xl" />
 
         {slide_images.map((slide, index) => (
-          <SwiperSlide key={index}>
-            <div className="mb-12 h-[60vh] rounded-[50px] bg-purple-600 p-6">
-              <img
-                src={slide.image}
-                alt={slide.title}
-                className="h-full w-full rounded-[50px] object-cover"
-              />
-              <div className="glass absolute -left-32 bottom-6 z-10 aspect-square max-w-xs rounded-[50px] p-8 text-white">
-                <h1 className="text-center text-4xl font-bold">
-                  {slide.title}
-                </h1>
-                <p className="mt-2 text-xl font-normal">
-                  {slide.description} Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Eius, alias.
-                </p>
-                <div className="flex justify-center">
-                  <button
-                    type="button"
-                    className="glass mt-4 px-4 py-2 text-4xl font-medium"
-                  >
-                    See More
-                  </button>
-                </div>
+          <SwiperSlide key={index} className="lg:top-20">
+            <div className=" w-full px-4 lg:px-0">
+              <div className="mb-10 h-[50vh] rounded-[50px] bg-purple-600 p-6 lg:h-[60vh]">
+                <img
+                  src={slide.image}
+                  alt={slide.title}
+                  className="h-full w-full  rounded-[50px] object-cover"
+                />
+              </div>
+              <div className="glass relative -left-28 bottom-40  z-10 hidden aspect-square w-1/3 items-center justify-center rounded-[50px]  text-center text-white lg:flex">
+                <h1 className=" mx-auto text-3xl font-bold">{slide.title}</h1>
               </div>
             </div>
           </SwiperSlide>

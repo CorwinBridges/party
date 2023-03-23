@@ -4,19 +4,19 @@ const timelineData = [
   {
     title: "MADISON GRIFFIN",
     description:
-      "Madison is a highly motivated and organized individual who is the backbone of our team. She is able to efficiently coordinate tasks and delegate responsibilities among team members, ensuring that all projects are completed on time and to the highest standard. Her leadership skills and positive attitude make her a valuable asset to the team and she always goes the extra mile to make sure that everyone is working together efficiently and effectively. She is a great communicator, always listening and taking feedback, which makes her a great leader.",
+      "Madison is a highly motivated and organized individual who is the backbone of our team. She is able to efficiently coordinate tasks and delegate responsibilities among team members, ensuring that all projects are completed on time and to the highest standard.",
     picture: madison2,
   },
   {
     title: "CORWIN BRIDGES",
     description:
-      "Corwin is the brains behind the operation. He has an incredible intellect and a deep understanding of the inner workings of the company. Corwin is a genius when it comes to problem-solving and strategy development, he always comes up with new and innovative solutions to any challenge that arises. He is well-versed in the ins and outs of the business, and his expertise is invaluable to the team. His analytical thinking, attention to detail and ability to think outside the box makes him the go-to person when it comes to making important decisions.",
+      "Corwin is the brains behind the operation. He has an incredible intellect and a deep understanding of the inner workings of the company. Corwin is a genius when it comes to problem-solving and strategy development, he always comes up with new and innovative solutions to any challenge that arises.",
     picture: corwin2,
   },
   {
     title: "ANNA WEISSENFLUH",
     description:
-      "Anna is the designer of the team. She is incredibly creative and has a great sense of style. Not only is she a talented designer, but she's also a goofball who always lightens the mood with her jokes, even if they're not always funny. Her fun-loving personality and positive energy makes her a joy to work with, she has a unique ability to bring out the best in her colleagues. She's a great listener and always open to feedback, which makes her a valuable asset to the team. She's not only a great designer but also a great team player, always willing to help and support her colleagues.",
+      "Anna is the designer of the team. She is incredibly creative and has a great sense of style. Not only is she a talented designer, but she's also a goofball who always lightens the mood with her jokes, even if they're not always funny. She's a great listener and always open to feedback, which makes her a valuable asset to the team. ",
     picture: anna2,
   },
 ]
