@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 const CTA = () => {
   return (
-    <section className="relative z-10 py-16 text-center text-white lg:py-40">
+    <section className="relative z-10 py-20 text-center text-white lg:py-40">
       <h1 className=" text-4xl font-bold uppercase lg:text-5xl">
         Let's get this party{" "}
         <span className="bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-transparent">

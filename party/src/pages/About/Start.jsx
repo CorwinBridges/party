@@ -1,6 +1,6 @@
 const Start = () => {
   return (
-    <section className="py-16">
+    <section className="py-16 md:px-40 lg:px-10">
       <div className="glass relative z-10 rounded-[50px] p-8 text-white">
         <div className="mb-4 text-left">
           <span className="bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-3xl font-bold text-transparent md:text-4xl lg:text-5xl">

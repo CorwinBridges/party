@@ -5,7 +5,7 @@ import { gift, gift3d, gifthand, partyboy, gift3d2 } from "../../assets"
 
 const Hero = () => {
   return (
-    <section className="py-16">
+    <section className="py-6 lg:py-12">
       <div className="grid gap-8 lg:grid-cols-2">
         {/* Left column */}
         <div className="relative z-10 order-1 text-white lg:order-none">

@@ -110,7 +110,7 @@ const Testimonials = () => {
   }
 
   return (
-    <section className="py-16">
+    <section className="py-14 lg:py-16">
       {/* Right-side background circle with gradient */}
       <div className="absolute -right-[6%]">
         <div className="relative bottom-72 z-0 aspect-square h-[400px] rounded-[50%] bg-gradient-to-b from-[#C194EA] to-[#EE77C7]/[0.94] opacity-[0.75] blur-[3px] lg:h-[600px]" />

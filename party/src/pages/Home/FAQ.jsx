@@ -35,7 +35,7 @@ const faqData = [
 
 const FAQ = () => {
   return (
-    <section className="relative py-16 text-white">
+    <section className="relative py-20 text-white lg:py-16">
       {/* Left-side swirl image */}
       <div className="absolute -left-[27%] z-0 h-[400px] w-[400px] lg:h-[700px] lg:w-[700px]">
         <img src={swirl} alt="swirl" className="relative top-80 blur" />
