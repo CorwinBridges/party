@@ -7,5 +7,5 @@
 - [ ] style filters and sort
 - [ ] make filters and sort work
 - [ ] make shop search work
-- [ ] use form k and yup for form
+- [ ] use formik and yup for form
 - [ ] implement node, express, and mongoDB

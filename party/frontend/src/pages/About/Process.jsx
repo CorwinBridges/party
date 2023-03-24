@@ -20,7 +20,7 @@ const timelineData = [
 
 const Process = () => {
   return (
-    <section className="z-10 py-5 text-white lg:py-16">
+    <section className="z-10 text-white py-16">
       <div className="relative z-10">
         <h1 className="mb-16 text-left text-3xl font-bold md:text-4xl lg:text-5xl ">
           <span className="z-10 bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-3xl font-bold text-transparent md:text-4xl lg:text-5xl">

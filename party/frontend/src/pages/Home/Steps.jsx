@@ -46,7 +46,7 @@ const timelineData = [
 
 const Steps = () => {
   return (
-    <section className="py-5 text-white lg:py-16">
+    <section className="text-white py-16">
       {/* Right-side background circle with gradient */}
       <div className="absolute -right-[6%]">
         <div className="relative bottom-[600px] z-0 aspect-square h-[300px] rounded-[50%] bg-gradient-to-b from-[#C194EA] to-[#EE77C7]/[0.94] opacity-[0.60] blur-[3px] lg:h-[500px]" />

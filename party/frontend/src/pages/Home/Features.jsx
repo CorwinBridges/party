@@ -26,7 +26,7 @@ const featureData = [
 
 const Features = () => {
   return (
-    <section className="py-5 text-white lg:py-16">
+    <section className="py-16 text-white">
       {/* Right blur circle */}
       <div className="absolute -left-40 z-0 h-[50vh] w-1/2 rounded-full bg-[#F97FC8] opacity-[0.85] blur-[130px]" />
       <div className="relative z-10 grid grid-cols-1 gap-8 xl:grid-cols-7">
