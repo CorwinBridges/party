@@ -6,7 +6,7 @@ const CForm = () => {
   return (
     <section className="py-16">
       <div className="absolute -left-20 -top-20">
-        <div className="z-1 relative bottom-0 h-[400px] w-[400px] rounded-[50%] bg-gradient-to-b from-[#C2A0F0]/[0.54] to-[#E25D67]/[0.68] opacity-[0.75] blur-[3px]" />
+        <div className="relative bottom-0 z-0 h-[400px] w-[400px] rounded-[50%] bg-gradient-to-b from-[#C2A0F0]/[0.54] to-[#E25D67]/[0.68] opacity-[0.75] blur-[3px]" />
       </div>
       <div className="absolute left-40 top-40">
         <div className="relative bottom-0 z-0 h-[300px] w-[300px] rounded-[50%] bg-gradient-to-b from-[#4C6DDF]/[0.54] to-[#E46EC7]/[0.68] opacity-[0.75] blur-[3px]" />
@@ -18,13 +18,13 @@ const CForm = () => {
 
       <div className="absolute top-0 right-0 z-0 h-[50vh] w-1/2 rounded-full bg-[#F2F2F2] opacity-[0.94] blur-[130px]" />
 
-      <div className="glass mx-auto max-w-3xl rounded-[69px] text-white">
-        <div className="p-8">
-          <div className="mb-12 text-center">
-          <span className="bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-3xl font-bold text-transparent md:text-4xl lg:text-5xl">
+      <div className="glass relative z-10 mx-auto max-w-3xl rounded-[69px] text-white">
+        <div className="p-4 xs:p-8">
+          <div className="mb-8 text-center md:mb-12">
+            <span className="bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-3xl font-bold text-transparent md:text-4xl lg:text-5xl">
               Contact Us
-          </span>
-            <p className="text-xl leading-relaxed lg:text-2xl xl:text-3xl pt-7">
+            </span>
+            <p className="mt-4 text-xl leading-relaxed md:mt-8 lg:text-2xl xl:text-3xl">
               Questions you may have will be answered
             </p>
           </div>
@@ -41,9 +41,9 @@ const CForm = () => {
             }}
           >
             <Form>
-              <div className="mx-4">
+              <div className="md:mx-4">
                 <div className="flex flex-wrap">
-                  <div className="lg:w-1/2 w-full p-2">
+                  <div className="w-full p-2 lg:w-1/2">
                     <div className="relative">
                       <label
                         htmlFor="first_name"
@@ -58,7 +58,7 @@ const CForm = () => {
                       <ErrorMessage name="firstName" />
                     </div>
                   </div>
-                  <div className="lg:w-1/2 w-full p-2">
+                  <div className="w-full p-2 lg:w-1/2">
                     <div className="relative">
                       <label
                         htmlFor="last_name"

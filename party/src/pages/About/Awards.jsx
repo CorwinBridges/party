@@ -20,20 +20,22 @@ const awards = [
 const Awards = () => {
   return (
     <section className="py-16">
-      <div className="z-10 mb-8 text-center">
-        <span className="bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-3xl font-bold text-transparent md:text-4xl lg:text-5xl">
-          AWARD WINNING TEAM
-        </span>
-      </div>
-      <div className="glass flex justify-center rounded-[30px]">
-        <div className=" grid grid-cols-3 gap-8 p-8">
-          {awards.map((award, index) => {
-            return (
-              <div className="m-auto" key={index}>
-                <img src={award.award} alt={award.name} />
-              </div>
-            )
-          })}
+      <div className="relative z-10">
+        <div className="mb-8 text-center">
+          <span className="bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-3xl font-bold text-transparent md:text-4xl lg:text-5xl">
+            AWARD WINNING TEAM
+          </span>
+        </div>
+        <div className="glass flex justify-center rounded-[30px]">
+          <div className="grid grid-cols-3 gap-8 p-8">
+            {awards.map((award, index) => {
+              return (
+                <div className="m-auto" key={index}>
+                  <img src={award.award} alt={award.name} />
+                </div>
+              )
+            })}
+          </div>
         </div>
       </div>
       {/* blur */}
