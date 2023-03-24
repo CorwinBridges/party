@@ -52,16 +52,16 @@ const Benefits = () => {
   return (
     <section className="py-16 text-white">
       {/* right-side swirl image */}
-      <div className="z-0 absolute -right-[7%] h-[400px] w-[400px] lg:h-[700px] lg:w-[700px]">
+      <div className="absolute -right-[7%] z-0 h-[400px] w-[400px] lg:h-[700px] lg:w-[700px]">
         <img src={swirl} alt="swirl" className="relative top-80 blur" />
       </div>
-      <h1 className="glass relative rounded-[69px] py-32 px-8 text-center text-4xl font-bold lg:py-40 lg:text-7xl">
+      <h1 className="glass relative z-10 rounded-[69px] py-32 px-8 text-center text-4xl font-bold lg:py-40 lg:text-7xl">
         Achieve Party Planning{" "}
         <span className="bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-transparent">
           Perfection
         </span>
       </h1>
-      <div className="relative bottom-24 z-10 mx-0 2xs:mx-6 sm:mx-16 lg:28 -mb-24 grid grid-rows-2 gap-8 sm:grid-cols-2 xl:grid-cols-3">
+      <div className="relative bottom-24 z-10 mx-auto -mb-24 grid w-[90%] grid-rows-2 gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {benefits.map((benefit, index) => (
           <div key={index} className="glass rounded-[69px] p-8 text-center">
             <div className="mb-4 flex justify-center text-7xl">

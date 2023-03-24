@@ -42,8 +42,8 @@ const FAQ = () => {
       </div>
       <h1 className="z-10 text-center text-4xl font-bold lg:text-7xl">FAQ</h1>
       {faqData.map((faq, index) => (
-        <div key={index}>
-          <hr className="relative z-10  my-8 border-b-2" />
+        <div key={index} className="relative z-10">
+          <hr className="my-8 border-b-2" />
           <Disclosure>
             {({ open }) => (
               <>
@@ -66,7 +66,7 @@ const FAQ = () => {
                       transition={{ duration: 0.3 }}
                     >
                       <motion.div
-                        className="relative z-10 px-8 pt-8 text-2xl"
+                        className="px-8 pt-8 text-2xl"
                         key="content"
                       >
                         {faq.answer}
@@ -79,7 +79,7 @@ const FAQ = () => {
           </Disclosure>
         </div>
       ))}
-      <hr className="relative z-10 mt-8 border-b-2" />
+      <hr className="mt-8 border-b-2" />
     </section>
   )
 }

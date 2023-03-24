@@ -5,18 +5,18 @@ import { gift, gift3d, gifthand, partyboy, gift3d2 } from "../../assets"
 
 const Hero = () => {
   return (
-    <section className="py-6 lg:py-16">
+    <section className="py-6 lg:py-12">
       <div className="grid gap-8 lg:grid-cols-2">
         {/* Left column */}
         <div className="relative z-10 order-1 text-white lg:order-none">
-          <div className="mx-auto max-w-xl text-center text-4xl font-black uppercase sm:text-5xl lg:max-w-none lg:text-start lg:text-6xl xl:text-7xl 2xl:text-8xl">
+          <div className="mx-auto max-w-xl text-center text-4xl font-black uppercase sm:text-5xl lg:max-w-none lg:text-start xl:text-7xl">
             The{" "}
             <span className="bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent">
               perfect party
             </span>{" "}
             all in one box
           </div>
-          <div className="mx-auto mt-4 max-w-xl text-center text-lg font-normal sm:text-2xl lg:max-w-none lg:text-start lg:text-2xl xl:text-3xl 2xl:text-4xl">
+          <div className="mx-auto mt-4 max-w-xl text-center text-2xl font-normal sm:text-2xl lg:max-w-none lg:text-start lg:text-2xl xl:text-3xl 2xl:text-4xl">
             Transform any space into a party paradise with Party in a Box,
             Simply open the box and watch as it sets up an instant celebration
             in seconds!
@@ -31,7 +31,7 @@ const Hero = () => {
           </div>
         </div>
         {/* Right column */}
-        <div className="z-10 mx-auto w-48 sm:w-52 lg:w-fit">
+        <div className="z-10 mx-auto w-48 sm:w-52 lg:w-fit lg:max-w-md">
           <img src={gift3d} alt="Gift" />
         </div>
       </div>

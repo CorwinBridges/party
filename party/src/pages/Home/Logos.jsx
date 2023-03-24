@@ -59,7 +59,7 @@ const Logos = () => {
   return (
     <section className="py-16">
       <Marquee gradient={false} speed={30}>
-        <div className="flex h-20 text-white brightness-0 invert">
+        <div className="flex h-20 text-white brightness-0 invert relative z-10">
           {logos.map((logo, index) => (
             <img key={index} src={logo.src} alt={logo.alt} className="mx-10" />
           ))}

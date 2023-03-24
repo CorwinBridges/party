@@ -1,7 +1,7 @@
 import { useState, useCallback, useRef } from "react"
 import ReactCanvasConfetti from "react-canvas-confetti"
 import { FiMenu } from "react-icons/fi"
-import { HiOutlineSearch, HiSearch } from "react-icons/hi"
+import { HiOutlineSearch } from "react-icons/hi"
 import { HiOutlineShoppingBag } from "react-icons/hi2"
 import { NavLink, Link } from "react-router-dom"
 
@@ -98,7 +98,7 @@ const Navbar = () => {
       makeShot(
         0.1,
         {
-          spread: 45,
+          spread: 30,
           startVelocity: 25,
           decay: 0.92,
           scalar: 1.2,
@@ -110,7 +110,7 @@ const Navbar = () => {
       makeShot(
         0.1,
         {
-          spread: 45,
+          spread: 30,
           startVelocity: 45,
         },
         mouseX,
