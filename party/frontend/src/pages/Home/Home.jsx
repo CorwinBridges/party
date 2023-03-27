@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { motion } from "framer-motion"
 
 import {
   Hero,
@@ -10,12 +10,9 @@ import {
   Logos,
   Steps,
 } from "../../pages"
+import { PageWrapper } from "../../utils"
 
 const Home = () => {
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
-    document.title = "Home | Party in a Box"
-  }, [])
   return (
     <>
       <div className="section-container">
@@ -44,4 +41,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default PageWrapper(Home)

@@ -515,3 +515,36 @@ export const slide_images = [
       "https://www.gannett-cdn.com/presto/2022/04/28/NPPP/7c15e337-50af-443b-990e-467b327e481a-Bodega_Cinco_handout.jpg?width=660&height=440&fit=crop&format=pjpg&auto=webp",
   },
 ]
+
+export const slideInAnimation = (direction, type) => ({
+  initial: {
+    opacity: 0,
+    x: direction === "left" ? -50 : direction === "right" ? 50 : 0,
+    y: direction === "up" ? 50 : direction === "down" ? -50 : 0,
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    y: 0,
+    transition: { duration: 0.8, type: type },
+  },
+})
+
+export const heightAnimation = {
+  initial: { opacity: 0, height: 0 },
+  animate: {
+    opacity: 1,
+    height: "auto",
+    transition: { duration: 0.8, type: "spring" },
+  },
+}
+
+export const parentAnimation = {
+  initial: {},
+  animate: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+}

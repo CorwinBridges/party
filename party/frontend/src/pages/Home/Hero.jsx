@@ -1,40 +1,60 @@
-import { HiChevronRight } from "react-icons/hi2"
 import { Link } from "react-router-dom"
 
-import { gift, gift3d, gifthand, partyboy, gift3d2 } from "../../assets"
+import { motion } from "framer-motion"
+
+import { gift3d } from "../../assets"
+import { slideInAnimation, parentAnimation } from "../../data"
 
 const Hero = () => {
   return (
-    <section className="py-16">
-      <div className="grid gap-8 lg:grid-cols-2">
+    <section className="py-6 lg:py-16">
+      <motion.div
+        variants={parentAnimation}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: false, amount: 0.1 }}
+        className="relative z-10 grid gap-8 lg:grid-cols-2"
+      >
         {/* Left column */}
-        <div className="relative z-10 order-1 text-white lg:order-none">
-          <div className="mx-auto max-w-xl text-center text-4xl font-black uppercase sm:text-5xl lg:max-w-none lg:text-start xl:text-7xl">
+        <div className="order-1 text-white lg:order-none">
+          <motion.div
+            variants={slideInAnimation("up", "spring")}
+            className="mx-auto max-w-xl text-center text-4xl font-black uppercase sm:text-5xl lg:mx-0 lg:max-w-sm lg:text-left xl:max-w-none xl:text-7xl"
+          >
             The{" "}
-            <span className="bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-bl from-red-400 to-pink-500 bg-clip-text text-transparent">
               perfect party
             </span>{" "}
             all in one box
-          </div>
-          <div className="mx-auto mt-4 max-w-xl text-center text-2xl font-normal sm:text-2xl lg:max-w-none lg:text-start lg:text-2xl xl:text-3xl 2xl:text-4xl">
+          </motion.div>
+          <motion.div
+            variants={slideInAnimation("up", "spring")}
+            className="mx-auto mt-4 max-w-xl text-center text-2xl font-normal lg:max-w-none lg:text-start xl:text-3xl 2xl:text-4xl"
+          >
             Transform any space into a party paradise with Party in a Box,
             Simply open the box and watch as it sets up an instant celebration
             in seconds!
-          </div>
-          <div className="flex justify-center lg:justify-start">
+          </motion.div>
+          <motion.div
+            variants={slideInAnimation("up", "spring")}
+            className="flex justify-center lg:justify-start"
+          >
             <Link
               to="/shop"
               className="glass mt-4 px-10 py-5 text-center text-xl uppercase duration-200 ease-in-out hover:scale-110 lg:mt-8 xl:text-4xl"
             >
               Shop our products
             </Link>
-          </div>
+          </motion.div>
         </div>
         {/* Right column */}
-        <div className="z-10 mx-auto w-48 sm:w-52 lg:w-fit lg:max-w-md">
+        <motion.div
+          variants={slideInAnimation("up", "spring")}
+          className="z-10 mx-auto w-48 sm:w-52 lg:w-fit lg:max-w-md"
+        >
           <img src={gift3d} alt="Gift" />
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
       {/* Left blur circle */}
       <div className="absolute top-0 left-0 z-0 h-[50vh] w-1/2 rounded-full bg-[#D3ACF1] opacity-[0.84] blur-[130px]" />
       {/* Right blur circle */}
@@ -44,5 +64,3 @@ const Hero = () => {
 }
 
 export default Hero
-
-//TODO: edit styling and responsiveness

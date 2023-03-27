@@ -1,15 +1,13 @@
-import { useEffect } from "react"
+import { PageWrapper } from "../../utils"
 
 const Shipping = () => {
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
-    document.title = "Shipping | Party in a Box"
-  }, [])
   return (
     <div className="section-container">
       <section className="py-16 text-white">
         <div className="mx-auto max-w-5xl">
-          <h1 className="mb-8 text-center text-5xl font-bold">Shipping Policy</h1>
+          <h1 className="mb-8 text-center text-5xl font-bold">
+            Shipping Policy
+          </h1>
           <h2 className="mb-4 text-2xl font-semibold">
             1. Shipping Method and Timing:
           </h2>
@@ -114,4 +112,4 @@ const Shipping = () => {
   )
 }
 
-export default Shipping
+export default PageWrapper(Shipping)

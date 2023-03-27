@@ -1,9 +1,13 @@
-import { useEffect } from "react";
-
-
-
-import { Carousel, Search, Sort, Filter, Product, Pagination, Preview } from "../../pages";
-
+import {
+  Carousel,
+  Search,
+  Sort,
+  Filter,
+  Product,
+  Pagination,
+  Preview,
+} from "../../pages"
+import { PageWrapper } from "../../utils"
 
 const products = [
   {
@@ -57,10 +61,6 @@ const products = [
 ]
 
 const Shop = () => {
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
-    document.title = "Shop | Party in a Box"
-  }, [])
   return (
     <>
       <Carousel />
@@ -76,17 +76,9 @@ const Shop = () => {
             <div className="mb-8">
               <Sort />
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
               {products.map((product, index) => (
-                <Product
-                  key={index}
-                  title={product.title}
-                  price={product.price}
-                  image={product.image}
-                  rating={product.rating}
-                  oldPrice={product.old_price}
-                  quantity={product.quantity}
-                />
+                <Product key={index} {...product} />
               ))}
             </div>
           </div>
@@ -102,4 +94,4 @@ const Shop = () => {
   )
 }
 
-export default Shop
+export default PageWrapper(Shop)

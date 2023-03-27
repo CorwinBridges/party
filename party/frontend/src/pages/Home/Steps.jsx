@@ -1,15 +1,10 @@
-import {
-  FaQuestion,
-  FaBoxOpen,
-  FaPlayCircle,
-  FaRegSmileBeam,
-  FaTrashAlt,
-  FaGift,
-  FaPowerOff,
-  FaRecycle,
-} from "react-icons/fa"
+import { FaGift, FaPowerOff, FaRecycle } from "react-icons/fa"
 import { IoBalloonSharp } from "react-icons/io5"
 import { MdQuiz } from "react-icons/md"
+
+import { motion } from "framer-motion"
+
+import { parentAnimation, slideInAnimation } from "../../data"
 
 const timelineData = [
   {
@@ -46,15 +41,23 @@ const timelineData = [
 
 const Steps = () => {
   return (
-    <section className="text-white py-16">
+    <section className="py-16 text-white">
       {/* Right-side background circle with gradient */}
       <div className="absolute -right-[6%]">
         <div className="relative bottom-[600px] z-0 aspect-square h-[300px] rounded-[50%] bg-gradient-to-b from-[#C194EA] to-[#EE77C7]/[0.94] opacity-[0.60] blur-[3px] lg:h-[500px]" />
       </div>
-      <div className="relative z-10">
-        <h1 className="mb-5 lg:mb-16 text-center text-4xl font-bold lg:text-7xl">
+      <motion.div
+        variants={parentAnimation}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: false, amount: 0.1 }}
+      >
+        <motion.h1
+          variants={slideInAnimation("up", "spring")}
+          className="mb-5 text-center text-4xl font-bold lg:mb-16 lg:text-7xl"
+        >
           Getting Started
-        </h1>
+        </motion.h1>
         <div className="mx-auto flex grid-cols-9 flex-col lg:grid">
           {timelineData.map((timeline, index) => {
             let firstAndLast = ""
@@ -64,9 +67,12 @@ const Steps = () => {
               firstAndLast = "gradient-bottom"
             }
             return index % 2 === 0 ? (
-              // left
+              // left row
               <div className="flex flex-row-reverse lg:contents" key={index}>
-                <div className="glass col-start-1 col-end-5 my-4 rounded-[69px] p-8">
+                <motion.div
+                  variants={slideInAnimation("left", "spring")}
+                  className="glass col-start-1 col-end-5 my-4 rounded-[69px] p-8"
+                >
                   <h3 className="mb-4 text-4xl font-medium lg:text-right lg:text-5xl">
                     <div className="bg-gradient-to-r from-red-400 via-pink-500 to-violet-500 bg-clip-text text-transparent">
                       {timeline.title}
@@ -75,7 +81,7 @@ const Steps = () => {
                   <p className="text-md lg:text-right lg:text-lg">
                     {timeline.description}
                   </p>
-                </div>
+                </motion.div>
                 <div className="relative col-start-5 col-end-6 mr-10 lg:mx-auto ">
                   {/* Line */}
                   <div className="flex h-full w-6 items-center justify-center">
@@ -86,16 +92,22 @@ const Steps = () => {
                   {/* Dot */}
                   <div className="glass absolute top-1/2 -mt-3 h-6 w-6" />
                 </div>
-                <div className="col-span-1 col-start-6 hidden items-center justify-center text-7xl lg:flex">
+                <motion.div
+                  variants={slideInAnimation("right", "spring")}
+                  className="col-span-1 col-start-6 hidden items-center justify-center text-7xl lg:flex"
+                >
                   {timeline.icon}
-                </div>
+                </motion.div>
               </div>
             ) : (
-              // right
+              // right row
               <div className="flex lg:contents" key={index}>
-                <div className="col-span-1 col-start-4 hidden items-center justify-center text-7xl lg:flex">
+                <motion.div
+                  variants={slideInAnimation("left", "spring")}
+                  className="col-span-1 col-start-4 hidden items-center justify-center text-7xl lg:flex"
+                >
                   {timeline.icon}
-                </div>
+                </motion.div>
                 <div className="relative col-start-5 col-end-6 mr-10 lg:mx-auto">
                   {/* Line */}
                   <div className="flex h-full w-6 items-center justify-center">
@@ -106,7 +118,10 @@ const Steps = () => {
                   {/* Dot */}
                   <div className="glass absolute top-1/2 -mt-3 h-6 w-6" />
                 </div>
-                <div className="glass col-start-6 col-end-10 my-4 rounded-[69px] p-8">
+                <motion.div
+                  variants={slideInAnimation("right", "spring")}
+                  className="glass col-start-6 col-end-10 my-4 rounded-[69px] p-8"
+                >
                   <h3 className="mb-4 text-4xl font-medium lg:text-left lg:text-5xl">
                     <div className="bg-gradient-to-r from-red-400 via-pink-500 to-violet-500 bg-clip-text text-transparent">
                       {timeline.title}
@@ -115,12 +130,12 @@ const Steps = () => {
                   <p className="text-md lg:text-left lg:text-lg">
                     {timeline.description}
                   </p>
-                </div>
+                </motion.div>
               </div>
             )
           })}
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }

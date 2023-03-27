@@ -10,6 +10,7 @@ export const StateContext = ({ children }) => {
   const [qty, setQty] = useState(1)
   const [query, setQuery] = useState("")
   const [isShowing, setIsShowing] = useState(false)
+  const [open, setOpen] = useState(false)
 
   let foundProduct
   let index
@@ -108,6 +109,8 @@ export const StateContext = ({ children }) => {
         query,
         isShowing,
         setIsShowing,
+        open,
+        setOpen,
       }}
     >
       {children}

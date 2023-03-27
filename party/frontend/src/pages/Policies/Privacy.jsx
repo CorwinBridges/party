@@ -1,10 +1,6 @@
-import { useEffect } from "react"
+import { PageWrapper } from "../../utils"
 
 const Privacy = () => {
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
-    document.title = "Privacy | Party in a Box"
-  }, [])
   return (
     <div className="section-container">
       <section className="py-16 text-white">
@@ -122,4 +118,4 @@ const Privacy = () => {
   )
 }
 
-export default Privacy
+export default PageWrapper(Privacy)

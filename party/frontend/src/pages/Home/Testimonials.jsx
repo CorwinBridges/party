@@ -2,9 +2,10 @@ import { useState, useEffect } from "react"
 import CountUp from "react-countup"
 import { InView } from "react-intersection-observer"
 
-import axios from "axios"
+import { motion } from "framer-motion"
 
 import { swirl } from "../../assets"
+import { slideInAnimation, parentAnimation } from "../../data"
 
 const quotes = [
   {
@@ -83,21 +84,16 @@ const quotes = [
 
 const Testimonials = () => {
   const [quotesToShow, setQuotesToShow] = useState([])
-  const [previousQuoteIndexes, setPreviousQuoteIndexes] = useState([])
 
   const generateRandomQuotes = () => {
-    let randomIndexes = []
+    const randomIndexes = []
     while (randomIndexes.length < 2) {
       const index = Math.floor(Math.random() * quotes.length)
-      if (
-        !previousQuoteIndexes.includes(index) &&
-        !randomIndexes.includes(index)
-      ) {
+      if (!randomIndexes.includes(index)) {
         randomIndexes.push(index)
       }
     }
     const randomQuotes = randomIndexes.map((index) => quotes[index])
-    setPreviousQuoteIndexes(randomIndexes)
     setQuotesToShow(randomQuotes)
   }
 
@@ -120,76 +116,89 @@ const Testimonials = () => {
         <div className="relative bottom-[20px] z-0 aspect-square h-[300px] rounded-[50%] bg-gradient-to-b from-[#9940EB]/[0.54] to-[#F05EC0]/[0.68] opacity-[0.75] blur-[3px] lg:h-[475px]" />
       </div>
 
-      {quotesToShow.length > 0 && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-8 lg:gap-8 text-white lg:grid-cols-4 2xl:grid-cols-3">
-          {quotesToShow.map((quote, index) => (
-            <div
-              key={index}
-              className="glass relative z-10 rounded-[69px] p-8 lg:col-span-2 2xl:col-span-1"
+      <motion.div
+        variants={parentAnimation}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: false, amount: 0.1 }}
+        className="grid grid-cols-1 gap-x-4 gap-y-8 text-white sm:grid-cols-2 lg:grid-cols-4 lg:gap-8 2xl:grid-cols-3"
+      >
+        {quotesToShow.map((quote, index) => (
+          <motion.div
+            variants={slideInAnimation("up", "spring")}
+            key={index}
+            className="glass relative z-10 rounded-[69px] p-8 lg:col-span-2 2xl:col-span-1"
+          >
+            <div className="aspect-square w-20 overflow-hidden rounded-full">
+              <img
+                src={quote.profilepic}
+                alt={quote.reviewer}
+                className="h-full w-full object-cover object-center"
+              />
+            </div>
+            <div className="mt-4 text-2xl font-bold">{quote.reviewer}</div>
+            <div className="mt-1 text-xl font-medium">{quote.role}</div>
+            <div className="text-md mt-4 font-normal 2xl:text-lg">
+              “{quote.quote}”
+            </div>
+          </motion.div>
+        ))}
+        {/* Counter */}
+        <div className="relative z-10 order-first sm:col-span-2 lg:col-span-4 2xl:order-last 2xl:col-span-1">
+          <motion.div
+            variants={slideInAnimation("up", "spring")}
+            className="mt-8 text-center text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl xl:text-6xl 2xl:text-start"
+          >
+            <div>Join</div>
+            <InView triggerOnce>
+              {({ inView, ref }) => (
+                <div
+                  className="mt-2 bg-gradient-to-tr from-red-400 to-pink-500 bg-clip-text text-transparent"
+                  ref={ref}
+                >
+                  {inView ? (
+                    <CountUp
+                      end={10000000}
+                      separator=","
+                      suffix="+"
+                      duration={1}
+                      delay={0.1}
+                      start={69}
+                    />
+                  ) : (
+                    <div className="mt-2 bg-gradient-to-tr from-red-400 to-pink-500 bg-clip-text text-transparent">
+                      69
+                    </div>
+                  )}
+                </div>
+              )}
+            </InView>
+            <div className="mt-2">Partiers</div>
+          </motion.div>
+          <motion.div
+            variants={slideInAnimation("up", "spring")}
+            className="mx-auto mt-4 w-full text-center text-lg font-normal sm:w-[90%] sm:text-xl md:w-[80%] md:text-2xl lg:w-[60%] 2xl:mx-0 2xl:w-full 2xl:text-start"
+          >
+            You'll never have to worry about party planning again. Let us take
+            care of the details while you sit back and enjoy the celebration!
+          </motion.div>
+          <motion.div
+            variants={slideInAnimation("up", "spring")}
+            className="flex justify-center 2xl:block"
+          >
+            <button
+              onClick={handleViewMoreStories}
+              type="button"
+              className="glass mt-8 px-8 py-4 text-center text-2xl font-medium duration-200 ease-in-out hover:scale-110"
             >
-              <div className="aspect-square w-20 overflow-hidden rounded-full">
-                <img
-                  src={quote.profilepic}
-                  alt={quote.reviewer}
-                  className="h-full w-full object-cover object-center"
-                />
-              </div>
-              <div className="mt-4 text-2xl font-bold">{quote.reviewer}</div>
-              <div className="mt-1 text-xl font-medium">{quote.role}</div>
-              <div className="text-md mt-4 font-normal 2xl:text-lg">
-                “{quote.quote}”
-              </div>
-            </div>
-          ))}
-          {/* Counter */}
-          <div className="relative z-10 order-first sm:col-span-2 lg:col-span-4 2xl:order-last 2xl:col-span-1">
-            <div className="mt-8 text-center text-4xl sm:text-5xl font-bold md:text-6xl lg:text-7xl xl:text-6xl 2xl:text-start">
-              <div>Join</div>
-              <InView triggerOnce>
-                {({ inView, ref }) => (
-                  <div
-                    className="mt-2 bg-gradient-to-tr from-red-400 to-pink-500 bg-clip-text text-transparent"
-                    ref={ref}
-                  >
-                    {inView ? (
-                      <CountUp
-                        end={10000000}
-                        separator=","
-                        suffix="+"
-                        duration={1}
-                        delay={0.1}
-                        start={69}
-                      />
-                    ) : (
-                      <div className="mt-2 bg-gradient-to-tr from-red-400 to-pink-500 bg-clip-text text-transparent">
-                        69
-                      </div>
-                    )}
-                  </div>
-                )}
-              </InView>
-              <div className="mt-2">Partiers</div>
-            </div>
-            <div className="mx-auto mt-4 w-full text-center text-lg sm:text-xl md:text-2xl font-normal sm:w-[90%] md:w-[80%] lg:w-[60%] 2xl:mx-0 2xl:w-full 2xl:text-start">
-              You'll never have to worry about party planning again. Let us take
-              care of the details while you sit back and enjoy the celebration!
-            </div>
-            <div className="flex justify-center 2xl:block">
-              <button
-                onClick={handleViewMoreStories}
-                type="button"
-                className="glass mt-8 px-8 py-4 text-center text-2xl font-medium duration-200 ease-in-out hover:scale-110"
-              >
-                View more stories
-              </button>
-            </div>
-          </div>
+              View more stories
+            </button>
+          </motion.div>
         </div>
-      )}
+      </motion.div>
     </section>
   )
 }
 
 export default Testimonials
 
-//TODO: styling and responsivenss

@@ -1,12 +1,7 @@
-import { useEffect } from "react"
-
 import { CInfo, CForm } from "../../pages"
+import { PageWrapper } from "../../utils"
 
 const Contact = () => {
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
-    document.title = "Contact | Party in a Box"
-  }, [])
   return (
     <>
       <div className="section-container">
@@ -19,4 +14,4 @@ const Contact = () => {
   )
 }
 
-export default Contact
+export default PageWrapper(Contact)

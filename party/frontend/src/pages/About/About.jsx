@@ -1,12 +1,7 @@
-import { useEffect } from "react"
-
 import { Story, Start, Mission, HQ, Process, Awards, Team } from "../../pages"
+import { PageWrapper } from "../../utils"
 
 const About = () => {
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
-    document.title = "About | Party in a Box"
-  }, [])
   return (
     <>
       <div className="section-container">
@@ -34,4 +29,4 @@ const About = () => {
   )
 }
 
-export default About
+export default PageWrapper(About)

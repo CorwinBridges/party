@@ -1,5 +1,9 @@
 import Marquee from "react-fast-marquee"
 
+import { motion } from "framer-motion"
+
+import { slideInAnimation } from "../../data"
+
 const logos = [
   {
     src: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/74deb6ff-8857-4c03-9da1-4107c547bbc6/dfawn6v-399fc6d5-8dae-4fc4-86cd-b85bf614218f.png/v1/fill/w_1000,h_163,strp/nickelodeon_is_white_logo_png_by_janiyawestbrook_dfawn6v-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTYzIiwicGF0aCI6IlwvZlwvNzRkZWI2ZmYtODg1Ny00YzAzLTlkYTEtNDEwN2M1NDdiYmM2XC9kZmF3bjZ2LTM5OWZjNmQ1LThkYWUtNGZjNC04NmNkLWI4NWJmNjE0MjE4Zi5wbmciLCJ3aWR0aCI6Ijw9MTAwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19._TYtypH2yTLsiFciDZlJWGxVo1uZnTX_EVXXnz63lgE",
@@ -58,13 +62,25 @@ const logos = [
 const Logos = () => {
   return (
     <section className="py-16">
-      <Marquee gradient={false} speed={30}>
-        <div className="flex h-20 text-white brightness-0 invert relative z-10">
-          {logos.map((logo, index) => (
-            <img key={index} src={logo.src} alt={logo.alt} className="mx-10" />
-          ))}
-        </div>
-      </Marquee>
+      <motion.div
+        variants={slideInAnimation("up", "spring")}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: false, amount: 0.1 }}
+      >
+        <Marquee gradient={false} speed={30}>
+          <div className="relative z-10 flex h-20 text-white brightness-0 invert">
+            {logos.map((logo, index) => (
+              <img
+                key={index}
+                src={logo.src}
+                alt={logo.alt}
+                className="mx-10"
+              />
+            ))}
+          </div>
+        </Marquee>
+      </motion.div>
     </section>
   )
 }

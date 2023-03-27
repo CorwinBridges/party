@@ -1,10 +1,6 @@
-import { useEffect } from "react"
+import { PageWrapper } from "../../utils"
 
 const Terms = () => {
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
-    document.title = "Terms | Party in a Box"
-  }, [])
   return (
     <div className="section-container">
       <section className="py-16 text-white">
@@ -125,4 +121,4 @@ const Terms = () => {
   )
 }
 
-export default Terms
+export default PageWrapper(Terms)

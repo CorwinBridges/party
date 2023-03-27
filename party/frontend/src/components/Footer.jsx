@@ -1,9 +1,10 @@
-import { useState, useCallback, useRef } from "react"
+import { useCallback, useRef } from "react"
 import ReactCanvasConfetti from "react-canvas-confetti"
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa"
 import { Link } from "react-router-dom"
 
 import { partylogonowords } from "../assets"
+import { useStateContext } from "../context/StateContext"
 
 // Canvas styling
 const canvasStyles = {
@@ -102,12 +103,20 @@ const Footer = () => {
     [makeShot]
   )
 
+  const { open, setOpen } = useStateContext()
+
   return (
     <footer className="relative z-10 bg-[#190039]/[.70] text-white">
       <ReactCanvasConfetti refConfetti={getInstance} style={canvasStyles} />
       <div className="section-container py-16">
         <div className="text-center lg:text-left">
-          <Link to="/" onClick={fireConfetti}>
+          <Link
+            to="/"
+            onClick={(event) => {
+              setOpen(false)
+              fireConfetti(event)
+            }}
+          >
             <img
               className="mx-auto mb-8 h-40 cursor-pointer"
               src={partylogonowords}
@@ -119,7 +128,7 @@ const Footer = () => {
               <h3 className="mb-4 bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-2xl font-bold uppercase text-transparent">
                 About
               </h3>
-              <p className="mb-4 text-lg">
+              <p className="mx-auto mb-4 max-w-lg text-lg">
                 Our founders started Party in a Box because we believe that
                 celebrating life's milestones should be easy and fun. That's why
                 we've created a product that makes party planning a breeze, so
@@ -127,13 +136,13 @@ const Footer = () => {
               </p>
               <div className="flex items-center justify-center space-x-4 text-3xl lg:justify-start">
                 <a href="#" target="_blank" rel="noopener noreferrer">
-                  <FaFacebook className="text-white" />
+                  <FaFacebook className="text-white hover:text-pink-500" />
                 </a>
                 <a href="#" target="_blank" rel="noopener noreferrer">
-                  <FaTwitter className="text-white" />
+                  <FaTwitter className="text-white hover:text-pink-500" />
                 </a>
                 <a href="#" target="_blank" rel="noopener noreferrer">
-                  <FaInstagram className="text-white" />
+                  <FaInstagram className="text-white hover:text-pink-500" />
                 </a>
               </div>
             </div>
@@ -142,15 +151,30 @@ const Footer = () => {
                 Contact
               </h3>
               <p className="mb-2">
-                <span className="font-bold">Address:</span> 575 Lambuth Blvd.,
-                Jackson, TN, USA
+                <span className="font-bold">Address:</span>{" "}
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=575+Lambuth+Blvd.,+Jackson,+TN,+USA"
+                  className="underline hover:decoration-pink-500"
+                  target="_blank"
+                >
+                  575 Lambuth Blvd., Jackson, TN, USA
+                </a>
               </p>
               <p className="mb-2">
-                <span className="font-bold">Phone:</span> (731) 420-6969
+                <span className="font-bold">Phone:</span>{" "}
+                <a
+                  href="tel:7314206969"
+                  className="underline hover:decoration-pink-500"
+                >
+                  (731) 420-6969
+                </a>
               </p>
               <p className="mb-2">
                 <span className="font-bold">Email:</span>{" "}
-                <a href="mailto:support@partyinabox.com" className="underline">
+                <a
+                  href="mailto:support@partyinabox.com"
+                  className="underline hover:decoration-pink-500"
+                >
                   support@partyinabox.com
                 </a>{" "}
               </p>
@@ -166,6 +190,7 @@ const Footer = () => {
                 <Link
                   className="underline decoration-2 hover:decoration-pink-500"
                   to="/terms"
+                  onClick={() => setOpen(false)}
                 >
                   Terms and Conditions
                 </Link>
@@ -174,6 +199,7 @@ const Footer = () => {
                 <Link
                   className="underline decoration-2 hover:decoration-pink-500"
                   to="/privacy"
+                  onClick={() => setOpen(false)}
                 >
                   Privacy Policy
                 </Link>
@@ -182,6 +208,7 @@ const Footer = () => {
                 <Link
                   className="underline decoration-2 hover:decoration-pink-500"
                   to="/shipping"
+                  onClick={() => setOpen(false)}
                 >
                   Shipping Policy
                 </Link>
@@ -190,6 +217,7 @@ const Footer = () => {
                 <Link
                   className="underline decoration-2 hover:decoration-pink-500"
                   to="/returns"
+                  onClick={() => setOpen(false)}
                 >
                   Return Policy
                 </Link>
