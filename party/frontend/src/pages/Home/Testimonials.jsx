@@ -134,11 +134,11 @@ const Testimonials = () => {
       <div className="absolute -right-[6%]">
         <div className="relative bottom-[10px] z-0 aspect-square h-[300px] animate-[bounce_10s_linear_infinite] rounded-[50%] bg-gradient-to-b from-[#C194EA] to-[#EE77C7]/[0.94] opacity-[0.60] blur-[3px] lg:h-[400px]" />
       </div>
-      
+
       <motion.div
         initial="initial"
         whileInView="animate"
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: false, amount: 0.1 }}
         className="grid grid-cols-1 gap-x-4 gap-y-8 text-white sm:grid-cols-2 lg:grid-cols-4 lg:gap-8 2xl:grid-cols-3"
       >
         {quotesToShow.map((quote, index) => {
