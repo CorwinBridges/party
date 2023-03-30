@@ -141,6 +141,7 @@ const Testimonials = () => {
         viewport={{ once: false, amount: 0.1 }}
         className="grid grid-cols-1 gap-x-4 gap-y-8 text-white sm:grid-cols-2 lg:grid-cols-4 lg:gap-8 2xl:grid-cols-3"
       >
+        {/* Map through quotesToShow and display each quote */}
         {quotesToShow.map((quote, index) => {
           const localRef = index === 0 ? ref1 : ref2
           return (
@@ -154,6 +155,7 @@ const Testimonials = () => {
               animate={{ height: Math.max(height1.height, height2.height) }}
               className="glass relative z-10 overflow-hidden rounded-[69px] lg:col-span-2 2xl:col-span-1"
             >
+              {/* Animate appearance and disappearance of quote */}
               <AnimatePresence initial={false}>
                 <motion.div
                   key={quote.role}
@@ -169,6 +171,7 @@ const Testimonials = () => {
                     transition: { duration: 0.25 },
                   }}
                 >
+                  {/* Quote content */}
                   <div ref={localRef} className="absolute p-8">
                     <div className="aspect-square w-20 overflow-hidden rounded-full">
                       <img
@@ -190,13 +193,14 @@ const Testimonials = () => {
             </motion.div>
           )
         })}
-        {/* Counter */}
+        {/* "Join" text content */}
         <div className="relative z-10 order-first sm:col-span-2 lg:col-span-4 2xl:order-last 2xl:col-span-1">
           <motion.div
             variants={slideInAnimation("up", "spring", is2xl ? 0.4 : 0)}
             className="mt-8 text-center text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl xl:text-6xl 2xl:text-start"
           >
             <div>Join</div>
+            {/* Counter */}
             <InView triggerOnce>
               {({ inView, ref }) => (
                 <div
@@ -229,6 +233,8 @@ const Testimonials = () => {
             You'll never have to worry about party planning again. Let us take
             care of the details while you sit back and enjoy the celebration!
           </motion.div>
+
+          {/* View more stories button */}
           <motion.div
             variants={slideInAnimation("up", "spring", is2xl ? 0.8 : 0.4)}
             className="flex justify-center 2xl:block"
