@@ -154,7 +154,7 @@ const Testimonials = () => {
               animate={{ height: Math.max(height1.height, height2.height) }}
               className="glass relative z-10 overflow-hidden rounded-[69px] lg:col-span-2 2xl:col-span-1"
             >
-              <AnimatePresence>
+              <AnimatePresence initial={false}>
                 <motion.div
                   key={quote.role}
                   initial={{ opacity: 0, x: "100%" }}
