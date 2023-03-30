@@ -4,7 +4,7 @@ import { Disclosure } from "@headlessui/react"
 import { motion, AnimatePresence } from "framer-motion"
 
 import { swirl } from "../../assets"
-import { slideInAnimation, parentAnimation } from "../../data"
+import { slideInAnimation } from "../../data"
 
 const faqData = [
   {
@@ -47,20 +47,19 @@ const FAQ = () => {
         <img src={swirl} alt="swirl" className="relative top-80 blur" />
       </div>
       <motion.div
-        variants={parentAnimation}
         initial="initial"
         whileInView="animate"
         viewport={{ once: false, amount: 0.1 }}
       >
         <motion.h1
-          variants={slideInAnimation("up", "spring")}
+          variants={slideInAnimation("up", "spring", 0)}
           className="z-10 text-center text-4xl font-bold lg:text-7xl"
         >
           FAQ
         </motion.h1>
-        {faqData.map((faq) => (
+        {faqData.map((faq, index) => (
           <motion.div
-            variants={slideInAnimation("up", "spring")}
+            variants={slideInAnimation("up", "spring", 0.2 + index * 0.2)}
             key={faq.id}
             className="relative z-10"
           >
@@ -95,7 +94,7 @@ const FAQ = () => {
             </Disclosure>
           </motion.div>
         ))}
-        <motion.div variants={slideInAnimation("up", "spring")}>
+        <motion.div variants={slideInAnimation("up", "spring", 1.2)}>
           <hr className="mt-8 border-b-2" />
         </motion.div>
       </motion.div>

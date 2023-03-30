@@ -1,5 +1,6 @@
-import { blob } from "../../assets"
 
+import { Canvas } from "@react-three/fiber";
+import Blob from "../../components/Blob";
 const timelineData = [
   {
     title: "1. Research and Development",
@@ -89,11 +90,11 @@ const Process = () => {
         </div>
       </div>
 
-      <img
-        src={blob}
-        alt="blob"
-        className="z-0 absolute bottom-[1200px] -left-20 h-[300px] opacity-[0.60] blur-[3px] lg:h-[450px] lg:opacity-[0.75] "
-      />
+      <div className="z-0 absolute -left-20 bottom-[1300px]  h-[500px] w-[500px] opacity-[0.50]">
+        <Canvas camera ={{position: [0.0, 0.0, 8.0]}}>
+          <Blob />
+        </Canvas>
+      </div>
     </section>
   )
 }

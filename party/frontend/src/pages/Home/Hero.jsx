@@ -3,13 +3,14 @@ import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
 
 import { gift3d } from "../../assets"
-import { slideInAnimation, parentAnimation } from "../../data"
+import { slideInAnimation } from "../../data"
+import { useMediaQuery } from "../../utils"
 
 const Hero = () => {
+  const isLg = useMediaQuery("(min-width: 1024px)")
   return (
     <section className="py-6 lg:py-16">
       <motion.div
-        variants={parentAnimation}
         initial="initial"
         whileInView="animate"
         viewport={{ once: false, amount: 0.1 }}
@@ -18,7 +19,7 @@ const Hero = () => {
         {/* Left column */}
         <div className="order-1 text-white lg:order-none">
           <motion.div
-            variants={slideInAnimation("up", "spring")}
+            variants={slideInAnimation("up", "spring", isLg ? 0 : 0.2)}
             className="mx-auto max-w-xl text-center text-4xl font-black uppercase sm:text-5xl lg:mx-0 lg:max-w-sm lg:text-left xl:max-w-none xl:text-7xl"
           >
             The{" "}
@@ -28,7 +29,7 @@ const Hero = () => {
             all in one box
           </motion.div>
           <motion.div
-            variants={slideInAnimation("up", "spring")}
+            variants={slideInAnimation("up", "spring", isLg ? 0.2 : 0.4)}
             className="mx-auto mt-4 max-w-xl text-center text-2xl font-normal lg:max-w-none lg:text-start xl:text-3xl 2xl:text-4xl"
           >
             Transform any space into a party paradise with Party in a Box,
@@ -36,7 +37,7 @@ const Hero = () => {
             in seconds!
           </motion.div>
           <motion.div
-            variants={slideInAnimation("up", "spring")}
+            variants={slideInAnimation("up", "spring", isLg ? 0.4 : 0.6)}
             className="flex justify-center lg:justify-start"
           >
             <Link
@@ -49,12 +50,13 @@ const Hero = () => {
         </div>
         {/* Right column */}
         <motion.div
-          variants={slideInAnimation("up", "spring")}
+          variants={slideInAnimation("up", "spring", isLg ? 0.2 : 0)}
           className="z-10 mx-auto w-48 sm:w-52 lg:w-fit lg:max-w-md"
         >
           <img src={gift3d} alt="Gift" />
         </motion.div>
       </motion.div>
+
       {/* Left blur circle */}
       <div className="absolute top-0 left-0 z-0 h-[50vh] w-1/2 rounded-full bg-[#D3ACF1] opacity-[0.84] blur-[130px]" />
       {/* Right blur circle */}

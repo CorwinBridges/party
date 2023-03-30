@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react"
 import CountUp from "react-countup"
 import { InView } from "react-intersection-observer"
+import useMeasure from "react-use-measure"
 
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 
-import { swirl } from "../../assets"
-import { slideInAnimation, parentAnimation } from "../../data"
+import { fadeInAnimation, slideInAnimation } from "../../data"
+import { useMediaQuery } from "../../utils"
 
 const quotes = [
   {
@@ -83,70 +84,116 @@ const quotes = [
 ]
 
 const Testimonials = () => {
+  // Check if the viewport width is equal to or greater than 1536px
+  const is2xl = useMediaQuery("(min-width: 1536px)")
+
+  // Initialize a state to store the quotes to show
   const [quotesToShow, setQuotesToShow] = useState([])
 
+  // Initialize a state to store the previously shown quote indexes
+  const [previousQuoteIndexes, setPreviousQuoteIndexes] = useState([])
+
+  // Initialize refs and heights using the useMeasure hook for the two quotes
+  const [ref1, height1] = useMeasure()
+  const [ref2, height2] = useMeasure()
+
+  // Function to generate two random unique quotes that haven't been shown before
   const generateRandomQuotes = () => {
-    const randomIndexes = []
+    let randomIndexes = []
     while (randomIndexes.length < 2) {
       const index = Math.floor(Math.random() * quotes.length)
-      if (!randomIndexes.includes(index)) {
+      // Ensure the random index is unique and hasn't been shown before
+      if (
+        !previousQuoteIndexes.includes(index) &&
+        !randomIndexes.includes(index)
+      ) {
         randomIndexes.push(index)
       }
     }
+    // Map the random indexes to the actual quotes
     const randomQuotes = randomIndexes.map((index) => quotes[index])
+
+    // Update state with the new random quote indexes and the quotes to show
+    setPreviousQuoteIndexes(randomIndexes)
     setQuotesToShow(randomQuotes)
   }
 
+  // Run the generateRandomQuotes function when the component mounts
   useEffect(() => {
     generateRandomQuotes()
   }, [])
 
+  // Function to handle the "View more stories" button click
   const handleViewMoreStories = () => {
     generateRandomQuotes()
   }
 
   return (
-    <section className="py-16">
+    <section className="py-16 ">
       {/* Right-side background circle with gradient */}
       <div className="absolute -right-[6%]">
-        <div className="relative bottom-72 z-0 aspect-square h-[400px] rounded-[50%] bg-gradient-to-b from-[#C194EA] to-[#EE77C7]/[0.94] opacity-[0.75] blur-[3px] lg:h-[600px]" />
+        <div className="relative bottom-[10px] z-0 aspect-square h-[300px] animate-[bounce_10s_linear_infinite] rounded-[50%] bg-gradient-to-b from-[#C194EA] to-[#EE77C7]/[0.94] opacity-[0.60] blur-[3px] lg:h-[400px]" />
       </div>
-      {/* right-side foreground circle with gradient */}
-      <div className="absolute right-[20%]">
-        <div className="relative bottom-[20px] z-0 aspect-square h-[300px] rounded-[50%] bg-gradient-to-b from-[#9940EB]/[0.54] to-[#F05EC0]/[0.68] opacity-[0.75] blur-[3px] lg:h-[475px]" />
-      </div>
-
+      
       <motion.div
-        variants={parentAnimation}
         initial="initial"
         whileInView="animate"
-        viewport={{ once: false, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.1 }}
         className="grid grid-cols-1 gap-x-4 gap-y-8 text-white sm:grid-cols-2 lg:grid-cols-4 lg:gap-8 2xl:grid-cols-3"
       >
-        {quotesToShow.map((quote, index) => (
-          <motion.div
-            variants={slideInAnimation("up", "spring")}
-            key={index}
-            className="glass relative z-10 rounded-[69px] p-8 lg:col-span-2 2xl:col-span-1"
-          >
-            <div className="aspect-square w-20 overflow-hidden rounded-full">
-              <img
-                src={quote.profilepic}
-                alt={quote.reviewer}
-                className="h-full w-full object-cover object-center"
-              />
-            </div>
-            <div className="mt-4 text-2xl font-bold">{quote.reviewer}</div>
-            <div className="mt-1 text-xl font-medium">{quote.role}</div>
-            <div className="text-md mt-4 font-normal 2xl:text-lg">
-              “{quote.quote}”
-            </div>
-          </motion.div>
-        ))}
+        {quotesToShow.map((quote, index) => {
+          const localRef = index === 0 ? ref1 : ref2
+          return (
+            <motion.div
+              variants={slideInAnimation(
+                "up",
+                "spring",
+                is2xl ? 0 + index * 0.2 : 0.6 + index * 0.2
+              )}
+              key={index}
+              animate={{ height: Math.max(height1.height, height2.height) }}
+              className="glass relative z-10 overflow-hidden rounded-[69px] lg:col-span-2 2xl:col-span-1"
+            >
+              <AnimatePresence>
+                <motion.div
+                  key={quote.role}
+                  initial={{ opacity: 0, x: "100%" }}
+                  animate={{
+                    opacity: 1,
+                    x: 0,
+                    transition: { duration: 0.25, delay: 0.25 },
+                  }}
+                  exit={{
+                    opacity: 0,
+                    x: "-100%",
+                    transition: { duration: 0.25 },
+                  }}
+                >
+                  <div ref={localRef} className="absolute p-8">
+                    <div className="aspect-square w-20 overflow-hidden rounded-full">
+                      <img
+                        src={quote.profilepic}
+                        alt={quote.reviewer}
+                        className="h-full w-full object-cover object-center"
+                      />
+                    </div>
+                    <div className="mt-4 text-2xl font-bold">
+                      {quote.reviewer}
+                    </div>
+                    <div className="mt-1 text-xl font-medium">{quote.role}</div>
+                    <div className="text-md mt-4 font-normal 2xl:text-lg">
+                      “{quote.quote}”
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </motion.div>
+          )
+        })}
         {/* Counter */}
         <div className="relative z-10 order-first sm:col-span-2 lg:col-span-4 2xl:order-last 2xl:col-span-1">
           <motion.div
-            variants={slideInAnimation("up", "spring")}
+            variants={slideInAnimation("up", "spring", is2xl ? 0.4 : 0)}
             className="mt-8 text-center text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl xl:text-6xl 2xl:text-start"
           >
             <div>Join</div>
@@ -176,14 +223,14 @@ const Testimonials = () => {
             <div className="mt-2">Partiers</div>
           </motion.div>
           <motion.div
-            variants={slideInAnimation("up", "spring")}
+            variants={slideInAnimation("up", "spring", is2xl ? 0.6 : 0.2)}
             className="mx-auto mt-4 w-full text-center text-lg font-normal sm:w-[90%] sm:text-xl md:w-[80%] md:text-2xl lg:w-[60%] 2xl:mx-0 2xl:w-full 2xl:text-start"
           >
             You'll never have to worry about party planning again. Let us take
             care of the details while you sit back and enjoy the celebration!
           </motion.div>
           <motion.div
-            variants={slideInAnimation("up", "spring")}
+            variants={slideInAnimation("up", "spring", is2xl ? 0.8 : 0.4)}
             className="flex justify-center 2xl:block"
           >
             <button
@@ -201,4 +248,3 @@ const Testimonials = () => {
 }
 
 export default Testimonials
-

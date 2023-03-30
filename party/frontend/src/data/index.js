@@ -13,47 +13,47 @@ export const names = [
   },
   {
     id: "4",
-    title: "Harsh Patel",
+    title: "Birthday Box",
   },
   {
     id: "5",
-    title: "Hannah Lyons",
+    title: "New Years Box",
   },
   {
     id: "6",
-    title: "Haley Brown",
+    title: "St. Patrick's Day Box",
   },
   {
     id: "7",
-    title: "Javier Labra",
+    title: "Pi Day Box",
   },
   {
     id: "8",
-    title: "Jack Finney",
+    title: "4th of July Box",
   },
   {
     id: "9",
-    title: "Vraj Patel",
+    title: "Holiday Box",
   },
   {
     id: "10",
-    title: "Coach B",
+    title: "Halloween Box",
   },
   {
     id: "11",
-    title: "Elena Korth",
+    title: "Mother's Day Box",
   },
   {
     id: "12",
-    title: "John Smith",
+    title: "Theme Box",
   },
   {
     id: "13",
-    title: "Jane Doe",
+    title: "Thanksgiving Box",
   },
   {
     id: "14",
-    title: "Bob Johnson",
+    title: "Rager Box",
   },
   {
     id: "15",
@@ -516,35 +516,32 @@ export const slide_images = [
   },
 ]
 
-export const slideInAnimation = (direction, type) => ({
+export const slideInAnimation = (direction, type, delay) => ({
   initial: {
     opacity: 0,
-    x: direction === "left" ? -50 : direction === "right" ? 50 : 0,
-    y: direction === "up" ? 50 : direction === "down" ? -50 : 0,
+    x: direction === "left" ? "-25%" : direction === "right" ? "25%" : 0,
+    y: direction === "up" ? "25%" : direction === "down" ? "25%" : 0,
   },
   animate: {
     opacity: 1,
     x: 0,
     y: 0,
-    transition: { duration: 0.8, type: type },
+    transition: { duration: 0.8, type: type, delay: delay },
   },
 })
 
-export const heightAnimation = {
-  initial: { opacity: 0, height: 0 },
+export const heightAnimation = (delay) => ({
+  initial: { height: 0 },
   animate: {
-    opacity: 1,
     height: "auto",
-    transition: { duration: 0.8, type: "spring" },
+    transition: { duration: 0.4, type: "tween", ease: "linear", delay: delay },
   },
-}
+})
 
-export const parentAnimation = {
-  initial: {},
+export const fadeInAnimation = (delay) => ({
+  initial: { opacity: 0 },
   animate: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
+    transition: { duration: 0.3, type: "tween", ease: "easeOut", delay: delay },
   },
-}
+})

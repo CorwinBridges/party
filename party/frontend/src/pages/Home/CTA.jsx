@@ -2,19 +2,18 @@ import { Link } from "react-router-dom"
 
 import { motion } from "framer-motion"
 
-import { slideInAnimation, parentAnimation } from "../../data"
+import { slideInAnimation } from "../../data"
 
 const CTA = () => {
   return (
     <section className="relative z-10 py-16 text-center text-white lg:py-40">
       <motion.div
-        variants={parentAnimation}
         initial="initial"
         whileInView="animate"
         viewport={{ once: false, amount: 0.1 }}
       >
         <motion.h1
-          variants={slideInAnimation("up", "spring")}
+          variants={slideInAnimation("up", "spring", 0)}
           className=" text-4xl font-bold uppercase lg:text-5xl"
         >
           Let's get this party{" "}
@@ -24,14 +23,14 @@ const CTA = () => {
           !
         </motion.h1>
         <motion.p
-          variants={slideInAnimation("up", "spring")}
+          variants={slideInAnimation("up", "spring", 0.2)}
           className="mx-auto mt-8 max-w-5xl text-xl font-light lg:text-2xl"
         >
           Make your next party unforgettable with Party in a Box. Everything you
           need for a successful celebration, all in one convenient package!
         </motion.p>
         <motion.div
-          variants={slideInAnimation("up", "spring")}
+          variants={slideInAnimation("up", "spring", 0.4)}
           className="flex justify-center"
         >
           <Link
@@ -48,4 +47,3 @@ const CTA = () => {
 
 export default CTA
 
-//TODO: styling and responsivenss

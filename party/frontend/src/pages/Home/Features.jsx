@@ -3,7 +3,8 @@ import { Link } from "react-router-dom"
 
 import { motion } from "framer-motion"
 
-import { parentAnimation, slideInAnimation } from "../../data"
+import { slideInAnimation } from "../../data"
+import { useMediaQuery } from "../../utils"
 
 const featureData = [
   {
@@ -29,12 +30,12 @@ const featureData = [
 ]
 
 const Features = () => {
+  const isXl = useMediaQuery("(min-width: 1280px)")
   return (
     <section className="py-16 text-white">
       {/* Right blur circle */}
       <div className="absolute -left-40 z-0 h-[50vh] w-1/2 rounded-full bg-[#F97FC8] opacity-[0.85] blur-[130px]" />
       <motion.div
-        variants={parentAnimation}
         initial="initial"
         whileInView="animate"
         viewport={{ once: false, amount: 0.1 }}
@@ -43,7 +44,11 @@ const Features = () => {
         <div className="grid grid-cols-1 grid-rows-2 gap-4 text-center sm:grid-cols-2 lg:gap-8 xl:col-span-4">
           {featureData.map((feature, index) => (
             <motion.div
-              variants={slideInAnimation("up", "spring")}
+              variants={slideInAnimation(
+                "up",
+                "spring",
+                isXl ? 0 + index * 0.2 : 0.6 + index * 0.2
+              )}
               key={index}
               className={`glass rounded-[69px] p-8`}
             >
@@ -58,7 +63,7 @@ const Features = () => {
 
         <div className="order-first mt-8 xl:order-last xl:col-span-3">
           <motion.h1
-            variants={slideInAnimation("up", "spring")}
+            variants={slideInAnimation("up", "spring", isXl ? 0.8 : 0)}
             className="text-center text-4xl font-bold lg:text-6xl xl:text-left"
           >
             What is{" "}
@@ -68,7 +73,7 @@ const Features = () => {
             ?
           </motion.h1>
           <motion.p
-            variants={slideInAnimation("up", "spring")}
+            variants={slideInAnimation("up", "spring", isXl ? 1 : 0.2)}
             className="mx-auto mt-8 max-w-4xl text-center text-lg md:text-xl lg:text-2xl xl:mx-0 xl:max-w-none xl:text-left"
           >
             Party in a Box is the ultimate hassle-free party solution. With
@@ -78,7 +83,7 @@ const Features = () => {
             today and enjoy the ultimate party experience.
           </motion.p>
           <motion.div
-            variants={slideInAnimation("up", "spring")}
+            variants={slideInAnimation("up", "spring", isXl ? 1.2 : 0.4)}
             className="flex justify-center xl:justify-start"
           >
             <Link

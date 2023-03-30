@@ -30,13 +30,13 @@ const NavbarSearch = () => {
     >
       <div className="divide-y divide-pink-500">
         <div className="flex items-center px-4 py-2">
-          <HiOutlineSearch className="text-3xl text-pink-500" />
+          <HiOutlineSearch className="text-2xl text-pink-500" />
           <Combobox.Input
             onChange={(e) => {
               setQuery(e.target.value)
             }}
-            className="ml-4 flex h-10 w-full items-center bg-inherit text-2xl placeholder:text-white/70 focus:outline-0"
-            placeholder="Search..."
+            className="ml-4 flex h-10 w-full items-center bg-inherit text-lg placeholder:text-white/70 focus:outline-0"
+            placeholder="Search Birthday, New Years..."
           />
         </div>
         {nameResults.length > 0 && (

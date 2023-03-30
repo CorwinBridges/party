@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.7",
+    "@react-three/fiber": "^8.12.0",
     "axios": "^1.3.3",
     "formik": "^2.2.9",
     "framer-motion": "^10.0.1",
@@ -22,8 +23,11 @@
     "react-hot-toast": "^2.4.0",
     "react-icons": "^4.7.1",
     "react-intersection-observer": "^9.4.2",
+    "react-merge-refs": "^2.0.1",
     "react-router-dom": "^6.7.0",
+    "react-use-measure": "^2.1.1",
     "swiper": "^9.1.0",
+    "three": "^0.150.1",
     "yup": "^1.0.2"
   },
   "devDependencies": {

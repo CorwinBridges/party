@@ -67,9 +67,10 @@ const Logos = () => {
         initial="initial"
         whileInView="animate"
         viewport={{ once: false, amount: 0.1 }}
+        className="relative z-10"
       >
         <Marquee gradient={false} speed={30}>
-          <div className="relative z-10 flex h-20 text-white brightness-0 invert">
+          <div className="flex h-20 text-white brightness-0 invert">
             {logos.map((logo, index) => (
               <img
                 key={index}

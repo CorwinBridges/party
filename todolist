@@ -1,6 +1,6 @@
 # Todo List
 
-- [ ] Standardize spacing between sections on all pages
+- [x] Standardize spacing between sections on all pages
 - [ ] Add page animations via framer motion
 - [ ] Make cart work
 - [ ] style products
@@ -12,3 +12,4 @@
 
 - [ ] refactor navbar
 - [ ] setup animations
+- [ ] edit icons and descriptions

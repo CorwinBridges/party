@@ -11,7 +11,7 @@ import { PageWrapper } from "../../utils"
 
 const products = [
   {
-    title: "Product 1",
+    title: "Birthday",
     price: 10,
     image: "https://via.placeholder.com/200x200/FF0000/FFFFFF?text=Product+1",
     rating: 4,
@@ -19,7 +19,7 @@ const products = [
     quantity: 10,
   },
   {
-    title: "Product 2",
+    title: "New Year's Eve",
     price: 20,
     image: "https://via.placeholder.com/200x200/00FF00/FFFFFF?text=Product+2",
     rating: 5,
@@ -27,7 +27,7 @@ const products = [
     quantity: 20,
   },
   {
-    title: "Product 3",
+    title: "Pi Day",
     price: 5,
     image: "https://via.placeholder.com/200x200/0000FF/FFFFFF?text=Product+3",
     rating: 4.5,
@@ -35,7 +35,7 @@ const products = [
     quantity: 150,
   },
   {
-    title: "Product 4",
+    title: "4th of July",
     price: 25,
     image: "https://via.placeholder.com/200x200/FFFF00/FFFFFF?text=Product+4",
     rating: 3,
@@ -43,7 +43,7 @@ const products = [
     quantity: 75,
   },
   {
-    title: "Product 5",
+    title: "Valentine's Day",
     price: 15,
     image: "https://via.placeholder.com/200x200/00FFFF/FFFFFF?text=Product+5",
     rating: 3.5,
@@ -51,7 +51,7 @@ const products = [
     quantity: 45,
   },
   {
-    title: "Product 6",
+    title: "Halloween",
     price: 40,
     image: "https://via.placeholder.com/200x200/FF00FF/FFFFFF?text=Product+6",
     rating: 5,
