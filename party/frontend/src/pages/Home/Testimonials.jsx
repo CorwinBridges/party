@@ -138,7 +138,7 @@ const Testimonials = () => {
       <motion.div
         initial="initial"
         whileInView="animate"
-        viewport={{ once: false, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.1 }}
         className="grid grid-cols-1 gap-x-4 gap-y-8 text-white sm:grid-cols-2 lg:grid-cols-4 lg:gap-8 2xl:grid-cols-3"
       >
         {/* Map through quotesToShow and display each quote */}

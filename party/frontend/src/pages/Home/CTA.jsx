@@ -10,7 +10,7 @@ const CTA = () => {
       <motion.div
         initial="initial"
         whileInView="animate"
-        viewport={{ once: false, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.1 }}
       >
         <motion.h1
           variants={slideInAnimation("up", "spring", 0)}
@@ -46,4 +46,3 @@ const CTA = () => {
 }
 
 export default CTA
-

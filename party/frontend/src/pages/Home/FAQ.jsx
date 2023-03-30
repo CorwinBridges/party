@@ -49,7 +49,7 @@ const FAQ = () => {
       <motion.div
         initial="initial"
         whileInView="animate"
-        viewport={{ once: false, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.1 }}
       >
         <motion.h1
           variants={slideInAnimation("up", "spring", 0)}
@@ -67,7 +67,7 @@ const FAQ = () => {
             <Disclosure>
               {({ open }) => (
                 <>
-                  <Disclosure.Button className="glass flex w-full justify-between py-4 px-8 text-2xl font-medium lg:text-3xl">
+                  <Disclosure.Button className="glass flex w-full justify-between px-8 py-4 text-2xl font-medium lg:text-3xl">
                     <span className="my-auto">{faq.question}</span>
                     <motion.div
                       animate={{ rotate: open ? -180 : 0 }}

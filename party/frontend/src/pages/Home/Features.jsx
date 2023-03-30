@@ -38,7 +38,7 @@ const Features = () => {
       <motion.div
         initial="initial"
         whileInView="animate"
-        viewport={{ once: false, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.1 }}
         className="relative z-10 grid grid-cols-1 gap-8 xl:grid-cols-7"
       >
         <div className="grid grid-cols-1 grid-rows-2 gap-4 text-center sm:grid-cols-2 lg:gap-8 xl:col-span-4">

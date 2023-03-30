@@ -13,7 +13,7 @@ const Hero = () => {
       <motion.div
         initial="initial"
         whileInView="animate"
-        viewport={{ once: false, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.1 }}
         className="relative z-10 grid gap-8 lg:grid-cols-2"
       >
         {/* Left column */}
@@ -58,9 +58,9 @@ const Hero = () => {
       </motion.div>
 
       {/* Left blur circle */}
-      <div className="absolute top-0 left-0 z-0 h-[50vh] w-1/2 rounded-full bg-[#D3ACF1] opacity-[0.84] blur-[130px]" />
+      <div className="absolute left-0 top-0 z-0 h-[50vh] w-1/2 rounded-full bg-[#D3ACF1] opacity-[0.84] blur-[130px]" />
       {/* Right blur circle */}
-      <div className="absolute top-0 right-0 z-0 h-[50vh] w-1/2 rounded-full bg-[#F97FC8] opacity-[0.94] blur-[130px]" />
+      <div className="absolute right-0 top-0 z-0 h-[50vh] w-1/2 rounded-full bg-[#F97FC8] opacity-[0.94] blur-[130px]" />
     </section>
   )
 }

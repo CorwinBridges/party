@@ -16,7 +16,7 @@ const HQ = () => {
   const scrollValue = useTransform(scrollYProgress, [0, 1], ["100%", "0%"])
   const fadeValue = useTransform(scrollYProgress, [0, 1], ["0%", "100%"])
   return (
-    <section className="py-16">
+    <section className="py-6 lg:py-16">
       <motion.div
         ref={ref}
         style={{ translateY: scrollValue, opacity: fadeValue }}
