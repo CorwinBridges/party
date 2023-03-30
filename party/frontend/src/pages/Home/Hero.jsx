@@ -20,7 +20,7 @@ const Hero = () => {
         <div className="order-1 text-white lg:order-none">
           <motion.div
             variants={slideInAnimation("up", "spring", isLg ? 0 : 0.2)}
-            className="mx-auto max-w-xl text-center text-4xl font-black uppercase sm:text-5xl lg:mx-0 lg:max-w-sm lg:text-left xl:max-w-none xl:text-7xl"
+            className="mx-auto max-w-xl text-center text-4xl font-black uppercase sm:text-5xl lg:mx-0 lg:max-w-sm lg:text-left xl:max-w-none xl:text-7xl 2xl:max-w-lg"
           >
             The{" "}
             <span className="bg-gradient-to-bl from-red-400 to-pink-500 bg-clip-text text-transparent">
@@ -30,7 +30,7 @@ const Hero = () => {
           </motion.div>
           <motion.div
             variants={slideInAnimation("up", "spring", isLg ? 0.2 : 0.4)}
-            className="mx-auto mt-4 max-w-xl text-center text-2xl font-normal lg:max-w-none lg:text-start xl:text-3xl 2xl:text-4xl"
+            className="mx-auto mt-4 max-w-xl text-center text-2xl font-normal lg:max-w-none lg:text-start xl:text-3xl 2xl:mx-0 2xl:max-w-xl 2xl:text-4xl"
           >
             Transform any space into a party paradise with Party in a Box,
             Simply open the box and watch as it sets up an instant celebration
@@ -51,7 +51,7 @@ const Hero = () => {
         {/* Right column */}
         <motion.div
           variants={slideInAnimation("up", "spring", isLg ? 0.2 : 0)}
-          className="z-10 mx-auto w-48 sm:w-52 lg:w-fit lg:max-w-md"
+          className="z-10 mx-auto w-48 sm:w-52 lg:w-fit lg:max-w-lg"
         >
           <img src={gift3d} alt="Gift" />
         </motion.div>
