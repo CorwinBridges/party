@@ -1,3 +1,7 @@
+import { useRef } from "react"
+
+import { motion, useScroll, useTransform } from "framer-motion"
+
 import { madison2, anna2, corwin2 } from "../../assets"
 
 const timelineData = [
@@ -20,11 +24,22 @@ const timelineData = [
     picture: anna2,
   },
 ]
+const Team = () => {
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 0.75", "start 0.25"],
+  })
 
-const Process = () => {
+  const scrollValue = useTransform(scrollYProgress, [0, 1], ["100%", "0%"])
+  const fadeValue = useTransform(scrollYProgress, [0, 1], ["0%", "100%"])
   return (
-    <section className="py-16 text-white">
-      <div className="relative z-10">
+    <section className="py-6 text-white lg:py-16">
+      <motion.div
+        className="relative z-10"
+        ref={ref}
+        style={{ translateY: scrollValue, opacity: fadeValue }}
+      >
         <h1 className="mb-16 text-left text-3xl font-bold md:text-4xl lg:text-5xl">
           <span className="bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-3xl font-bold text-transparent md:text-4xl lg:text-5xl">
             MEET THE TEAM
@@ -41,7 +56,7 @@ const Process = () => {
             return index % 2 === 0 ? (
               // right
               <div className="flex lg:contents" key={index}>
-                <div className="col-start-2 col-end-5 my-8 hidden items-center justify-center rounded-[69px] bg-purple-500 p-8 lg:flex">
+                <div className="col-start-1 col-end-5 m-8 hidden items-center justify-center rounded-[69px] bg-purple-500 p-8 lg:flex">
                   <img src={timeline.picture} alt={timeline.title} />
                 </div>
                 <div className="relative col-start-5 col-end-6 mr-10 lg:mx-auto">
@@ -54,13 +69,13 @@ const Process = () => {
                   {/* Dot */}
                   <div className="glass absolute top-1/2 -mt-3 h-6 w-6" />
                 </div>
-                <div className="glass col-start-6 col-end-9 my-4 rounded-[69px] p-8">
+                <div className="glass col-start-6 col-end-10 m-4 rounded-[69px] p-8 shadow-xl">
                   <h3 className="mb-4 text-left text-2xl font-medium md:text-3xl lg:text-left lg:text-3xl 2xl:text-4xl">
                     <div className="bg-gradient-to-r from-violet-500 via-red-400 to-pink-500 bg-clip-text text-transparent">
                       {timeline.title}
                     </div>
                   </h3>
-                  <p className="text-lg lg:text-left 2xl:text-3xl">
+                  <p className="text-lg lg:text-left 2xl:text-2xl">
                     {timeline.description}
                   </p>
                 </div>
@@ -68,13 +83,13 @@ const Process = () => {
             ) : (
               // left
               <div className="flex flex-row-reverse lg:contents" key={index}>
-                <div className="glass col-start-2 col-end-5 my-4 rounded-[69px] p-8">
+                <div className="glass col-start-1 col-end-5 my-4 rounded-[69px] p-8 shadow-xl">
                   <h3 className="mb-4 text-left text-2xl font-medium md:text-3xl lg:text-right lg:text-3xl 2xl:text-4xl">
                     <div className="bg-gradient-to-r from-violet-500 via-red-400 to-pink-500  bg-clip-text text-transparent">
                       {timeline.title}
                     </div>
                   </h3>
-                  <p className="text-lg lg:text-right 2xl:text-3xl">
+                  <p className="text-lg lg:text-right 2xl:text-2xl">
                     {timeline.description}
                   </p>
                 </div>
@@ -88,16 +103,16 @@ const Process = () => {
                   {/* Dot */}
                   <div className="glass absolute top-1/2 -mt-3 h-6 w-6" />
                 </div>
-                <div className="col-start-6 col-end-9 my-8 hidden items-center justify-center rounded-[69px] bg-purple-500 p-8 lg:flex">
+                <div className="col-start-6 col-end-10 m-8 hidden items-center justify-center rounded-[69px] bg-purple-500 p-8 lg:flex">
                   <img src={timeline.picture} alt={timeline.title} />
                 </div>
               </div>
             )
           })}
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }
 
-export default Process
+export default Team

@@ -30,7 +30,7 @@ const Hero = () => {
           </motion.div>
           <motion.div
             variants={slideInAnimation("up", "spring", isLg ? 0.2 : 0.4)}
-            className="mx-auto mt-4 max-w-xl text-center text-2xl font-normal lg:max-w-none lg:text-start xl:text-3xl 2xl:mx-0 2xl:max-w-xl 2xl:text-4xl"
+            className="mx-auto mt-4 max-w-xl text-center text-2xl font-normal lg:max-w-none lg:text-start xl:text-3xl 2xl:mx-0 2xl:max-w-xl"
           >
             Transform any space into a party paradise with Party in a Box,
             Simply open the box and watch as it sets up an instant celebration
@@ -42,7 +42,7 @@ const Hero = () => {
           >
             <Link
               to="/shop"
-              className="glass mt-4 px-10 py-5 text-center text-xl uppercase duration-200 ease-in-out hover:scale-110 lg:mt-8 xl:text-4xl"
+              className="glass mt-4 px-10 py-5 text-center text-xl uppercase shadow-pink-500/30 duration-200 ease-in-out hover:scale-110 lg:mt-8 xl:text-4xl"
             >
               Shop our products
             </Link>

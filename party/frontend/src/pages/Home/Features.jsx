@@ -88,7 +88,7 @@ const Features = () => {
           >
             <Link
               to="/shop"
-              className="glass mt-8 px-8 py-4 text-center text-xl font-medium uppercase duration-200 ease-in-out hover:scale-110 lg:text-2xl"
+              className="glass mt-8 px-8 py-4 text-center text-xl font-medium uppercase shadow-pink-500/30 duration-200 ease-in-out hover:scale-110 lg:text-2xl"
             >
               Shop now
             </Link>

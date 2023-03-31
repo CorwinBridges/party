@@ -22,7 +22,7 @@ const About = () => {
       <div className="section-container">
         <Awards />
       </div>
-      <div className="section-container">
+      <div className="section-container overflow-hidden">
         <Team />
       </div>
     </>

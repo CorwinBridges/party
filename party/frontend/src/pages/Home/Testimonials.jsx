@@ -242,7 +242,7 @@ const Testimonials = () => {
             <button
               onClick={handleViewMoreStories}
               type="button"
-              className="glass mt-8 px-8 py-4 text-center text-2xl font-medium duration-200 ease-in-out hover:scale-110"
+              className="glass mt-8 px-8 py-4 text-center text-2xl font-medium shadow-pink-500/30 duration-200 ease-in-out hover:scale-110"
             >
               View more stories
             </button>
