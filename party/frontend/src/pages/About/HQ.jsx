@@ -1,10 +1,10 @@
 import { useRef } from "react"
 
-import { Canvas } from "@react-three/fiber"
+
 import { motion, useScroll, useTransform } from "framer-motion"
 
-import { partyhq } from "../../assets"
-import Blob from "../../components/Blob"
+import { partyhq, blob } from "../../assets"
+
 
 const HQ = () => {
   const ref = useRef(null)
@@ -44,10 +44,9 @@ const HQ = () => {
           </div>
         </div>
       </motion.div>
-      <div className="absolute right-10 z-0 h-[500px] w-[500px] opacity-[0.50]">
-        <Canvas camera={{ position: [0.0, 0.0, 8.0] }}>
-          <Blob />
-        </Canvas>
+      {/* Left-side blob image */}
+      <div className="absolute -right-[2%] z-0 h-[300px] w-[300px] lg:h-[300px] lg:w-[300px]">
+        <img src={blob} alt="swirl" className="relative top-40 blur" />
       </div>
     </section>
   )

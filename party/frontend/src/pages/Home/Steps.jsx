@@ -10,15 +10,15 @@ import { useMediaQuery } from "../../utils"
 
 const timelineData = [
   {
-    title: "1. Take the Quiz",
+    title: "1. Decide the Party",
     description:
-      "Take a quick quiz on our website to create a customized party box that perfectly fits your needs. You can select the party's size, theme, music, and accessories like balloons and utensils.",
+      "The first step in creating a party in a box is to decide on the type of party you want to have. Consider the theme, audience, location, and budget to help determine the overall direction and scope of the party.",
     icon: <MdQuiz />,
   },
   {
     title: "2. Choose Your Box",
     description:
-      "Select the party box that suits your needs based on the quiz results. We offer different party boxes of various sizes, themes, and accessories.",
+      "After you have decided on the type of party you want to have, the next step is to choose the box that fits the theme and purpose of the party. All of our boxes have the necessary items for each party you may want to throw.",
     icon: <FaGift />,
   },
   {
@@ -36,7 +36,7 @@ const timelineData = [
   {
     title: "5. Clean Up in Seconds",
     description:
-      "Once the party is over, cleaning up is a breeze. Simply throw away any disposable items and place the reusable items back in the box. The box can be easily stored until your next party.",
+      "Once the party is over, cleaning up is a breeze. Simply throw away any disposable items and let the AI do the rest!",
     icon: <FaRecycle />,
   },
 ]

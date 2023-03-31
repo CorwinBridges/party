@@ -9,6 +9,7 @@
 - [ ] make shop search work
 - [ ] use formik and yup for form
 - [ ] implement node, express, and mongoDB
+- [ ] gradient glow to buttons on home page
 
 - [ ] refactor navbar
 - [ ] setup animations
