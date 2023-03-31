@@ -1,8 +1,10 @@
 import { useRef } from "react"
 
+import { Canvas } from "@react-three/fiber"
 import { motion, useScroll, useTransform } from "framer-motion"
 
 import { madison2, anna2, corwin2 } from "../../assets"
+import Blob from "../../components/Blob"
 
 const timelineData = [
   {
@@ -111,6 +113,11 @@ const Team = () => {
           })}
         </div>
       </motion.div>
+      <div className="absolute -left-20 bottom-[1300px] z-0  h-[500px] w-[500px] opacity-[0.50]">
+        <Canvas camera={{ position: [0.0, 0.0, 8.0] }}>
+          <Blob />
+        </Canvas>
+      </div>
     </section>
   )
 }

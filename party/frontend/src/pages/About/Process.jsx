@@ -1,6 +1,7 @@
+import { useRef } from "react"
 
-import { Canvas } from "@react-three/fiber";
-import Blob from "../../components/Blob";
+import { motion, useScroll, useTransform } from "framer-motion"
+
 const timelineData = [
   {
     title: "1. Research and Development",
@@ -8,7 +9,7 @@ const timelineData = [
       "Our team conducts extensive research on the latest trends and innovations in party planning and decorations, to ensure that our boxes are always up-to-date and on-trend.",
   },
   {
-    title: "2. Conceptualization and Design",
+    title: "2. Conceptualize and Design",
     description:
       "Using the information gathered from our research, our team conceptualizes and designs the perfect party box, taking into account factors such as aesthetics, functionality, and customer needs.",
   },
@@ -20,11 +21,23 @@ const timelineData = [
 ]
 
 const Process = () => {
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 0.75", "start 0.25"],
+  })
+
+  const scrollValue = useTransform(scrollYProgress, [0, 1], ["100%", "0%"])
+  const fadeValue = useTransform(scrollYProgress, [0, 1], ["0%", "100%"])
   return (
-    <section className="z-10 text-white py-16">
-      <div className="relative z-10">
+    <section className="py-6 text-white lg:py-16">
+      <motion.div
+        className="relative z-10"
+        ref={ref}
+        style={{ translateY: scrollValue, opacity: fadeValue }}
+      >
         <h1 className="mb-16 text-left text-3xl font-bold md:text-4xl lg:text-5xl ">
-          <span className="z-10 bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-3xl font-bold text-transparent md:text-4xl lg:text-5xl">
+          <span className="relative z-10 bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-3xl font-bold text-transparent md:text-4xl lg:text-5xl">
             OUR PROCESS
           </span>
         </h1>
@@ -40,7 +53,7 @@ const Process = () => {
               // left
               <div className="flex flex-row-reverse lg:contents" key={index}>
                 <div className="glass col-start-1 col-end-5 my-4 rounded-[69px] p-8">
-                  <h3 className="mb-4 text-left  text-2xl font-medium md:text-3xl lg:text-right  lg:text-4xl">
+                  <h3 className="mb-4 text-left text-2xl font-medium md:text-3xl lg:text-right  lg:text-4xl">
                     <div className="bg-gradient-to-r from-violet-500 via-red-400 to-pink-500  bg-clip-text text-transparent">
                       {timeline.title}
                     </div>
@@ -63,9 +76,6 @@ const Process = () => {
             ) : (
               // right
               <div className="flex lg:contents" key={index}>
-                <div className="col-span-1 col-start-4 hidden items-center justify-center text-8xl lg:flex">
-                  {timeline.icon}
-                </div>
                 <div className="relative col-start-5 col-end-6 mr-10 lg:mx-auto">
                   {/* Line */}
                   <div className="flex h-full w-6 items-center justify-center">
@@ -88,13 +98,7 @@ const Process = () => {
             )
           })}
         </div>
-      </div>
-
-      <div className="z-0 absolute -left-20 bottom-[1300px]  h-[500px] w-[500px] opacity-[0.50]">
-        <Canvas camera ={{position: [0.0, 0.0, 8.0]}}>
-          <Blob />
-        </Canvas>
-      </div>
+      </motion.div>
     </section>
   )
 }
