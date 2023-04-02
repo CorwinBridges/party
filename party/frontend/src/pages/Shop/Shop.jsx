@@ -1,3 +1,7 @@
+import { useState, useEffect } from "react"
+
+import Axios from "axios"
+
 import {
   Carousel,
   Search,
@@ -61,6 +65,28 @@ const products = [
 ]
 
 const Shop = () => {
+  const [listOfProducts, setListOfProducts] = useState([])
+  const [title, setTitle] = useState("")
+  const [price, setPrice] = useState(0)
+  const [description, setDescription] = useState("")
+  useEffect(() => {
+    Axios.get("http://localhost:6968/getProducts").then((response) => {
+      setListOfProducts(response.data)
+      console.log(...response.data)
+    })
+  }, [])
+
+  const createProduct = () => {
+    Axios.post("http://localhost:6968/createProduct", {
+      title,
+      price,
+      description,
+    }).then((response) => {
+      alert("Product created")
+      setListOfProducts([...listOfProducts, { title, price, description }])
+    })
+  }
+
   return (
     <>
       <Carousel />
@@ -77,9 +103,35 @@ const Shop = () => {
               <Sort />
             </div>
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-              {products.map((product, index) => (
+              {listOfProducts.map((product, index) => (
                 <Product key={index} {...product} />
               ))}
+            </div>
+            <div>
+              <input
+                type="text"
+                placeholder="Title..."
+                onChange={(e) => {
+                  setTitle(e.target.value)
+                }}
+              />
+              <input
+                type="number"
+                placeholder="Price..."
+                onChange={(e) => {
+                  setPrice(e.target.value)
+                }}
+              />
+              <input
+                type="text"
+                placeholder="Description..."
+                onChange={(e) => {
+                  setDescription(e.target.value)
+                }}
+              />
+              <button type="button" onClick={createProduct}>
+                Create Product
+              </button>
             </div>
           </div>
         </div>

@@ -10,9 +10,11 @@ const Story = () => {
         initial="initial"
         whileInView="animate"
         viewport={{ once: true, amount: 0.1 }}
-        className="glass relative z-10 rounded-[69px] p-8"
       >
-        <motion.div variants={slideInAnimation("up", "spring", 0)}>
+        <motion.div
+          variants={slideInAnimation("up", "spring", 0)}
+          className="glass relative z-10 rounded-[69px] p-8"
+        >
           {/* us */}
           <div className="mb-4 flex justify-center">
             <img src={group} />

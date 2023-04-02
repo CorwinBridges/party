@@ -19,7 +19,7 @@ const Search = () => {
   const results = fuse.search(productQuery)
   const nameResults = results.map((result) => result.item)
   return (
-    <section className="pb-16 lg:text-2xl text-lg text-white">
+    <section className="pb-16 text-lg text-white lg:text-2xl">
       <Combobox
         as="div"
         onChange={(name) => {
@@ -33,8 +33,8 @@ const Search = () => {
             setProductQuery(e.target.value)
           }}
           type="text"
-          placeholder="search..."
-          className="glass w-full bg-transparent py-2 px-8 pr-10 leading-tight placeholder:text-white/70 focus:outline-none"
+          placeholder="Search..."
+          className="glass w-full bg-transparent px-6 py-2 pr-10 leading-tight placeholder:text-white/70 focus:outline-none"
         />
 
         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-5 text-2xl">
@@ -43,13 +43,13 @@ const Search = () => {
         {nameResults.length > 0 && (
           <Combobox.Options
             static
-            className="max-h-96 overflow-y-auto p-1 text-xl"
+            className="glass absolute z-10 mt-2 max-h-96 w-full overflow-y-auto rounded-3xl p-1 text-xl"
           >
             {nameResults.map((name) => (
               <Combobox.Option key={name.id} value={name}>
                 {({ active }) => (
                   <div
-                    className={`cursor-pointer rounded-md px-4 py-2 ${
+                    className={`cursor-pointer rounded-3xl px-4 py-2 ${
                       active ? "bg-pink-500 text-white" : ""
                     }`}
                   >
@@ -61,7 +61,7 @@ const Search = () => {
           </Combobox.Options>
         )}
         {productQuery && nameResults.length === 0 && (
-          <div className="p-1">
+          <div className="absolute z-10 p-1">
             <p className="px-4 py-2 text-xl">No results found</p>
           </div>
         )}
