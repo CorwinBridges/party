@@ -110,19 +110,21 @@ const Footer = () => {
       <ReactCanvasConfetti refConfetti={getInstance} style={canvasStyles} />
       <div className="section-container py-16">
         <div className="text-center lg:text-left">
-          <Link
-            to="/"
-            onClick={(event) => {
-              setOpen(false)
-              fireConfetti(event)
-            }}
-          >
-            <img
-              className="mx-auto mb-8 h-40 cursor-pointer"
-              src={partylogonowords}
-              alt="Logo"
-            />
-          </Link>
+          <div className="mb-8 flex justify-center">
+            <Link
+              to="/"
+              onClick={(event) => {
+                setOpen(false)
+                fireConfetti(event)
+              }}
+            >
+              <img
+                className="h-40 cursor-pointer"
+                src={partylogonowords}
+                alt="Logo"
+              />
+            </Link>
+          </div>
           <div className="grid gap-8 lg:grid-cols-3 lg:gap-12">
             <div className="items-center justify-center sm:items-start">
               <h3 className="mb-4 bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-2xl font-bold uppercase text-transparent">

@@ -124,7 +124,7 @@ const Navbar = () => {
       <ReactCanvasConfetti refConfetti={getInstance} style={canvasStyles} />
       <div className="flex w-full flex-wrap items-center justify-between px-4 py-0 sm:py-4">
         {/* logo */}
-        <div className="pt-2">
+        <div className="mt-2 mx-5">
           <Link
             to="/"
             onClick={(event) => {
@@ -135,7 +135,7 @@ const Navbar = () => {
             <img
               src={partylogonowords}
               alt="Logo"
-              className="relative z-10 mx-5 h-20"
+              className="relative z-10 h-20"
             />
           </Link>
         </div>

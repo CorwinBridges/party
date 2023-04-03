@@ -2,7 +2,6 @@ require("dotenv").config()
 const express = require("express")
 const app = express()
 const mongoose = require("mongoose")
-const ProductModel = require("./models/Product")
 const dbConnect = require("./dbConnect")
 const cors = require("cors")
 
@@ -11,6 +10,7 @@ dbConnect()
 app.use(express.json())
 app.use(cors())
 
+const ProductModel = require("./models/Product")
 
 app.get("/getProducts", (req, res) => {
   ProductModel.find({})
@@ -29,6 +29,21 @@ app.post("/createProduct", async (req, res) => {
   await newProduct.save()
   res.json(newProduct)
 })
+
+// app.get("/search", async (req, res) => {
+//   const searchTerm = req.query.q
+//   try {
+//     const products = await Product.find({
+//       $or: [
+//         { title: new RegExp(searchTerm, "i") },
+//         { description: new RegExp(searchTerm, "i") },
+//       ],
+//     })
+//     res.json(products)
+//   } catch (err) {
+//     res.status(500).json({ message: err.message })
+//   }
+// })
 
 const port = process.env.PORT || 6968
 app.listen(port, () => {
