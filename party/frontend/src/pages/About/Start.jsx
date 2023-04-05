@@ -14,6 +14,7 @@ const Start = () => {
 
   return (
     <section className="py-6 lg:py-16">
+      {/* title and description */}
       <motion.div
         ref={ref}
         style={{ translateY: scrollValue, opacity: fadeValue }}

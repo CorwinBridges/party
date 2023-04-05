@@ -1,7 +1,7 @@
 import { useRef } from "react"
 
 import { motion, useScroll, useTransform } from "framer-motion"
-
+//  steps one two and three
 const timelineData = [
   {
     title: "1. Research and Development",
@@ -36,6 +36,7 @@ const Process = () => {
         ref={ref}
         style={{ translateY: scrollValue, opacity: fadeValue }}
       >
+        {/* title of section */}
         <h1 className="mb-16 text-left text-3xl font-bold md:text-4xl lg:text-5xl ">
           <span className="relative z-10 bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-3xl font-bold text-transparent md:text-4xl lg:text-5xl">
             OUR PROCESS

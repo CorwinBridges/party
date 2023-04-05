@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import { fadeInAnimation, slideInAnimation } from "../../data"
 import { useMediaQuery } from "../../utils"
 
+// story card descriptions
 const quotes = [
   {
     reviewer: "Dancey Dave",

@@ -14,6 +14,7 @@ const Mission = () => {
 
   return (
     <section className="py-6 lg:py-16">
+      {/* mission statement and description */}
       <motion.div
         ref={ref}
         style={{ translateY: scrollValue, opacity: fadeValue }}

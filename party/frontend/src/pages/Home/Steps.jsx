@@ -8,6 +8,8 @@ import { swirl } from "../../assets"
 import { slideInAnimation, fadeInAnimation, heightAnimation } from "../../data"
 import { useMediaQuery } from "../../utils"
 
+
+// steps card descriptions
 const timelineData = [
   {
     title: "1. Decide the Party",
@@ -55,6 +57,7 @@ const Steps = () => {
         whileInView="animate"
         viewport={{ once: true, amount: 0.1 }}
       >
+        {/* title */}
         <motion.h1
           variants={slideInAnimation("up", "spring", 0)}
           className="z-10 mb-5 text-center text-4xl font-bold lg:mb-16 lg:text-7xl"

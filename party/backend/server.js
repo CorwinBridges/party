@@ -11,6 +11,7 @@ app.use(express.json())
 app.use(cors())
 
 const ProductModel = require("./models/Product")
+const ContactModel = require("./models/Contact")
 
 app.get("/getProducts", (req, res) => {
   ProductModel.find({})
@@ -28,6 +29,14 @@ app.post("/createProduct", async (req, res) => {
 
   await newProduct.save()
   res.json(newProduct)
+})
+
+app.post("/submitForm", async (req, res) => {
+  const form = req.body
+  const newForm = new ContactModel(form)
+
+  await newForm.save()
+  res.json(newForm)
 })
 
 // app.get("/search", async (req, res) => {

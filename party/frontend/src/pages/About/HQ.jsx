@@ -22,6 +22,7 @@ const HQ = () => {
         style={{ translateY: scrollValue, opacity: fadeValue }}
         className="relative z-10"
       >
+        {/* head quarters image */}
         <div className="relative top-10 z-20 mx-auto xl:max-w-3xl xl:w-full w-[90%] sm:w-[80%]">
           <img
             src={partyhq}
@@ -29,6 +30,7 @@ const HQ = () => {
             className="relative rounded-[50px]"
           />
         </div>
+        {/* head quarters description */}
         <div className="glass relative rounded-[50px] p-8 text-white md:px-40 lg:px-20">
           <div className="my-4 text-center">
             <span className="bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-3xl font-bold text-transparent md:text-4xl lg:text-5xl">

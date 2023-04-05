@@ -37,12 +37,14 @@ const Awards = () => {
         ref={ref}
         style={{ translateY: scrollValue, opacity: fadeValue }}
       >
+        {/* title and awards */}
         <div className="mb-8 text-center">
           <span className="bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-3xl font-bold text-transparent md:text-4xl lg:text-5xl">
             AWARD WINNING TEAM
           </span>
         </div>
         <div className="glass flex justify-center rounded-[30px]">
+          {/* award images */}
           <div className="grid grid-cols-3 gap-8 p-8">
             {awards.map((award, index) => {
               return (

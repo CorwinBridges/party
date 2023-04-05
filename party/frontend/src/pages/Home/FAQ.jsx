@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { swirl } from "../../assets"
 import { slideInAnimation } from "../../data"
 
+// drop down details
 const faqData = [
   {
     id: 1,
@@ -51,6 +52,7 @@ const FAQ = () => {
         whileInView="animate"
         viewport={{ once: true, amount: 0.1 }}
       >
+        {/* title */}
         <motion.h1
           variants={slideInAnimation("up", "spring", 0)}
           className="z-10 text-center text-4xl font-bold lg:text-7xl"
@@ -67,6 +69,7 @@ const FAQ = () => {
             <Disclosure>
               {({ open }) => (
                 <>
+                {/* button open and closed descriptions */}
                   <Disclosure.Button className="glass flex w-full justify-between px-8 py-4 text-2xl font-medium lg:text-3xl">
                     <span className="my-auto">{faq.question}</span>
                     <motion.div

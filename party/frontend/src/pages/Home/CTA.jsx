@@ -12,6 +12,7 @@ const CTA = () => {
         whileInView="animate"
         viewport={{ once: true, amount: 0.1 }}
       >
+        {/* title and description */}
         <motion.h1
           variants={slideInAnimation("up", "spring", 0)}
           className=" text-4xl font-bold uppercase lg:text-5xl"
@@ -33,6 +34,7 @@ const CTA = () => {
           variants={slideInAnimation("up", "spring", 0.4)}
           className="flex justify-center"
         >
+          {/* button */}
           <Link
             to="/shop"
             className="glass mt-8 px-10 py-5 text-center text-xl font-medium shadow-pink-500/30 duration-200 ease-in-out hover:scale-110 lg:text-3xl xl:text-4xl"

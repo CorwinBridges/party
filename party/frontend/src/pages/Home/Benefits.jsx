@@ -12,6 +12,7 @@ import { motion } from "framer-motion"
 import { swirl } from "../../assets"
 import { slideInAnimation } from "../../data"
 
+// cards details
 const benefits = [
   {
     icon: <FaMoneyBill />,
@@ -63,6 +64,7 @@ const Benefits = () => {
         whileInView="animate"
         viewport={{ once: true, amount: 0.1 }}
       >
+        {/* title */}
         <motion.h1
           variants={slideInAnimation("up", "spring", 0)}
           className="glass relative z-10 rounded-[69px] py-32 px-8 text-center text-4xl font-bold lg:py-40 lg:text-7xl"
@@ -72,6 +74,7 @@ const Benefits = () => {
             Perfection
           </span>
         </motion.h1>
+        {/* benefits */}
         <div className="relative bottom-24 z-10 mx-auto -mb-24 grid w-[90%] grid-rows-2 gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {benefits.map((benefit, index) => (
             <motion.div

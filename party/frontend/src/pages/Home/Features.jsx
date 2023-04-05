@@ -6,6 +6,7 @@ import { motion } from "framer-motion"
 import { slideInAnimation } from "../../data"
 import { useMediaQuery } from "../../utils"
 
+// features card descriptions
 const featureData = [
   {
     title: "Patented Design",
@@ -41,6 +42,7 @@ const Features = () => {
         viewport={{ once: true, amount: 0.1 }}
         className="relative z-10 grid grid-cols-1 gap-8 xl:grid-cols-7"
       >
+        {/* features cards */}
         <div className="grid grid-cols-1 grid-rows-2 gap-4 text-center sm:grid-cols-2 lg:gap-8 xl:col-span-4">
           {featureData.map((feature, index) => (
             <motion.div
@@ -60,7 +62,7 @@ const Features = () => {
             </motion.div>
           ))}
         </div>
-
+                {/* title and description */}
         <div className="order-first mt-8 xl:order-last xl:col-span-3">
           <motion.h1
             variants={slideInAnimation("up", "spring", isXl ? 0.8 : 0)}
@@ -86,6 +88,7 @@ const Features = () => {
             variants={slideInAnimation("up", "spring", isXl ? 1.2 : 0.4)}
             className="flex justify-center xl:justify-start"
           >
+            {/* button */}
             <Link
               to="/shop"
               className="glass mt-8 px-8 py-4 text-center text-xl font-medium uppercase shadow-pink-500/30 duration-200 ease-in-out hover:scale-110 lg:text-2xl"
