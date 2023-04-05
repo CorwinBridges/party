@@ -69,7 +69,7 @@ const FAQ = () => {
             <Disclosure>
               {({ open }) => (
                 <>
-                {/* button open and closed descriptions */}
+                  {/* button open and closed descriptions */}
                   <Disclosure.Button className="glass flex w-full justify-between px-8 py-4 text-2xl font-medium lg:text-3xl">
                     <span className="my-auto">{faq.question}</span>
                     <motion.div
@@ -83,9 +83,22 @@ const FAQ = () => {
                     {open && (
                       <motion.div
                         initial={{ opacity: 0, scale: 0.8, height: 0 }}
-                        animate={{ opacity: 1, scale: 1, height: "auto" }}
-                        exit={{ opacity: 0, scale: 0.8, height: 0 }}
-                        transition={{ duration: 0.3 }}
+                        animate={{
+                          opacity: 1,
+                          scale: 1,
+                          height: "auto",
+                          transition: { duration: 0.3 }, // Transition for entering
+                        }}
+                        exit={{
+                          opacity: 0,
+                          scale: 0.8,
+                          height: 0,
+                          transition: {
+                            opacity: { duration: 0.15 }, // Faster transition for opacity on exit
+                            scale: { duration: 0.3 },
+                            height: { duration: 0.3 },
+                          },
+                        }}
                         style={{ originX: 0 }}
                       >
                         <div className="px-8 pt-8 text-2xl">{faq.answer}</div>
