@@ -31,7 +31,7 @@ const BackToTop = () => {
 
   return (
     <motion.button
-      className={`glass fixed bottom-12 right-12 z-50 p-3 text-white ${
+      className={`glass fixed bottom-12 right-12 z-30 p-3 text-white ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
       type="button"
