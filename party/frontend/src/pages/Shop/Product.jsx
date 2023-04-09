@@ -1,11 +1,12 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa"
 
+import axios from "axios"
 import { MotionConfig, motion } from "framer-motion"
 
 import { partylogonowords } from "../../assets"
 
-const products = [
+const productsTest = [
   {
     id: 1,
     title: "Birthday",
@@ -76,6 +77,7 @@ const products = [
 
 const Product = () => {
   const [selectedProduct, setSelectedProduct] = useState(null)
+  const [products, setProducts] = useState([])
 
   const handleCardClick = (product) => {
     setSelectedProduct(selectedProduct === product ? null : product)
@@ -96,7 +98,7 @@ const Product = () => {
         ))}
         {/* Half Star */}
         {hasHalfStar && <FaStarHalfAlt className="text-yellow-500" />}
-        {/* Greyed Out Stars */}
+        {/* Empty Stars */}
         {[...Array(5 - Math.ceil(rating))].map((_, index) => (
           <FaRegStar key={index + fullStars} className="text-yellow-500" />
         ))}
@@ -104,70 +106,146 @@ const Product = () => {
     )
   }
 
+  useEffect(() => {
+    const getProducts = async () => {
+      const response = await axios.get("http://localhost:6968/products")
+      setProducts(response.data)
+      console.log(response.data)
+    }
+    getProducts()
+  }, [])
+
+  const handleSortClick = (sortType) => {
+    let sortedProducts
+    if (sortType === "title-asc") {
+      sortedProducts = [...products].sort((a, b) =>
+        a.title.localeCompare(b.title)
+      )
+    } else if (sortType === "title-desc") {
+      sortedProducts = [...products].sort((a, b) =>
+        b.title.localeCompare(a.title)
+      )
+    } else if (sortType === "price-asc") {
+      sortedProducts = [...products].sort((a, b) => a.price - b.price)
+    } else if (sortType === "price-desc") {
+      sortedProducts = [...products].sort((a, b) => b.price - a.price)
+    } else if (sortType === "rating-asc") {
+      sortedProducts = [...products].sort((a, b) => a.rating - b.rating)
+    } else if (sortType === "rating-desc") {
+      sortedProducts = [...products].sort((a, b) => b.rating - a.rating)
+    }
+    setProducts(sortedProducts)
+  }
+
   return (
-    <div className="grid grid-cols-1 gap-4 text-white lg:grid-cols-3">
-      {products.map((product, index) => (
-        <div key={index}>
-          <MotionConfig transition={{ duration: duration }}>
-            <motion.div
-              className={`glass cursor-pointer p-8 text-2xl ${
-                selectedProduct === product
-                  ? "fixed bottom-0 left-0 right-0 top-0 m-auto flex h-3/4 w-2/3 flex-col items-center"
-                  : "relative"
-              }`}
-              style={{ borderRadius: 69 }}
-              animate={
-                selectedProduct === product
-                  ? { zIndex: 45 }
-                  : {
-                      zIndex: 10,
-                      transition: {
-                        delay: duration,
-                      },
-                    }
-              }
-              layout
-              onClick={() => handleCardClick(product)}
-            >
-              <motion.img
-                className="mx-auto mb-4 max-h-48"
-                layout
-                src={product.image}
-                alt={product.title}
-              />
+    <>
+      <div className="flex justify-end">
+        <button
+          className="px-4 py-2 text-center text-white bg-indigo-600 rounded-md shadow-lg hover:bg-indigo-700 focus:outline-none"
+          onClick={() => handleSortClick("title-asc")}
+        >
+          Sort A-Z
+        </button>
+        <button
+          className="ml-2 px-4 py-2 text-center text-white bg-indigo-600 rounded-md shadow-lg hover:bg-indigo-700 focus:outline-none"
+          onClick={() => handleSortClick("title-desc")}
+        >
+          Sort Z-A
+        </button>
+        <button
+          className="ml-2 px-4 py-2 text-center text-white bg-indigo-600 rounded-md shadow-lg hover:bg-indigo-700 focus:outline-none"
+          onClick={() => handleSortClick("price-asc")}
+        >
+          Sort Price: Low to High
+        </button>
+        <button
+          className="ml-2 px-4 py-2 text-center text-white bg-indigo-600 rounded-md shadow-lg hover:bg-indigo-700 focus:outline-none"
+          onClick={() => handleSortClick("price-desc")}
+        >
+          Sort Price: High to Low
+        </button>
+        <button
+          className="ml-2 px-4 py-2 text-center text-white bg-indigo-600 rounded-md shadow-lg hover:bg-indigo-700 focus:outline-none"
+          onClick={() => handleSortClick("rating-asc")}
+        >
+          Sort Rating: Low to High
+        </button>
+        <button
+          className="ml-2 px-4 py-2 text-center text-white bg-indigo-600 rounded-md shadow-lg hover:bg-indigo-700 focus:outline-none"
+          onClick={() => handleSortClick("rating-desc")}
+        >
+          Sort Rating: High to Low
+        </button>
+      </div>
+      <div className="grid grid-cols-1 gap-4 text-white lg:grid-cols-3">
+        {products.map((product, index) => (
+          <div key={index}>
+            <MotionConfig transition={{ duration: duration }}>
               <motion.div
-                layout="position"
-                className="mb-2 flex justify-between"
+                className={`glass cursor-pointer p-8 text-2xl ${
+                  selectedProduct === product
+                    ? "fixed bottom-0 left-0 right-0 top-0 m-auto flex h-3/4 w-2/3 flex-col items-center"
+                    : "relative min-h-full"
+                }`}
+                style={{ borderRadius: 69 }}
+                animate={
+                  selectedProduct === product
+                    ? { zIndex: 45 }
+                    : {
+                        zIndex: 10,
+                        transition: {
+                          delay: duration,
+                        },
+                      }
+                }
+                layout
+                onClick={() => handleCardClick(product)}
               >
-                <span>{product.title}</span> <span>${product.price}</span>
+                <motion.img
+                  className="mx-auto mb-4 max-h-48"
+                  layout
+                  src={partylogonowords}
+                  alt={product.title}
+                />
+                <motion.div
+                  layout="position"
+                  className="mb-2 flex justify-between"
+                >
+                  <span>{product.title}</span> <span>${product.price}</span>
+                </motion.div>
+                {/* Render Star Rating */}
+                <motion.div layout className="mb-4 flex items-center">
+                  <span className="mr-2 text-yellow-500">{product.rating}</span>
+                  <span className="mr-2">
+                    {renderStarRating(product.rating)}
+                  </span>
+                  <span className="text-neutral-400 underline">
+                    ({product.quantity})
+                  </span>
+                </motion.div>
+                <motion.div layout="position" className="mb-2 text-base">
+                  Hello
+                </motion.div>
+                <motion.div
+                  className="flex items-end justify-end"
+                  layout="position"
+                >
+                  <button className="glass px-4 py-2 text-center text-2xl font-medium shadow-pink-500/30 duration-200 ease-in-out hover:scale-110">
+                    Buy
+                  </button>
+                </motion.div>
               </motion.div>
-              {/* Render Star Rating */}
-              <motion.div layout className="mb-4 flex items-center">
-                <span className="mr-2 text-yellow-500">{product.rating}</span>
-                <span className="mr-2">{renderStarRating(product.rating)}</span>
-                <span className="text-neutral-400 underline">
-                  ({product.quantity})
-                </span>
-              </motion.div>
-              <motion.div layout="position" className="mb-2 text-base">
-                {product.description}
-              </motion.div>
-              <div className="flex justify-end">
-                <button className="glass px-4 py-2 text-center text-2xl font-medium shadow-pink-500/30 duration-200 ease-in-out hover:scale-110">
-                  Buy
-                </button>
-              </div>
-            </motion.div>
-          </MotionConfig>
-        </div>
-      ))}
-      <motion.div
-        className={`pointer-events-auto absolute left-0 top-0 block h-full w-full bg-black opacity-0 ${
-          selectedProduct ? "z-40" : "z-0"
-        }`}
-        animate={{ opacity: selectedProduct ? 0.3 : 0 }}
-      />
-    </div>
+            </MotionConfig>
+          </div>
+        ))}
+        <motion.div
+          className={`pointer-events-auto absolute left-0 top-0 block h-full w-full bg-black opacity-0 ${
+            selectedProduct ? "z-40" : "-z-10"
+          }`}
+          animate={{ opacity: selectedProduct ? 0.3 : 0 }}
+        />
+      </div>
+    </>
   )
 }
 

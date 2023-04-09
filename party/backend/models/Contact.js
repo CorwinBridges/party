@@ -19,5 +19,5 @@ const FormSchema = new mongoose.Schema({
   },
 })
 
-const ContactModel = mongoose.model("forms", FormSchema)
+const ContactModel = mongoose.model("contacts", FormSchema)
 module.exports = ContactModel

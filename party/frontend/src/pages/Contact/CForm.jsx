@@ -35,7 +35,7 @@ const onSubmit = async (values, { setSubmitting, resetForm }) => {
   let promise = null
   try {
     promise = toast.loading("Submitting form...")
-    const response = await axios.post("http://localhost:6968/submitForm", values)
+    const response = await axios.post("http://localhost:6968/contacts", values)
     toast.success("Form submitted successfully!", { id: promise })
     resetForm()
   } catch (error) {
