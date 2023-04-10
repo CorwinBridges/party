@@ -1,15 +1,19 @@
 # Todo List
 
-- [x] Standardize spacing between sections on all pages
-- [ ] Add page animations via framer motion
-- [ ] Make cart work
-- [ ] style products
-- [ ] style filters and sort
+Shop
+- [ ] make cart work
 - [ ] make filters and sort work
 - [ ] make shop search work
-- [ ] use formik and yup for form
-- [ ] implement node, express, and mongoDB
+- [ ] make breadcrumbs work
+- [ ] make pagination work
 
+- [ ] add filter animation with framer motion
+- [ ] style products
+- [ ] style filters and sort
+
+
+Miscellaneous
 - [ ] refactor navbar
-- [ ] setup animations
+- [ ] add navbar animation
 - [ ] edit icons and descriptions
+- [ ] add cursor and scroll bar styles

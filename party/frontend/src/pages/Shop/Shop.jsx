@@ -10,13 +10,10 @@ import {
   Filter,
   Product,
   Pagination,
-  Preview,
 } from "../../pages"
 import { PageWrapper } from "../../utils"
 
-
 const Shop = () => {
-
   return (
     <>
       <Carousel />
@@ -38,9 +35,6 @@ const Shop = () => {
       </div>
       <div className="section-container">
         <Pagination />
-      </div>
-      <div className="section-container">
-        <Preview />
       </div>
     </>
   )

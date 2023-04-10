@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     screens: {
       "2xs": "320px",
-      "xs": "480px",
+      xs: "480px",
       ...defaultTheme.screens,
     },
   },
@@ -40,5 +40,6 @@ module.exports = {
         }
       )
     }),
+    require("@tailwindcss/forms"),
   ],
 }

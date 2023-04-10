@@ -1,12 +1,9 @@
-import { useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import { useState } from "react"
+import toast, { Toaster } from "react-hot-toast"
 
-
-
-import axios from "axios";
-import { Formik, Field, Form, ErrorMessage } from "formik";
-import * as Yup from "yup";
-
+import axios from "axios"
+import { Formik, Field, Form, ErrorMessage } from "formik"
+import * as Yup from "yup"
 
 const validationSchema = Yup.object().shape({
   firstName: Yup.string()
@@ -111,7 +108,7 @@ const CForm = () => {
                       name="firstName"
                       type="text"
                       placeholder="First Name"
-                      className="glass w-full rounded-[69px] bg-inherit px-3 py-1 text-base leading-8 text-white outline-none transition-colors duration-200 ease-in-out placeholder:text-white/70 focus:border-pink-500 "
+                      className="glass w-full rounded-[69px] bg-inherit px-3 py-1 text-base leading-8 text-white outline-none transition-colors duration-200 ease-in-out placeholder:text-white/70 focus:border-pink-500 focus:ring-0 "
                     />
                     <div className="text-pink-500">
                       <ErrorMessage name="firstName" />
@@ -127,7 +124,7 @@ const CForm = () => {
                       name="lastName"
                       type="text"
                       placeholder="Last Name"
-                      className="glass w-full rounded-[69px] bg-inherit px-3 py-1 leading-8 text-white outline-none transition-colors duration-200 ease-in-out placeholder:text-white/70 focus:border-pink-500"
+                      className="glass w-full rounded-[69px] bg-inherit px-3 py-1 leading-8 text-white outline-none transition-colors duration-200 ease-in-out placeholder:text-white/70 focus:border-pink-500 focus:ring-0"
                     />
                     <div className="text-pink-500">
                       <ErrorMessage name="lastName" />
@@ -143,7 +140,7 @@ const CForm = () => {
                       name="email"
                       type="email"
                       placeholder="Email"
-                      className="glass w-full rounded-[69px] bg-inherit px-3 py-1 leading-8 text-white outline-none transition-colors duration-200 ease-in-out placeholder:text-white/70 focus:border-pink-500"
+                      className="glass w-full rounded-[69px] bg-inherit px-3 py-1 leading-8 text-white outline-none transition-colors duration-200 ease-in-out placeholder:text-white/70 focus:border-pink-500 focus:ring-0"
                     />
                     <div className="text-pink-500">
                       <ErrorMessage name="email" />
@@ -158,8 +155,9 @@ const CForm = () => {
                       name="message"
                       placeholder="Leave a message"
                       as="textarea"
-                      className="glass h-32 w-full resize-none rounded-[25px] bg-inherit px-3 py-1 text-base leading-6 text-white outline-none transition-colors duration-200 ease-in-out placeholder:text-white/70 focus:border-pink-500"
+                      className="glass h-32 w-full resize-none rounded-[25px] bg-inherit px-3 py-1 text-base leading-6 text-white outline-none transition-colors duration-200 ease-in-out placeholder:text-white/70 focus:border-pink-500 focus:ring-0"
                     />
+
                     <div className="text-pink-500">
                       <ErrorMessage name="message" />
                     </div>

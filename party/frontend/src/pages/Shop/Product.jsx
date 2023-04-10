@@ -110,7 +110,6 @@ const Product = () => {
     const getProducts = async () => {
       const response = await axios.get("http://localhost:6968/products")
       setProducts(response.data)
-      console.log(response.data)
     }
     getProducts()
   }, [])
@@ -139,45 +138,48 @@ const Product = () => {
 
   return (
     <>
-      <div className="flex justify-end">
+      <h1 className="text-5xl font-bold text-yellow-400">
+        ***These are just for testing***
+      </h1>
+      <div className="flex">
         <button
-          className="px-4 py-2 text-center text-white bg-indigo-600 rounded-md shadow-lg hover:bg-indigo-700 focus:outline-none"
+          className="rounded-md bg-indigo-600 px-4 py-2 text-center text-white shadow-lg hover:bg-indigo-700 focus:outline-none"
           onClick={() => handleSortClick("title-asc")}
         >
           Sort A-Z
         </button>
         <button
-          className="ml-2 px-4 py-2 text-center text-white bg-indigo-600 rounded-md shadow-lg hover:bg-indigo-700 focus:outline-none"
+          className="ml-2 rounded-md bg-indigo-600 px-4 py-2 text-center text-white shadow-lg hover:bg-indigo-700 focus:outline-none"
           onClick={() => handleSortClick("title-desc")}
         >
           Sort Z-A
         </button>
         <button
-          className="ml-2 px-4 py-2 text-center text-white bg-indigo-600 rounded-md shadow-lg hover:bg-indigo-700 focus:outline-none"
+          className="ml-2 rounded-md bg-indigo-600 px-4 py-2 text-center text-white shadow-lg hover:bg-indigo-700 focus:outline-none"
           onClick={() => handleSortClick("price-asc")}
         >
           Sort Price: Low to High
         </button>
         <button
-          className="ml-2 px-4 py-2 text-center text-white bg-indigo-600 rounded-md shadow-lg hover:bg-indigo-700 focus:outline-none"
+          className="ml-2 rounded-md bg-indigo-600 px-4 py-2 text-center text-white shadow-lg hover:bg-indigo-700 focus:outline-none"
           onClick={() => handleSortClick("price-desc")}
         >
           Sort Price: High to Low
         </button>
         <button
-          className="ml-2 px-4 py-2 text-center text-white bg-indigo-600 rounded-md shadow-lg hover:bg-indigo-700 focus:outline-none"
+          className="ml-2 rounded-md bg-indigo-600 px-4 py-2 text-center text-white shadow-lg hover:bg-indigo-700 focus:outline-none"
           onClick={() => handleSortClick("rating-asc")}
         >
           Sort Rating: Low to High
         </button>
         <button
-          className="ml-2 px-4 py-2 text-center text-white bg-indigo-600 rounded-md shadow-lg hover:bg-indigo-700 focus:outline-none"
+          className="ml-2 rounded-md bg-indigo-600 px-4 py-2 text-center text-white shadow-lg hover:bg-indigo-700 focus:outline-none"
           onClick={() => handleSortClick("rating-desc")}
         >
           Sort Rating: High to Low
         </button>
       </div>
-      <div className="grid grid-cols-1 gap-4 text-white lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 text-white lg:grid-cols-2 xl:grid-cols-3">
         {products.map((product, index) => (
           <div key={index}>
             <MotionConfig transition={{ duration: duration }}>
@@ -211,10 +213,14 @@ const Product = () => {
                   layout="position"
                   className="mb-2 flex justify-between"
                 >
-                  <span>{product.title}</span> <span>${product.price}</span>
+                  <span>{product.title}</span>{" "}
+                  <motion.span layout>${product.price}</motion.span>
                 </motion.div>
                 {/* Render Star Rating */}
-                <motion.div layout className="mb-4 flex items-center">
+                <motion.div
+                  layout="position"
+                  className="mb-4 flex items-center"
+                >
                   <span className="mr-2 text-yellow-500">{product.rating}</span>
                   <span className="mr-2">
                     {renderStarRating(product.rating)}
@@ -226,13 +232,13 @@ const Product = () => {
                 <motion.div layout="position" className="mb-2 text-base">
                   Hello
                 </motion.div>
-                <motion.div
-                  className="flex items-end justify-end"
-                  layout="position"
-                >
-                  <button className="glass px-4 py-2 text-center text-2xl font-medium shadow-pink-500/30 duration-200 ease-in-out hover:scale-110">
+                <motion.div className="flex justify-end" layout="position">
+                  <motion.button
+                    layout="position"
+                    className="glass px-4 py-2 text-center text-2xl font-medium shadow-pink-500/30 duration-200 ease-in-out hover:scale-110"
+                  >
                     Buy
-                  </button>
+                  </motion.button>
                 </motion.div>
               </motion.div>
             </MotionConfig>

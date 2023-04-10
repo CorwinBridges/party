@@ -25,7 +25,6 @@ import Testimonials from "../pages/Home/Testimonials"
 import Carousel from "../pages/Shop/Carousel"
 import Filter from "../pages/Shop/Filter"
 import Pagination from "../pages/Shop/Pagination"
-import Preview from "../pages/Shop/Preview"
 import Product from "../pages/Shop/Product"
 import Search from "../pages/Shop/Search"
 import Shop from "../pages/Shop/Shop"
@@ -53,7 +52,6 @@ export {
   Sort,
   Search,
   Pagination,
-  Preview,
   Mission,
   Story,
   Start,
