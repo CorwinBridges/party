@@ -1,11 +1,8 @@
 import { useRef } from "react"
 
-
-
 import { motion, useScroll, useTransform } from "framer-motion"
 
 import { madison2, anna2, corwin2, blob } from "../../assets"
-
 
 const timelineData = [
   {

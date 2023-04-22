@@ -29,10 +29,12 @@ const initialValues = {
 }
 
 const onSubmit = async (values, { setSubmitting, resetForm }) => {
+  const schoolUrl = "http://10.64.32.244:6968/contacts"
+  const localUrl = "http://localhost:6968/contacts"
   let promise = null
   try {
     promise = toast.loading("Submitting form...")
-    const response = await axios.post("http://localhost:6968/contacts", values)
+    const response = await axios.post(schoolUrl || localUrl, values)
     toast.success("Form submitted successfully!", { id: promise })
     resetForm()
   } catch (error) {

@@ -56,7 +56,7 @@ const Benefits = () => {
   return (
     <section className="py-16 text-white">
       {/* right-side swirl image */}
-      <div className="absolute -right-[10%] z-0 h-[400px] w-[400px] lg:h-[700px] lg:w-[700px] rotate-180">
+      <div className="absolute -right-[10%] z-0 h-[400px] w-[400px] rotate-180 lg:h-[700px] lg:w-[700px]">
         <img src={swirl} alt="swirl" className="relative top-80 blur" />
       </div>
       <motion.div
@@ -67,7 +67,7 @@ const Benefits = () => {
         {/* title */}
         <motion.h1
           variants={slideInAnimation("up", "spring", 0)}
-          className="glass relative z-10 rounded-[69px] py-32 px-8 text-center text-4xl font-bold lg:py-40 lg:text-7xl"
+          className="glass relative z-10 rounded-[69px] px-8 py-32 text-center text-4xl font-bold lg:py-40 lg:text-7xl"
         >
           Achieve Party Planning{" "}
           <span className="bg-gradient-to-tr from-red-400 via-pink-500 to-violet-500 bg-clip-text text-transparent">

@@ -14,11 +14,11 @@ const Carousel = () => {
   return (
     <section className="py-16">
       {/* Left-side x image */}
-      <div className="absolute -top-[400px] -left-10 z-0 w-1/2 lg:-left-20 lg:w-1/4  ">
+      <div className="absolute -left-10 -top-[400px] z-0 w-1/2 lg:-left-20 lg:w-1/4  ">
         <img src={x_shape} alt="x" className="relative top-80 blur" />
       </div>
       {/* {blur} */}
-      <div className="absolute top-0 -right-10 z-0 h-[50vh] w-1/2 rounded-full bg-[#7CFE7A] opacity-[0.94] blur-[110px]" />
+      <div className="absolute -right-10 top-0 z-0 h-[50vh] w-1/2 rounded-full bg-[#7CFE7A] opacity-[0.94] blur-[110px]" />
       <div className="relative z-10">
         <Swiper
           modules={[Navigation, Pagination, Autoplay, Keyboard]}
@@ -60,15 +60,17 @@ const Carousel = () => {
             },
           }}
         >
-          <HiChevronLeft className="swiper-button-prev glass absolute top-1/2 left-[10%] z-10 -translate-y-1/2 text-5xl text-white shadow-transparent hover:bg-pink-500 lg:left-[18%] lg:text-7xl" />
-          <HiChevronRight className="swiper-button-next glass absolute top-1/2 right-[10%] z-10 -translate-y-1/2 text-5xl text-white shadow-transparent hover:bg-pink-500 lg:right-[18%] lg:text-7xl" />
+          <button>
+            <HiChevronLeft className="swiper-button-prev glass absolute left-[10%] top-1/2 z-10 -translate-y-1/2 text-5xl text-white shadow-transparent hover:bg-pink-500 lg:left-[18%] lg:text-7xl" />
+            <HiChevronRight className="swiper-button-next glass absolute right-[10%] top-1/2 z-10 -translate-y-1/2 text-5xl text-white shadow-transparent hover:bg-pink-500 lg:right-[18%] lg:text-7xl" />
+          </button>
 
           {slide_images.map((slide, index) => (
             <SwiperSlide key={index}>
               <div className=" w-full px-4 lg:px-0">
                 <div className="mb-12 h-[50vh] rounded-[50px] bg-purple-600 p-6 lg:-mb-24 lg:h-[60vh]">
                   <img
-                    src={slide.image}
+                    src={`/src/assets/carousel/${slide.image}`}
                     alt={slide.title}
                     className="h-full w-full rounded-[50px] object-cover"
                   />

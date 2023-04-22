@@ -88,4 +88,3 @@ const Logos = () => {
 
 export default Logos
 
-//TODO: add actual logos and make sure they are vertically aligned center

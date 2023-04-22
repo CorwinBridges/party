@@ -8,7 +8,6 @@ import { swirl } from "../../assets"
 import { slideInAnimation, fadeInAnimation, heightAnimation } from "../../data"
 import { useMediaQuery } from "../../utils"
 
-
 // steps card descriptions
 const timelineData = [
   {
@@ -49,7 +48,7 @@ const Steps = () => {
     <section className="py-16 text-white ">
       {/* Right-side background circle with gradient */}
       <div className="absolute -right-[6%]">
-        <div className="relative bottom-[600px] z-0 aspect-square h-[300px] rounded-[50%] bg-gradient-to-b from-[#C194EA] to-[#EE77C7]/[0.94] opacity-[0.60] blur-[3px] lg:h-[500px]" />
+        <div className="relative bottom-[600px] z-0 aspect-square h-[300px]  animate-[bounce_10s_linear_infinite] rounded-[50%] bg-gradient-to-b from-[#C194EA] to-[#EE77C7]/[0.94] opacity-[0.60] blur-[3px] lg:h-[500px]" />
       </div>
 
       <motion.div

@@ -1,10 +1,8 @@
 import { useRef } from "react"
 
-
 import { motion, useScroll, useTransform } from "framer-motion"
 
 import { partyhq, blob } from "../../assets"
-
 
 const HQ = () => {
   const ref = useRef(null)
@@ -23,7 +21,7 @@ const HQ = () => {
         className="relative z-10"
       >
         {/* head quarters image */}
-        <div className="relative top-10 z-20 mx-auto xl:max-w-3xl xl:w-full w-[90%] sm:w-[80%]">
+        <div className="relative top-10 z-20 mx-auto w-[90%] sm:w-[80%] xl:w-full xl:max-w-3xl">
           <img
             src={partyhq}
             alt="Party HQ"

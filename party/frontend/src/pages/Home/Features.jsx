@@ -34,7 +34,7 @@ const Features = () => {
   const isXl = useMediaQuery("(min-width: 1280px)")
   return (
     <section className="py-16 text-white">
-      {/* Right blur circle */}
+      {/* left blur circle */}
       <div className="absolute -left-40 z-0 h-[50vh] w-1/2 rounded-full bg-[#F97FC8] opacity-[0.85] blur-[130px]" />
       <motion.div
         initial="initial"

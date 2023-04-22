@@ -5,84 +5,8 @@ import useMeasure from "react-use-measure"
 
 import { AnimatePresence, motion } from "framer-motion"
 
-import { fadeInAnimation, slideInAnimation } from "../../data"
+import { quotes, slideInAnimation } from "../../data"
 import { useMediaQuery } from "../../utils"
-
-// story card descriptions
-const quotes = [
-  {
-    reviewer: "Dancey Dave",
-    role: "President of Alpha Sigma Pi",
-    quote:
-      "Party in a Box is the ultimate frat house essential! It made throwing our rager a breeze and had everything we needed for a legendary night.",
-    profilepic:
-      "https://totalfratmove.com/wp-content/uploads/2021/01/Frar-Boy.jpg",
-  },
-  {
-    reviewer: "Party Patricia",
-    role: "Master Knitter",
-    quote:
-      "Party in a Box? More like Yarn in a Box! As a knitter, I was pleasantly surprised to find out it had everything we needed for a night of crafting and laughter.",
-    profilepic:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzCiXWB9DQRT7__bG1iRRu3qFW-pTJF8zktA&usqp=CAU",
-  },
-  {
-    reviewer: "Rotten Robby",
-    role: "Professional Brat",
-    quote:
-      "I've been to every theme park, water park, and arcade in the world, but nothing compares to the excitement of opening a Party in a Box. It's like Christmas, but without the disappointment of not getting what I want.",
-    profilepic:
-      "https://i.pinimg.com/736x/bf/ef/1a/bfef1a1c8f8beb2d8b8c66851adbf5cb.jpg",
-  },
-  {
-    reviewer: "Romantic Rachel",
-    role: "Dysfunctional Newlywed",
-    quote:
-      "Party in a Box changed the game for my wedding. It was like having a wedding planner, caterer, and DJ all in one. No bridezilla moments for me because it was easy and stress-free. Now if only Party in a Box could help with the marriage too!",
-    profilepic:
-      "https://media.istockphoto.com/id/157293077/photo/unhappy-bride.jpg?s=612x612&w=0&k=20&c=Z2LxuHxaaxa-TVnny3LaRHNVtlO-m19R_BEYH38hO5c=",
-  },
-  {
-    reviewer: "Splashy Samuel",
-    role: "Incompetent Swimmer",
-    quote:
-      "Thanks to Party in a Box, I felt like a swimming superstar, even though I'm no Michael Phelps. The pool accessories had me looking like a pro, even while doggy-paddling. And the fast cleanup meant I could quickly get back to my true calling: lounging poolside with a cold drink!",
-    profilepic:
-      "http://3.bp.blogspot.com/-Olz3UC0WMxE/VbB5HXMudvI/AAAAAAAAazM/PxS1HZPzE-o/s1600/Edit_Champs_Swim_Meet_2015_0503.JPG",
-  },
-  {
-    reviewer: "Grill Master Gary",
-    role: "BBQ Dad",
-    quote:
-      "Let me tell you something, I've been grilling for 20 years, but Party in a Box made me look like a pro. I didn't have to worry about a thing - the food was hot, the drinks were cold, and the clean-up was a breeze. I even had time to take a nap in my hammock, which is something I haven't done since 1998.",
-    profilepic:
-      "https://cdn.shopify.com/s/files/1/0033/6576/5238/products/grillindad_1200x1200.jpg?v=1631207258",
-  },
-  {
-    reviewer: "Birthday Brittany",
-    role: "Egotistical 5-Year-Old",
-    quote:
-      "I don't always party, but when I do, it's with Party in a Box. Because let's face it, I'm the star of the show, the life of the party, the queen of the castle. With Party in a Box, I get to be all that and more, without breaking a sweat. Just another thing that adds to my awesomeness!",
-    profilepic:
-      "https://d.newsweek.com/en/full/2067542/file-photo-screaming-girl.jpg",
-  },
-  {
-    reviewer: "Quarterback Quentin",
-    role: "Local Football Hero",
-    quote:
-      "With Party in a Box, I don't need to be a party planner or a quarterback to throw a winning Super Bowl watch party. It's like having a personal assistant that sets up a themed party in seconds, and cleans up just as fast. Plus, it's made with vibranium, so you know it's tough enough to handle my rowdy friends. Party in a Box: the MVP of party supplies!",
-    profilepic:
-      "https://media.npr.org/assets/img/2016/02/26/johncastello1_wide-98b9425f315a0a266d391480d4921584b88c936e-s1400-c100.jpg",
-  },
-  {
-    reviewer: "Pepperoni Pete",
-    role: "Italian Cuisine Connoisseur",
-    quote:
-      "Party in a Box nailed it for my pizza party! Their decorations transformed my living room into a pizzeria, minus the weird smell and creepy guy behind the counter. And with easy setup, I had more time for what mattered - eating all the pizza I could handle! Thanks Party in a Box, you're the MVP of pizza parties!",
-    profilepic:
-      "https://cdn.dailyvoice.com/image/upload/c_fill,dpr_2,f_auto,q_auto:eco,w_640/Screenshot_966_n77eqe",
-  },
-]
 
 const Testimonials = () => {
   // Check if the viewport width is equal to or greater than 1536px
@@ -176,7 +100,7 @@ const Testimonials = () => {
                   <div ref={localRef} className="absolute p-8">
                     <div className="aspect-square w-20 overflow-hidden rounded-full">
                       <img
-                        src={quote.profilepic}
+                        src={`/src/assets/testimonials/${quote.profilepic}`}
                         alt={quote.reviewer}
                         className="h-full w-full object-cover object-center"
                       />

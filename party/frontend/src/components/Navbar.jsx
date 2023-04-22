@@ -1,13 +1,10 @@
 import { useCallback, useRef } from "react"
 import ReactCanvasConfetti from "react-canvas-confetti"
 import { FiMenu } from "react-icons/fi"
-import { HiOutlineSearch } from "react-icons/hi"
 import { HiOutlineShoppingBag } from "react-icons/hi2"
 import { NavLink, Link } from "react-router-dom"
 
-import { Popover } from "@headlessui/react"
-
-import { Cart, NavbarSearch } from "."
+import { Cart } from "."
 import { partylogonowords } from "../assets"
 import { useStateContext } from "../context/StateContext"
 
@@ -26,10 +23,6 @@ const activeLink =
   "underline decoration-pink-500 decoration-4 underline-offset-8"
 const normalLink =
   "decoration-pink-500 decoration-4 underline-offset-8 hover:underline"
-
-// search bar styling classes
-const activeSearch = "text-pink-500"
-const normalSearch = "hover:text-pink-500"
 
 const Navbar = () => {
   const { totalQuantities, setQuery, setIsShowing, open, setOpen } =
@@ -124,7 +117,7 @@ const Navbar = () => {
       <ReactCanvasConfetti refConfetti={getInstance} style={canvasStyles} />
       <div className="flex w-full flex-wrap items-center justify-between px-4 py-0 sm:py-4">
         {/* logo */}
-        <div className="mt-2 mx-5">
+        <div className="mx-5 mt-2">
           <Link
             to="/"
             onClick={(event) => {
@@ -171,22 +164,6 @@ const Navbar = () => {
             >
               Contact
             </NavLink>
-            <Popover
-              as="div"
-              className="my-auto flex text-left"
-              onClick={() => {
-                setQuery("")
-              }}
-            >
-              <Popover.Button
-                className={({ open }) => (open ? activeSearch : normalSearch)}
-              >
-                <HiOutlineSearch />
-              </Popover.Button>
-              <Popover.Panel className="glass absolute right-0 z-20 mt-10 origin-top-right rounded-md">
-                <NavbarSearch />
-              </Popover.Panel>
-            </Popover>
             <div className="hi flex text-white lg:hidden">
               <button
                 type="button"

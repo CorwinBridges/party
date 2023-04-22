@@ -11,7 +11,7 @@ import {
   Terms,
   Privacy,
   Returns,
-  Shipping,
+  Shipping
 } from "./pages"
 
 const App = () => {
@@ -24,7 +24,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/shop" element={<Shop />} />
+          <Route exact path="/shop" element={<Shop />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />

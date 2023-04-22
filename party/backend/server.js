@@ -16,7 +16,7 @@ const contactsRouter = require("./routes/contacts")
 app.use("/products", productsRouter)
 app.use("/contacts", contactsRouter)
 
-const port = process.env.PORT || 6968
+const port = process.env.port || 6968
 app.listen(port, () => {
   console.log(`Listening on ${port}...`)
 })

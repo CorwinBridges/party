@@ -1,19 +1,81 @@
-import React from 'react'
+import { useState } from "react"
+import { HiChevronDown } from "react-icons/hi"
+
+import { Menu } from "@headlessui/react"
+
+import { useStateContext } from "../../context/StateContext"
 
 const Sort = () => {
+  const [selectedOption, setSelectedOption] = useState("Default")
+  const { products, setProducts } = useStateContext()
+
+  const options = [
+    "Default",
+    "Top Rated",
+    "Price - low to high",
+    "Price - high to low",
+    "A-Z",
+    "Z-A",
+  ]
+
+  const handleSortClick = (option) => {
+    setSelectedOption(option)
+    let sortedProducts = [...products]
+    switch (option) {
+      case "Top Rated":
+        sortedProducts = sortedProducts.sort((a, b) => b.rating - a.rating)
+        break
+      case "Price - low to high":
+        sortedProducts = sortedProducts.sort((a, b) => a.price - b.price)
+        break
+      case "Price - high to low":
+        sortedProducts = sortedProducts.sort((a, b) => b.price - a.price)
+        break
+      case "A-Z":
+        sortedProducts = sortedProducts.sort((a, b) =>
+          a.title.localeCompare(b.title)
+        )
+        break
+      case "Z-A":
+        sortedProducts = sortedProducts.sort((a, b) =>
+          b.title.localeCompare(a.title)
+        )
+        break
+      default:
+        // no sorting
+        break
+    }
+    setProducts(sortedProducts)
+  }
+
   return (
-    <div className='text-white flex'>
-      <h2>Showing # results out of ###</h2>
-      <h2>Sort By</h2>
-      <ul>
-        <li>Top Rated</li>
-        <li>Price - low to high</li>
-        <li>Price - high to low</li>
-        <li>A-Z</li>
-        <li>Z-A</li>
-      </ul>
-      <h2>Breadcrumbs</h2>
-      <h2>filter chips</h2>
+    <div className="flex justify-end text-white">
+      <Menu as="div" className="relative inline-block text-left">
+        <div className="flex items-center">
+          <span className="mr-2 text-xl">Sort:</span>
+          <Menu.Button className="glass inline-flex w-full items-center justify-center px-4 py-2 font-medium text-white">
+            {selectedOption}{" "}
+            <HiChevronDown className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
+          </Menu.Button>
+        </div>
+
+        <Menu.Items className="glass absolute right-0 z-20 mt-2 w-56 rounded-2xl p-1">
+          {options.map((option) => (
+            <Menu.Item key={option}>
+              {({ active }) => (
+                <li
+                  className={`${
+                    active ? "bg-pink-500" : ""
+                  } block rounded-2xl px-4 py-2 text-sm font-medium hover:bg-pink-500`}
+                  onClick={() => handleSortClick(option)}
+                >
+                  {option}
+                </li>
+              )}
+            </Menu.Item>
+          ))}
+        </Menu.Items>
+      </Menu>
     </div>
   )
 }

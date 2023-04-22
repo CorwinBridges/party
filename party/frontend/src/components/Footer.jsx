@@ -1,6 +1,6 @@
 import { useCallback, useRef } from "react"
 import ReactCanvasConfetti from "react-canvas-confetti"
-import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa"
+import { FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa"
 import { Link } from "react-router-dom"
 
 import { partylogonowords } from "../assets"
@@ -118,11 +118,7 @@ const Footer = () => {
                 fireConfetti(event)
               }}
             >
-              <img
-                className="h-40 cursor-pointer"
-                src={partylogonowords}
-                alt="Logo"
-              />
+              <img className="h-40" src={partylogonowords} alt="Logo" />
             </Link>
           </div>
           <div className="grid gap-8 lg:grid-cols-3 lg:gap-12">
@@ -137,13 +133,25 @@ const Footer = () => {
                 you can focus on enjoying the moment with your loved ones.
               </p>
               <div className="flex items-center justify-center space-x-4 text-3xl lg:justify-start">
-                <a href="#" target="_blank" rel="noopener noreferrer">
-                  <FaFacebook className="text-white hover:text-pink-500" />
-                </a>
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://twitter.com/suptking"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FaTwitter className="text-white hover:text-pink-500" />
                 </a>
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://www.linkedin.com/company/dev-catalyst/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaLinkedin className="text-white hover:text-pink-500" />
+                </a>
+                <a
+                  href="https://www.instagram.com/madisonacademic/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FaInstagram className="text-white hover:text-pink-500" />
                 </a>
               </div>
