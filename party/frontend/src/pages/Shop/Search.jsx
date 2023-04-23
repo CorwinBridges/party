@@ -1,67 +1,103 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { HiOutlineSearch } from "react-icons/hi"
-import { useNavigate } from "react-router-dom"
 
 import { Combobox } from "@headlessui/react"
-import Fuse from "fuse.js"
+import axios from "axios"
 
-import { names } from "../../data"
+import { useStateContext } from "../../context/StateContext"
 
 const Search = () => {
   const [productQuery, setProductQuery] = useState("")
-  const navigate = useNavigate()
+  const [searchResults, setSearchResults] = useState([])
+  const { products, handleCardClick } = useStateContext()
+  const searchInput = useRef(null)
 
-  const fuse = new Fuse(names, {
-    keys: ["title"],
-    includeScore: true,
-  })
+  const searchItems = async (query) => {
+    const schoolUrl = "http://10.64.32.244:6968/products"
+    const localUrl = "http://localhost:6968/products"
+    try {
+      const res = await axios.get(localUrl || schoolUrl)
+      const filteredResults = res.data.filter((item) =>
+        item.title.toLowerCase().includes(query.toLowerCase())
+      )
+      setSearchResults(filteredResults)
+    } catch (err) {
+      console.error(err.message)
+    }
+  }
 
-  const results = fuse.search(productQuery)
-  const nameResults = results.map((result) => result.item)
+  const handleInputChange = (e) => {
+    const query = e.target.value
+    setProductQuery(query)
+
+    if (query) {
+      searchItems(query)
+    } else {
+      setSearchResults([])
+    }
+  }
+
+  const handleSelectOption = (item) => {
+    const correspondingProduct = products.find(
+      (product) => product._id === item._id
+    )
+    setProductQuery("")
+    setSearchResults([])
+    handleCardClick(correspondingProduct)
+    setTimeout(() => {
+      searchInput.current.blur()
+    }, 0)
+  }
+
   return (
-    <section className="pb-16 text-lg text-white lg:text-2xl">
+    <section className="mb-12 text-lg text-white lg:text-2xl">
       <Combobox
+        value={productQuery}
+        onChange={(item) => handleSelectOption(item)}
         as="div"
-        onChange={(name) => {
-          setProductQuery("")
-          navigate(`/${name.id}`)
-        }}
-        className="relative mx-auto w-2/3"
+        className="relative z-20 mx-auto w-2/3"
       >
         <Combobox.Input
           onChange={(e) => {
-            setProductQuery(e.target.value)
+            handleInputChange(e)
           }}
+          ref={searchInput}
           type="text"
-          placeholder="Search..."
-          className="glass w-full bg-transparent px-6 py-2 pr-10 leading-tight placeholder:text-white/70 focus:outline-none"
+          placeholder="Search for a product..."
+          className="glass w-full bg-transparent px-6 py-2 pr-10 leading-tight outline-none placeholder:text-white/70 focus:border-pink-500 focus:ring-0"
         />
 
         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-5 text-2xl">
           <HiOutlineSearch />
         </div>
-        {nameResults.length > 0 && (
+        {searchResults.length > 0 && (
           <Combobox.Options
+            onMouseDown={(e) => {
+              e.preventDefault()
+            }}
             static
-            className="glass absolute z-10 mt-2 max-h-96 w-full overflow-y-auto rounded-3xl p-1 text-xl"
+            className="glass absolute mt-2 max-h-96 w-full overflow-y-auto rounded-xl p-1 text-xl"
           >
-            {nameResults.map((name) => (
-              <Combobox.Option key={name.id} value={name}>
+            {searchResults.map((item) => (
+              <Combobox.Option key={item._id} value={item}>
                 {({ active }) => (
                   <div
+                    onClick={(item) => {
+                      handleSelectOption(item)
+                    }}
                     className={`cursor-pointer rounded-3xl px-4 py-2 ${
                       active ? "bg-pink-500 text-white" : ""
                     }`}
                   >
-                    {name.title}
+                    {item.title}
                   </div>
                 )}
               </Combobox.Option>
             ))}
           </Combobox.Options>
         )}
-        {productQuery && nameResults.length === 0 && (
-          <div className="absolute z-10 p-1">
+        {productQuery && searchResults.length === 0 && (
+          <div className="glass absolute mt-2 max-h-96 w-full overflow-y-auto rounded-xl p-1 text-xl">
             <p className="px-4 py-2 text-xl">No results found</p>
           </div>
         )}
