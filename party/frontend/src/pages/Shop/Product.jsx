@@ -1,3 +1,4 @@
+import toast, { Toaster } from "react-hot-toast"
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa"
 
 import { MotionConfig, motion } from "framer-motion"
@@ -33,11 +34,16 @@ const Product = () => {
   const handleAddToCart = (e, product) => {
     e.stopPropagation()
     addToCart(product)
+    toast(`Added ${product.title} Box to Cart`, {
+      className:
+        "bg-purple-500 shadow-purple-500 rounded-full text-white shadow-xl border-2 border-white/20 from-white/10 to-white/0",
+    })
   }
 
   return (
     <>
       {/* circle */}
+      <Toaster />
       <div className="absolute -right-20">
         <div className="relative top-80 z-10 h-[400px] w-[400px] animate-[bounce_15s_linear_infinite] rounded-[50%] bg-gradient-to-b from-[#527CF4]/[0.54] to-[#7AEF7D]/[0.68] opacity-[0.75] blur-[3px]" />
       </div>
@@ -54,10 +60,10 @@ const Product = () => {
         <img src={x_shape} alt="x" className="relative top-80 blur" />
       </div> */}
       {/* product boxes */}
-      <div className="grid grid-cols-1 gap-5 text-white sm:grid-cols-2 xl:grid-cols-3">
-        {filteredProducts.map((product) => (
-          <div key={product._id}>
-            <MotionConfig transition={{ duration: duration }}>
+      <MotionConfig transition={{ duration: duration }}>
+        <div className="grid grid-cols-1 gap-5 text-white sm:grid-cols-2 xl:grid-cols-3">
+          {filteredProducts.map((product) => (
+            <div key={product._id}>
               <motion.div
                 className={`glass p-8 text-2xl ${
                   selectedProduct === product
@@ -83,7 +89,7 @@ const Product = () => {
                 <div className="mb-4 gap-8 md:flex md:justify-center">
                   <div className="">
                     <motion.img
-                      className="mx-auto mb-4 max-h-24 lg:max-h-44 xl:max-h-52"
+                      className="mx-auto mb-4 max-h-24 rounded-3xl bg-purple-600/50 p-2 lg:max-h-44 xl:max-h-52"
                       layout
                       src={`/src/assets/boxes/${product.image}`}
                       alt={product.title}
@@ -142,16 +148,16 @@ const Product = () => {
                   </motion.button>
                 </motion.div>
               </motion.div>
-            </MotionConfig>
-          </div>
-        ))}
-        <motion.div
-          className={`pointer-events-auto absolute left-0 top-0 block h-full w-full bg-black opacity-0 ${
-            selectedProduct ? "z-40" : "-z-10"
-          }`}
-          animate={{ opacity: selectedProduct ? 0.3 : 0 }}
-        />
-      </div>
+            </div>
+          ))}
+          <motion.div
+            className={`pointer-events-auto absolute left-0 top-0 block h-full w-full bg-black opacity-0 ${
+              selectedProduct ? "z-40" : "-z-10"
+            }`}
+            animate={{ opacity: selectedProduct ? 0.3 : 0 }}
+          />
+        </div>
+      </MotionConfig>
     </>
   )
 }

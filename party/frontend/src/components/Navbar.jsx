@@ -28,8 +28,6 @@ const Navbar = () => {
   const { isCartVisible, toggleCart, open, setOpen, getTotalQuantity } =
     useStateContext()
 
-  
-
   // Canvas confetti
   const refAnimationInstance = useRef(null)
 
@@ -144,7 +142,7 @@ const Navbar = () => {
             open ? "block" : "hidden"
           } w-full items-end text-white lg:flex lg:w-auto lg:items-center`}
         >
-          <div className="relative z-20 flex flex-col items-end space-y-2 text-xl lg:flex-row lg:justify-between lg:space-x-8 lg:text-2xl ">
+          <div className="relative z-20 flex flex-col items-end justify-between space-y-2 text-xl lg:flex-row lg:space-x-8 lg:text-2xl ">
             <NavLink
               to="/about"
               className={({ isActive }) => (isActive ? activeLink : normalLink)}
@@ -166,35 +164,35 @@ const Navbar = () => {
             >
               Contact
             </NavLink>
-            <div className="flex text-white lg:hidden">
+            <div className="text-white">
               <button
                 type="button"
                 onClick={toggleCart}
-                className="relative z-20 py-2.5 text-4xl"
+                className="relative z-20 flex py-2.5 text-4xl lg:hidden"
               >
                 <HiOutlineShoppingBag className="hover:text-pink-500" />
                 <span className="absolute top-8 rounded-full border-2 border-white bg-pink-500 px-2 text-center text-xs font-semibold">
                   {getTotalQuantity()}
                 </span>
               </button>
+
+              {isCartVisible && <Cart />}
             </div>
           </div>
         </div>
         {/*shopping cart */}
-        <div className="hidden text-white lg:flex">
-          <button
-            type="button"
-            onClick={toggleCart}
-            className="relative z-20 px-5 py-2.5 lg:text-6xl"
-          >
-            <HiOutlineShoppingBag className="hover:text-pink-500" />
-            <span className="absolute top-12 rounded-full border-4 border-white bg-pink-500 px-2 text-center text-lg font-semibold">
-              {getTotalQuantity()}
-            </span>
-          </button>
+        <button
+          type="button"
+          onClick={toggleCart}
+          className="relative z-20 hidden px-5 py-2.5 text-white lg:flex lg:text-6xl"
+        >
+          <HiOutlineShoppingBag className="hover:text-pink-500" />
+          <span className="absolute top-12 rounded-full border-4 border-white bg-pink-500 px-2 text-center text-lg font-semibold">
+            {getTotalQuantity()}
+          </span>
+        </button>
 
-          {isCartVisible && <Cart />}
-        </div>
+        {isCartVisible && <Cart />}
       </div>
     </nav>
   )

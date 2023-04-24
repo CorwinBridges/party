@@ -54,7 +54,6 @@ const Search = () => {
     handleCardClick(correspondingProduct)
     setTimeout(() => {
       if (searchInput.current) {
-        // Check if searchInput.current is truthy
         searchInput.current.blur()
       }
     }, 0)

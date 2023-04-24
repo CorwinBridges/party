@@ -1,4 +1,3 @@
-import { useState } from "react"
 import toast, { Toaster } from "react-hot-toast"
 
 import axios from "axios"
@@ -34,7 +33,7 @@ const onSubmit = async (values, { setSubmitting, resetForm }) => {
   let promise = null
   try {
     promise = toast.loading("Submitting form...")
-    const response = await axios.post(schoolUrl || localUrl, values)
+    const response = await axios.post(localUrl || schoolUrl, values)
     toast.success("Form submitted successfully!", { id: promise })
     resetForm()
   } catch (error) {
