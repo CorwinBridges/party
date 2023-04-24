@@ -1,31 +1,13 @@
-import { useEffect } from "react"
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa"
 
-import axios from "axios"
 import { MotionConfig, motion } from "framer-motion"
 
 import { x_shape } from "../../assets"
 import { useStateContext } from "../../context/StateContext"
 
-const handleAddToCart = (event) => {
-  // Stop the event propagation to parent elements
-  event.stopPropagation()
-
-  // TODO: Implement the logic to add the selected product to the cart
-  if (selectedProduct) {
-    setCart((prevCart) => [...prevCart, selectedProduct])
-    setSelectedProduct(null)
-  }
-}
-
 const Product = () => {
-  const {
-    products,
-    setProducts,
-    selectedProduct,
-    setSelectedProduct,
-    handleCardClick,
-  } = useStateContext()
+  const { selectedProduct, handleCardClick, filteredProducts, addToCart } =
+    useStateContext()
 
   const duration = 0.3
 
@@ -48,37 +30,32 @@ const Product = () => {
     )
   }
 
-  useEffect(() => {
-    const schoolUrl = "http://10.64.32.244:6968/products"
-    const localUrl = "http://localhost:6968/products"
-    const getProducts = async () => {
-      const response = await axios.get(localUrl || schoolUrl)
-      setProducts(response.data)
-    }
-    getProducts()
-  }, [])
+  const handleAddToCart = (e, product) => {
+    e.stopPropagation()
+    addToCart(product)
+  }
 
   return (
     <>
       {/* circle */}
       <div className="absolute -right-20">
-        <div className="z-1 relative top-80 h-[400px] w-[400px] animate-[bounce_15s_linear_infinite] rounded-[50%] bg-gradient-to-b from-[#527CF4]/[0.54] to-[#7AEF7D]/[0.68] opacity-[0.75] blur-[3px]" />
+        <div className="relative top-80 z-10 h-[400px] w-[400px] animate-[bounce_15s_linear_infinite] rounded-[50%] bg-gradient-to-b from-[#527CF4]/[0.54] to-[#7AEF7D]/[0.68] opacity-[0.75] blur-[3px]" />
       </div>
       <div className="absolute right-40">
-        <div className="z-1 relative -bottom-[500px] h-[250px] w-[250px] animate-[bounce_15s_linear_infinite] rounded-[50%] bg-gradient-to-b from-[#527CF4]/[0.54] to-[#7AEF7D]/[0.68] opacity-[0.75] blur-[3px]" />
+        <div className="relative -bottom-[500px] z-10 h-[250px] w-[250px] animate-[bounce_15s_linear_infinite] rounded-[50%] bg-gradient-to-b from-[#527CF4]/[0.54] to-[#7AEF7D]/[0.68] opacity-[0.75] blur-[3px]" />
       </div>
-      <div className="absolute -left-20">
-        <div className="z-1 relative top-[3700px] h-[400px] w-[400px] animate-[bounce_15s_linear_infinite] rounded-[50%] bg-gradient-to-b from-[#527CF4]/[0.54] to-[#7AEF7D]/[0.68] opacity-[0.75] blur-[3px]" />
-      </div>
+      {/* <div className="absolute -left-20 top-[3700px]">
+        <div className="relative z-10  h-[400px] w-[400px] animate-[bounce_15s_linear_infinite] rounded-[50%] bg-gradient-to-b from-[#527CF4]/[0.54] to-[#7AEF7D]/[0.68] opacity-[0.75] blur-[3px]" />
+      </div> */}
       {/* {blur} */}
-      <div className="absolute -left-10 top-[3300px] z-0 h-[50vh] w-1/2 rounded-full bg-[#527CF4] opacity-[0.84] blur-[110px]" />
+      {/* <div className="absolute -left-10 top-[3300px] z-0 h-[50vh] w-1/2 rounded-full bg-[#527CF4] opacity-[0.84] blur-[110px]" /> */}
       {/* Left-side x image */}
-      <div className="absolute -right-10 bottom-[900px] z-0 w-1/2 lg:-right-20 lg:w-1/4  ">
+      {/* <div className="absolute -right-10 bottom-[900px] z-0 w-1/2 lg:-right-20 lg:w-1/4  ">
         <img src={x_shape} alt="x" className="relative top-80 blur" />
-      </div>
+      </div> */}
       {/* product boxes */}
-      <div className="mb-16 grid grid-cols-1 gap-5 text-white sm:grid-cols-2 xl:grid-cols-3">
-        {products.map((product) => (
+      <div className="grid grid-cols-1 gap-5 text-white sm:grid-cols-2 xl:grid-cols-3">
+        {filteredProducts.map((product) => (
           <div key={product._id}>
             <MotionConfig transition={{ duration: duration }}>
               <motion.div
@@ -144,6 +121,7 @@ const Product = () => {
                         {renderStarRating(product.rating)}
                       </span>
                     </motion.div>
+                    <motion.div layout="position"></motion.div>
                   </div>
                   <div
                     className={`flex items-center text-center text-sm font-normal md:text-xl lg:text-2xl ${
@@ -158,7 +136,7 @@ const Product = () => {
                   <motion.button
                     layout="position"
                     className=" glass px-4 py-2 text-center text-sm font-normal shadow-pink-500/30 ease-in-out hover:scale-110 md:text-lg  lg:text-xl"
-                    onClick={handleAddToCart}
+                    onClick={(e) => handleAddToCart(e, product)}
                   >
                     Add to Cart
                   </motion.button>

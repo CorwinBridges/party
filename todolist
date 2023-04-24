@@ -2,15 +2,16 @@
 
 Shop
 - [ ] make cart work
-- [ ] make filters work
+- [x] make filters work
 - [x] make sort work
-- [ ] make shop search work
+- [x] make shop search work
 
 - [x] style products
-- [ ] style filters and sort
+- [x] style filters and sort
 
 
 Miscellaneous
 - [x] add cursor and scroll bar styles
 
 - [x] edit icons and descriptions
+- [ ] transfer repo to corwin

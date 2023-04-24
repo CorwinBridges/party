@@ -33,6 +33,7 @@
 :root {
   --swiper-theme-color: #fff !important;
 }
+
 body {
   overflow: overlay;
   cursor: url("../src/assets/custom-cursor.png"), auto !important;
@@ -51,6 +52,7 @@ body {
 }
 
 a,
-button {
+button,
+.custom-pointer {
   cursor: url("../src/assets/pointer.png"), auto !important;
 }

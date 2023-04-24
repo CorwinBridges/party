@@ -25,8 +25,10 @@ const normalLink =
   "decoration-pink-500 decoration-4 underline-offset-8 hover:underline"
 
 const Navbar = () => {
-  const { totalQuantities, setQuery, setIsShowing, open, setOpen } =
+  const { isCartVisible, toggleCart, open, setOpen, getTotalQuantity } =
     useStateContext()
+
+  
 
   // Canvas confetti
   const refAnimationInstance = useRef(null)
@@ -133,7 +135,7 @@ const Navbar = () => {
           </Link>
         </div>
         <FiMenu
-          className="relative z-10 block h-8 w-8 cursor-pointer text-white lg:hidden"
+          className="custom-pointer relative z-10 block h-8 w-8 text-white lg:hidden"
           onClick={() => setOpen(!open)}
         ></FiMenu>
         {/* links */}
@@ -164,20 +166,17 @@ const Navbar = () => {
             >
               Contact
             </NavLink>
-            <div className="hi flex text-white lg:hidden">
+            <div className="flex text-white lg:hidden">
               <button
                 type="button"
-                onClick={() => {
-                  setIsShowing((isShowing) => !isShowing)
-                }}
-                className="relative z-10 py-2.5 text-4xl"
+                onClick={toggleCart}
+                className="relative z-20 py-2.5 text-4xl"
               >
                 <HiOutlineShoppingBag className="hover:text-pink-500" />
                 <span className="absolute top-8 rounded-full border-2 border-white bg-pink-500 px-2 text-center text-xs font-semibold">
-                  {totalQuantities}
+                  {getTotalQuantity()}
                 </span>
               </button>
-              {setIsShowing && <Cart />}
             </div>
           </div>
         </div>
@@ -185,17 +184,16 @@ const Navbar = () => {
         <div className="hidden text-white lg:flex">
           <button
             type="button"
-            onClick={() => {
-              setIsShowing((isShowing) => !isShowing)
-            }}
-            className="relative z-10 px-5 py-2.5 lg:text-6xl"
+            onClick={toggleCart}
+            className="relative z-20 px-5 py-2.5 lg:text-6xl"
           >
             <HiOutlineShoppingBag className="hover:text-pink-500" />
             <span className="absolute top-12 rounded-full border-4 border-white bg-pink-500 px-2 text-center text-lg font-semibold">
-              {totalQuantities}
+              {getTotalQuantity()}
             </span>
           </button>
-          {setIsShowing && <Cart />}
+
+          {isCartVisible && <Cart />}
         </div>
       </div>
     </nav>
@@ -203,8 +201,3 @@ const Navbar = () => {
 }
 
 export default Navbar
-
-//TODO: edit styling and responsiveness
-//TODO: add cart interaction
-//? confetti on click effect?
-//? logo change?

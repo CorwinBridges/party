@@ -7,45 +7,45 @@ import { useStateContext } from "../../context/StateContext"
 
 const Sort = () => {
   const [selectedOption, setSelectedOption] = useState("Default")
-  const { products, setProducts } = useStateContext()
+  const { filteredProducts, setFilteredProducts, products } = useStateContext()
 
   const options = [
     "Default",
     "Top Rated",
-    "Price - low to high",
-    "Price - high to low",
-    "A-Z",
-    "Z-A",
+    "Low to High",
+    "High to low",
+    "A - Z",
+    "Z - A",
   ]
 
   const handleSortClick = (option) => {
     setSelectedOption(option)
-    let sortedProducts = [...products]
+    let sortedProducts = [...filteredProducts]
     switch (option) {
       case "Top Rated":
         sortedProducts = sortedProducts.sort((a, b) => b.rating - a.rating)
         break
-      case "Price - low to high":
+      case "Low to High":
         sortedProducts = sortedProducts.sort((a, b) => a.price - b.price)
         break
-      case "Price - high to low":
+      case "High to low":
         sortedProducts = sortedProducts.sort((a, b) => b.price - a.price)
         break
-      case "A-Z":
+      case "A - Z":
         sortedProducts = sortedProducts.sort((a, b) =>
           a.title.localeCompare(b.title)
         )
         break
-      case "Z-A":
+      case "Z - A":
         sortedProducts = sortedProducts.sort((a, b) =>
           b.title.localeCompare(a.title)
         )
         break
-      default:
-        // no sorting
+      case "Default":
+        sortedProducts = products
         break
     }
-    setProducts(sortedProducts)
+    setFilteredProducts(sortedProducts)
   }
 
   return (
@@ -59,7 +59,7 @@ const Sort = () => {
           </Menu.Button>
         </div>
 
-        <Menu.Items className="glass absolute right-0 z-20 mt-2 w-56 rounded-2xl p-1">
+        <Menu.Items className="glass absolute right-0 z-20 mt-2 w-56 rounded-2xl bg-violet-800/50 p-1">
           {options.map((option) => (
             <Menu.Item key={option}>
               {({ active }) => (

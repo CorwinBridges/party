@@ -62,13 +62,15 @@ const Carousel = () => {
         >
           <button>
             <HiChevronLeft className="swiper-button-prev glass absolute left-[10%] top-1/2 z-10 -translate-y-1/2 text-5xl text-white shadow-transparent hover:bg-pink-500 lg:left-[18%] lg:text-7xl" />
+          </button>
+          <button>
             <HiChevronRight className="swiper-button-next glass absolute right-[10%] top-1/2 z-10 -translate-y-1/2 text-5xl text-white shadow-transparent hover:bg-pink-500 lg:right-[18%] lg:text-7xl" />
           </button>
 
           {slide_images.map((slide, index) => (
             <SwiperSlide key={index}>
               <div className=" w-full px-4 lg:px-0">
-                <div className="mb-12 h-[50vh] rounded-[50px] bg-purple-600 p-6 lg:-mb-24 lg:h-[60vh]">
+                <div className="glass mb-12 h-[50vh] rounded-[50px] bg-purple-600/50 p-6 shadow-none lg:-mb-24 lg:h-[60vh]">
                   <img
                     src={`/src/assets/carousel/${slide.image}`}
                     alt={slide.title}
@@ -76,8 +78,10 @@ const Carousel = () => {
                   />
                 </div>
                 <div className="glass xl:1/4 relative -left-20 bottom-12 z-10 hidden aspect-square w-2/5 max-w-[250px] items-center  justify-center rounded-[50px] p-4 text-center text-white lg:flex">
-                  <h1 className="mx-auto text-xl font-bold xl:text-3xl 2xl:text-4xl">
-                    {slide.title}
+                  <h1 className="mx-auto text-xl font-bold text-purple-300 xl:text-3xl 2xl:text-4xl">
+                    <span className="bg-gradient-to-r from-red-400 to-pink-500 bg-clip-text text-transparent">
+                      {slide.title}
+                    </span>
                   </h1>
                 </div>
               </div>

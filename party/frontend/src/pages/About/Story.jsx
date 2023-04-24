@@ -28,7 +28,7 @@ const Story = () => {
       </motion.div>
       {/* gradient circle */}
       <div className="absolute -left-20 -top-20">
-        <div className="z-1 relative bottom-0 h-[400px] w-[400px] animate-[bounce_15s_linear_infinite] rounded-[50%] bg-gradient-to-b from-[#E8C483]/[0.54] to-[#E25D67]/[0.68] opacity-[0.75] blur-[3px]" />
+        <div className="z-0 relative bottom-0 h-[400px] w-[400px] animate-[bounce_15s_linear_infinite] rounded-[50%] bg-gradient-to-b from-[#E8C483]/[0.54] to-[#E25D67]/[0.68] opacity-[0.75] blur-[3px]" />
       </div>
       {/* blur */}
       <div className="absolute right-0 top-0 z-0 h-[50vh] w-1/2 rounded-full bg-[#FEE17A] opacity-[0.94] blur-[130px]" />

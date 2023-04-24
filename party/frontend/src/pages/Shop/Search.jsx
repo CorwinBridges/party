@@ -9,7 +9,12 @@ import { useStateContext } from "../../context/StateContext"
 const Search = () => {
   const [productQuery, setProductQuery] = useState("")
   const [searchResults, setSearchResults] = useState([])
-  const { products, handleCardClick } = useStateContext()
+  const {
+    products,
+    setFilteredProducts,
+    filteredProducts,
+    handleCardClick
+  } = useStateContext()
   const searchInput = useRef(null)
 
   const searchItems = async (query) => {
@@ -41,12 +46,25 @@ const Search = () => {
     const correspondingProduct = products.find(
       (product) => product._id === item._id
     )
+    if (!correspondingProduct) {
+      return
+    }
     setProductQuery("")
     setSearchResults([])
     handleCardClick(correspondingProduct)
     setTimeout(() => {
-      searchInput.current.blur()
+      if (searchInput.current) {
+        // Check if searchInput.current is truthy
+        searchInput.current.blur()
+      }
     }, 0)
+    const isProductInList = filteredProducts.some(
+      (product) => product._id === item._id
+    )
+    if (!isProductInList) {
+      const newFilteredProducts = [...filteredProducts, correspondingProduct]
+      setFilteredProducts(newFilteredProducts)
+    }
   }
 
   return (
@@ -85,7 +103,7 @@ const Search = () => {
                     onClick={(item) => {
                       handleSelectOption(item)
                     }}
-                    className={`cursor-pointer rounded-3xl px-4 py-2 ${
+                    className={`custom-pointer rounded-3xl px-4 py-2 ${
                       active ? "bg-pink-500 text-white" : ""
                     }`}
                   >
