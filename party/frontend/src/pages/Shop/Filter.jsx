@@ -1,11 +1,16 @@
-import { useEffect } from "react"
-import { HiChevronUp, HiChevronDown } from "react-icons/hi"
+import { useEffect } from "react";
+import { HiChevronUp, HiChevronDown } from "react-icons/hi";
 
-import { Disclosure, Menu } from "@headlessui/react"
-import axios from "axios"
-import { motion, AnimatePresence } from "framer-motion"
 
-import { useStateContext } from "../../context/StateContext"
+
+import { Disclosure, Menu } from "@headlessui/react";
+import axios from "axios";
+import { motion, AnimatePresence } from "framer-motion";
+
+
+
+import { useStateContext } from "../../context/StateContext";
+
 
 const filters = [
   {
@@ -31,6 +36,7 @@ const filters = [
       { value: "red", label: "Red", color: "red" },
       { value: "blue", label: "Blue", color: "blue" },
       { value: "yellow", label: "Yellow", color: "yellow" },
+      { value: "pink", label: "Pink", color: "pink" },
     ],
   },
 ]
@@ -50,12 +56,20 @@ const Filter = () => {
     const schoolUrl = "http://10.64.32.244:6968/products"
     const localUrl = "http://localhost:6968/products"
     const getProducts = async () => {
-      const response = await axios.get(localUrl || schoolUrl)
-      setProducts(response.data)
-      setFilteredProducts(response.data)
+      try {
+        const response = await axios.get(localUrl)
+        setProducts(response.data)
+        setFilteredProducts(response.data)
+      } catch (error) {
+        console.error("Error fetching products from localUrl:", error)
+        const response = await axios.get(schoolUrl)
+        setProducts(response.data)
+        setFilteredProducts(response.data)
+      }
     }
     getProducts()
   }, [])
+
 
   const handleInputChange = (option, isChecked) => {
     const matchingValues = isChecked

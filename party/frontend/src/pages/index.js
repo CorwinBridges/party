@@ -11,6 +11,7 @@ import CForm from "../pages/Contact/CForm"
 import CInfo from "../pages/Contact/CInfo"
 // Contact
 import Contact from "../pages/Contact/Contact"
+import Review from "../pages/Contact/Review"
 // Home
 import Benefits from "../pages/Home/Benefits"
 import CTA from "../pages/Home/CTA"
@@ -65,4 +66,5 @@ export {
   Terms,
   Shipping,
   Returns,
+  Review,
 }

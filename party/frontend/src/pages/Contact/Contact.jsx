@@ -1,4 +1,4 @@
-import { CInfo, CForm } from "../../pages"
+import { CInfo, CForm, Review } from "../../pages"
 import { PageWrapper } from "../../utils"
 
 const Contact = () => {
@@ -9,6 +9,9 @@ const Contact = () => {
       </div>
       <div className="section-container">
         <CForm />
+      </div>
+      <div className="section-container">
+        <Review/>
       </div>
     </>
   )

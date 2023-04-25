@@ -50,20 +50,11 @@ const Product = () => {
       <div className="absolute right-40">
         <div className="relative -bottom-[500px] z-10 h-[250px] w-[250px] animate-[bounce_15s_linear_infinite] rounded-[50%] bg-gradient-to-b from-[#527CF4]/[0.54] to-[#7AEF7D]/[0.68] opacity-[0.75] blur-[3px]" />
       </div>
-      {/* <div className="absolute -left-20 top-[3700px]">
-        <div className="relative z-10  h-[400px] w-[400px] animate-[bounce_15s_linear_infinite] rounded-[50%] bg-gradient-to-b from-[#527CF4]/[0.54] to-[#7AEF7D]/[0.68] opacity-[0.75] blur-[3px]" />
-      </div> */}
-      {/* {blur} */}
-      {/* <div className="absolute -left-10 top-[3300px] z-0 h-[50vh] w-1/2 rounded-full bg-[#527CF4] opacity-[0.84] blur-[110px]" /> */}
-      {/* Left-side x image */}
-      {/* <div className="absolute -right-10 bottom-[900px] z-0 w-1/2 lg:-right-20 lg:w-1/4  ">
-        <img src={x_shape} alt="x" className="relative top-80 blur" />
-      </div> */}
       {/* product boxes */}
-      <MotionConfig transition={{ duration: duration }}>
-        <div className="grid grid-cols-1 gap-5 text-white sm:grid-cols-2 xl:grid-cols-3">
-          {filteredProducts.map((product) => (
-            <div key={product._id}>
+      <div className="grid grid-cols-1 gap-5 px-10 text-white sm:grid-cols-2 lg:px-0 xl:grid-cols-3">
+        {filteredProducts.map((product) => (
+          <div key={product._id}>
+            <MotionConfig transition={{ duration: duration }}>
               <motion.div
                 className={`glass p-8 text-2xl ${
                   selectedProduct === product
@@ -87,9 +78,16 @@ const Product = () => {
                 }}
               >
                 <div className="mb-4 gap-8 md:flex md:justify-center">
-                  <div className="">
+                  <div className="relative">
+                    {product.best_seller && (
+                      <motion.div layout>
+                        <div className="absolute right-0 top-0 z-50 -translate-y-1/2 translate-x-1/4 rounded-2xl bg-fuchsia-600 px-4 py-2 text-base font-bold text-white">
+                          Best Seller
+                        </div>
+                      </motion.div>
+                    )}
                     <motion.img
-                      className="mx-auto mb-4 max-h-24 rounded-3xl bg-purple-600/50 p-2 lg:max-h-44 xl:max-h-52"
+                      className="mx-auto mb-4 max-h-24 rounded-3xl bg-purple-600/50 p-4 lg:max-h-44 xl:max-h-52"
                       layout
                       src={`/src/assets/boxes/${product.image}`}
                       alt={product.title}
@@ -127,7 +125,6 @@ const Product = () => {
                         {renderStarRating(product.rating)}
                       </span>
                     </motion.div>
-                    <motion.div layout="position"></motion.div>
                   </div>
                   <div
                     className={`flex items-center text-center text-sm font-normal md:text-xl lg:text-2xl ${
@@ -141,23 +138,28 @@ const Product = () => {
                 <motion.div className="flex justify-end" layout="position">
                   <motion.button
                     layout="position"
-                    className=" glass px-4 py-2 text-center text-sm font-normal shadow-pink-500/30 ease-in-out hover:scale-110 md:text-lg  lg:text-xl"
+                    className="glass px-4 py-2 text-center text-sm font-normal shadow-pink-500/30 ease-in-out md:text-lg lg:text-xl"
                     onClick={(e) => handleAddToCart(e, product)}
                   >
                     Add to Cart
                   </motion.button>
                 </motion.div>
               </motion.div>
-            </div>
-          ))}
-          <motion.div
-            className={`pointer-events-auto absolute left-0 top-0 block h-full w-full bg-black opacity-0 ${
-              selectedProduct ? "z-40" : "-z-10"
-            }`}
-            animate={{ opacity: selectedProduct ? 0.3 : 0 }}
-          />
-        </div>
-      </MotionConfig>
+            </MotionConfig>
+          </div>
+        ))}
+        <motion.div
+          className={`pointer-events-auto absolute left-0 top-0 block h-full w-full bg-black opacity-0 ${
+            selectedProduct ? "z-40" : "-z-10"
+          }`}
+          onClick={() => {
+            if (selectedProduct) {
+              handleCardClick(selectedProduct)
+            }
+          }}
+          animate={{ opacity: selectedProduct ? 0.3 : 0 }}
+        />
+      </div>
     </>
   )
 }

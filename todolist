@@ -7,9 +7,7 @@ Shop
 - [x] make shop search work
 - [ ] cart animation
 - [ ] toast
-- [ ] adjust style product cards on small screens
-- [ ] try to break the website
-- [ ] test on mobile
+- [ ] make best seller responsive
 
 - [x] style products
 - [x] style filters and sort

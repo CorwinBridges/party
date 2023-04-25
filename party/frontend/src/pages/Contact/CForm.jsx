@@ -33,12 +33,19 @@ const onSubmit = async (values, { setSubmitting, resetForm }) => {
   let promise = null
   try {
     promise = toast.loading("Submitting form...")
-    const response = await axios.post(localUrl || schoolUrl, values)
+    const response = await axios.post(localUrl, values)
     toast.success("Form submitted successfully!", { id: promise })
     resetForm()
   } catch (error) {
-    console.log("Error:", error)
-    toast.error("Error submitting form", { id: promise })
+    console.error("Error submitting form to localUrl:", error)
+    try {
+      const response = await axios.post(schoolUrl, values)
+      toast.success("Form submitted successfully!", { id: promise })
+      resetForm()
+    } catch (error) {
+      console.error("Error submitting form to schoolUrl:", error)
+      toast.error("Error submitting form", { id: promise })
+    }
   } finally {
     setSubmitting(false)
   }

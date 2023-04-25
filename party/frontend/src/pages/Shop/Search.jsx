@@ -9,25 +9,30 @@ import { useStateContext } from "../../context/StateContext"
 const Search = () => {
   const [productQuery, setProductQuery] = useState("")
   const [searchResults, setSearchResults] = useState([])
-  const {
-    products,
-    setFilteredProducts,
-    filteredProducts,
-    handleCardClick
-  } = useStateContext()
+  const { products, setFilteredProducts, filteredProducts, handleCardClick } =
+    useStateContext()
   const searchInput = useRef(null)
 
   const searchItems = async (query) => {
     const schoolUrl = "http://10.64.32.244:6968/products"
     const localUrl = "http://localhost:6968/products"
     try {
-      const res = await axios.get(localUrl || schoolUrl)
+      const res = await axios.get(localUrl)
       const filteredResults = res.data.filter((item) =>
         item.title.toLowerCase().includes(query.toLowerCase())
       )
       setSearchResults(filteredResults)
     } catch (err) {
-      console.error(err.message)
+      console.error("Error fetching search results from localUrl:", err)
+      try {
+        const res = await axios.get(schoolUrl)
+        const filteredResults = res.data.filter((item) =>
+          item.title.toLowerCase().includes(query.toLowerCase())
+        )
+        setSearchResults(filteredResults)
+      } catch (err) {
+        console.error("Error fetching search results from schoolUrl:", err)
+      }
     }
   }
 

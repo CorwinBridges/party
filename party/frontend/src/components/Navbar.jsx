@@ -1,12 +1,15 @@
-import { useCallback, useRef } from "react"
+import { useCallback, useRef, useState } from "react"
 import ReactCanvasConfetti from "react-canvas-confetti"
 import { FiMenu } from "react-icons/fi"
 import { HiOutlineShoppingBag } from "react-icons/hi2"
 import { NavLink, Link } from "react-router-dom"
 
+import { motion } from "framer-motion"
+
 import { Cart } from "."
 import { partylogonowords } from "../assets"
 import { useStateContext } from "../context/StateContext"
+import { useMediaQuery } from "../utils"
 
 // Canvas styling
 const canvasStyles = {
@@ -25,8 +28,9 @@ const normalLink =
   "decoration-pink-500 decoration-4 underline-offset-8 hover:underline"
 
 const Navbar = () => {
-  const { isCartVisible, toggleCart, open, setOpen, getTotalQuantity } =
-    useStateContext()
+  const { toggleCart, open, setOpen, getTotalQuantity } = useStateContext()
+  const [duration, setDuration] = useState(0)
+  const isLg = useMediaQuery("(min-width: 1024px)")
 
   // Canvas confetti
   const refAnimationInstance = useRef(null)
@@ -112,6 +116,31 @@ const Navbar = () => {
     },
     [makeShot]
   )
+
+  const menuVariants = {
+    open: {
+      height: "auto",
+      opacity: 1,
+      transition: {
+        duration: 0.3,
+      },
+    },
+    closed: {
+      height: isLg ? "auto" : 0,
+      opacity: isLg ? 1 : 0,
+      transition: {
+        duration,
+      },
+    },
+  }
+
+  const toggleDuration = () => {
+    setDuration(0.3)
+    setTimeout(() => {
+      setDuration(0)
+    }, 300)
+  }
+
   return (
     <nav>
       <ReactCanvasConfetti refConfetti={getInstance} style={canvasStyles} />
@@ -134,13 +163,20 @@ const Navbar = () => {
         </div>
         <FiMenu
           className="custom-pointer relative z-10 block h-8 w-8 text-white lg:hidden"
-          onClick={() => setOpen(!open)}
+          onClick={() => {
+            setOpen(!open)
+            toggleDuration()
+          }}
         ></FiMenu>
         {/* links */}
-        <div
+        <motion.div
           className={`${
             open ? "block" : "hidden"
           } w-full items-end text-white lg:flex lg:w-auto lg:items-center`}
+          initial={false}
+          animate={open ? "open" : "closed"}
+          variants={menuVariants}
+          style={{ zIndex: 10 }}
         >
           <div className="relative z-20 flex flex-col items-end justify-between space-y-2 text-xl lg:flex-row lg:space-x-8 lg:text-2xl ">
             <NavLink
@@ -164,22 +200,20 @@ const Navbar = () => {
             >
               Contact
             </NavLink>
-            <div className="text-white">
+            <div className="text-white lg:hidden">
               <button
                 type="button"
                 onClick={toggleCart}
-                className="relative z-20 flex py-2.5 text-4xl lg:hidden"
+                className="relative z-20 flex py-2.5 text-4xl"
               >
                 <HiOutlineShoppingBag className="hover:text-pink-500" />
                 <span className="absolute top-8 rounded-full border-2 border-white bg-pink-500 px-2 text-center text-xs font-semibold">
                   {getTotalQuantity()}
                 </span>
               </button>
-
-              {isCartVisible && <Cart />}
             </div>
           </div>
-        </div>
+        </motion.div>
         {/*shopping cart */}
         <button
           type="button"
@@ -191,8 +225,7 @@ const Navbar = () => {
             {getTotalQuantity()}
           </span>
         </button>
-
-        {isCartVisible && <Cart />}
+        <Cart />
       </div>
     </nav>
   )
