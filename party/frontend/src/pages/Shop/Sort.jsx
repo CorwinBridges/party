@@ -52,7 +52,7 @@ const Sort = () => {
     <div className="flex justify-end text-white">
       <Menu as="div" className="relative inline-block text-left">
         <div className="flex items-center">
-          <span className="mr-2 text-xl">Sort:</span>
+          <span className="mr-2 hidden xs:block text-xl">Sort:</span>
           <Menu.Button className="glass inline-flex w-full items-center justify-center px-4 py-2 font-medium text-white">
             {selectedOption}{" "}
             <HiChevronDown className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />

@@ -1,17 +1,28 @@
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { HiOutlineSearch } from "react-icons/hi"
 
 import { Combobox } from "@headlessui/react"
 import axios from "axios"
 
 import { useStateContext } from "../../context/StateContext"
+import { useMediaQuery } from "../../utils"
 
 const Search = () => {
   const [productQuery, setProductQuery] = useState("")
   const [searchResults, setSearchResults] = useState([])
+  const [placeholder, setPlaceholder] = useState("Search for a product...")
   const { products, setFilteredProducts, filteredProducts, handleCardClick } =
     useStateContext()
   const searchInput = useRef(null)
+  const isSm = useMediaQuery("(min-width: 480px)")
+
+  useEffect(() => {
+    if (isSm) {
+      setPlaceholder("Search for a product...")
+    } else {
+      setPlaceholder("Search...")
+    }
+  }, [isSm])
 
   const searchItems = async (query) => {
     const schoolUrl = "http://10.64.32.244:6968/products"
@@ -85,7 +96,7 @@ const Search = () => {
           }}
           ref={searchInput}
           type="text"
-          placeholder="Search for a product..."
+          placeholder={placeholder}
           className="glass w-full bg-transparent px-6 py-2 pr-10 leading-tight outline-none placeholder:text-white/70 focus:border-pink-500 focus:ring-0"
         />
 

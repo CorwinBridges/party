@@ -1,14 +1,9 @@
-import toast, { Toaster } from "react-hot-toast";
-import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
+import toast, { Toaster } from "react-hot-toast"
+import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa"
 
+import { MotionConfig, motion } from "framer-motion"
 
-
-import { MotionConfig, motion } from "framer-motion";
-
-
-
-import { useStateContext } from "../../context/StateContext";
-
+import { useStateContext } from "../../context/StateContext"
 
 const Product = () => {
   const { selectedProduct, handleCardClick, filteredProducts, addToCart } =
@@ -87,8 +82,9 @@ const Product = () => {
                     {product.best_seller && (
                       <motion.div
                         layout
-                        className="fixed right-6 top-5 mx-auto mb-4 z-50 rounded-2xl bg-fuchsia-600 px-4 py-2 lg:text-base text-sm font-bold text-white">
-                          Best Seller
+                        className="absolute -right-4 -top-3 z-50 mx-auto  mb-4 rounded-2xl bg-fuchsia-600 px-4 py-2 text-xs font-bold text-white md:-right-12 md:-top-4 md:text-sm lg:text-base"
+                      >
+                        Best Seller
                       </motion.div>
                     )}
                     <motion.img

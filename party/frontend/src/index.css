@@ -34,7 +34,7 @@
   --swiper-theme-color: #fff !important;
 }
 
-body {
+body, label {
   overflow: overlay;
   cursor: url("../src/assets/custom-cursor.png"), auto !important;
 }
@@ -53,6 +53,7 @@ body {
 
 a,
 button,
+div.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal, span.swiper-pagination-bullet, div.swiper-slide,
 .custom-pointer {
   cursor: url("../src/assets/pointer.png"), auto !important;
 }

@@ -215,7 +215,7 @@ const Filter = () => {
       <div className="block lg:hidden">
         <Menu as="div" className="relative inline-block text-left">
           <div className="flex items-center">
-            <span className="mr-2 text-xl">Filter:</span>
+            <span className="mr-2 hidden xs:block text-xl">Filter:</span>
             <Menu.Button className="glass inline-flex w-full items-center justify-center px-4 py-2 font-medium text-white">
               Filter{" "}
               <HiChevronDown
