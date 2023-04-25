@@ -1,10 +1,14 @@
-import toast, { Toaster } from "react-hot-toast"
-import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa"
+import toast, { Toaster } from "react-hot-toast";
+import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 
-import { MotionConfig, motion } from "framer-motion"
 
-import { x_shape } from "../../assets"
-import { useStateContext } from "../../context/StateContext"
+
+import { MotionConfig, motion } from "framer-motion";
+
+
+
+import { useStateContext } from "../../context/StateContext";
+
 
 const Product = () => {
   const { selectedProduct, handleCardClick, filteredProducts, addToCart } =
@@ -35,8 +39,9 @@ const Product = () => {
     e.stopPropagation()
     addToCart(product)
     toast(`Added ${product.title} Box to Cart`, {
+      duration: 2000,
       className:
-        "bg-purple-500 shadow-purple-500 rounded-full text-white shadow-xl border-2 border-white/20 from-white/10 to-white/0",
+        "!bg-purple-500 !shadow-purple-500 !rounded-full !text-white !shadow-xl !border-2 !border-white/20 !from-white/10 !to-white/0",
     })
   }
 
@@ -80,10 +85,10 @@ const Product = () => {
                 <div className="mb-4 gap-8 md:flex md:justify-center">
                   <div className="relative">
                     {product.best_seller && (
-                      <motion.div layout>
-                        <div className="absolute right-0 top-0 z-50 -translate-y-1/2 translate-x-1/4 rounded-2xl bg-fuchsia-600 px-4 py-2 text-base font-bold text-white">
+                      <motion.div
+                        layout
+                        className="fixed right-6 top-5 mx-auto mb-4 z-50 rounded-2xl bg-fuchsia-600 px-4 py-2 lg:text-base text-sm font-bold text-white">
                           Best Seller
-                        </div>
                       </motion.div>
                     )}
                     <motion.img

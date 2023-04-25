@@ -100,20 +100,27 @@ const Review = () => {
 
   return (
     <section className="py-16">
+      {/* background circles */}
+      <div className="absolute -right-20 ">
+        <div className="relative bottom-0 z-0 h-[400px] w-[400px] animate-[bounce_15s_linear_infinite] rounded-[50%] bg-gradient-to-b from-[#C2A0F0]/[0.54] to-[#E25D67]/[0.68] opacity-[0.75] blur-[3px]" />
+      </div>
+      <div className="absolute right-40 ">
+        <div className="relative bottom-40 z-0 h-[300px] w-[300px] animate-[bounce_15s_linear_infinite] rounded-[50%] bg-gradient-to-b from-[#4C6DDF]/[0.54] to-[#E46EC7]/[0.68] opacity-[0.75] blur-[3px]" />
+      </div>
       {/* Toast */}
       <Toaster
         toastOptions={{
           success: {
             className:
-              "bg-green-500 shadow-green-500 rounded-full text-white shadow-lg border-2 border-white/20 from-white/10 to-white/0",
+              "!bg-green-500 !shadow-green-500 !rounded-full !text-white !shadow-lg !border-2 !border-white/20 !from-white/10 !to-white/0",
           },
           error: {
             className:
-              "bg-red-500 shadow-red-500 rounded-full text-white shadow-lg border-2 border-white/20 from-white/10 to-white/0",
+              "!bg-red-500 !shadow-red-500 !rounded-full !text-white !shadow-lg !border-2 !border-white/20 !from-white/10 !to-white/0",
           },
           loading: {
             className:
-              "bg-purple-500 shadow-purple-500 rounded-full text-white shadow-xl border-2 border-white/20 from-white/10 to-white/0",
+              "!bg-purple-500 !shadow-purple-500 !rounded-full !text-white !shadow-xl !border-2 !border-white/20 !from-white/10 !to-white/0",
           },
         }}
       />
@@ -121,7 +128,7 @@ const Review = () => {
       <div className="glass relative z-10 mx-auto rounded-[69px] text-white">
         <div className="p-4 xs:p-8">
           <div className="mb-8 text-center">
-            <span className="bg-gradient-to-bl from-purple-500 to-red-500 bg-clip-text text-5xl font-bold text-transparent">
+            <span className="bg-gradient-to-bl from-purple-500 to-blue-500 bg-clip-text text-5xl font-bold text-transparent">
               Leave a Review
             </span>
           </div>
@@ -177,7 +184,7 @@ const Review = () => {
                       name="rating"
                       type="text"
                       placeholder="Rating"
-                      className="glass w-full rounded-[69px] bg-inherit px-3 py-1 leading-8 text-white outline-none transition-colors duration-200 ease-in-out placeholder:text-white/70 focus:border-purple-500 focus:ring-0"
+                      className="glass rounded-[69px] bg-inherit px-3 py-1 leading-8 text-white outline-none transition-colors duration-200 ease-in-out placeholder:text-white/70 focus:border-purple-500 focus:ring-0 lg:w-1/12"
                     />
                     <div className="text-blue-400">
                       <ErrorMessage name="rating" />
@@ -216,21 +223,32 @@ const Review = () => {
         </Formik>
       </div>
 
-      <div className="mt-48 text-center text-5xl font-medium text-white">
+      <div className=" mt-48 bg-gradient-to-bl from-purple-500 to-blue-500 bg-clip-text pb-10 text-center text-5xl font-bold text-transparent">
         Reviews
       </div>
-      {[...reviews].reverse().map((review, index) => (
-        <div key={index} className="glass my-6 rounded-2xl p-6 text-white">
-          <h3>
-            Name: {review.firstName} {review.lastName}
-          </h3>
-          <div className="flex items-center">
-            <div className="mr-1">Rating: {review.rating}</div>
-            <div>{renderStarRating(review.rating)}</div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-10 xl:grid-cols-3">
+        {[...reviews].reverse().map((review, index) => (
+          <div key={index} className="glass my-4 rounded-2xl p-6 text-white">
+            <h3>
+              <span className="pr-3 text-red-500">Name:</span>
+              {review.firstName} {review.lastName}
+            </h3>
+            <div className="flex items-center">
+              <div className="mr-1">
+                <span className="pr-3 text-red-500">Rating:</span>
+                {review.rating}
+              </div>
+              <div>{renderStarRating(review.rating)}</div>
+            </div>
+            <p>
+              <span className="pr-3 text-red-500">Message:</span>
+              {review.review}
+            </p>
           </div>
-          <p>Message: {review.review}</p>
-        </div>
-      ))}
+        ))}
+      </div>
+      {/* blur */}
+      <div className="absolute -left-60 bottom-[1000px] z-0 h-[50vh] w-1/2 rounded-full bg-[#F2F2F2] opacity-[0.34] blur-[130px]" />
     </section>
   )
 }

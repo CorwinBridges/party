@@ -59,15 +59,15 @@ const CForm = () => {
         toastOptions={{
           success: {
             className:
-              "bg-green-500 shadow-green-500 rounded-full text-white shadow-lg border-2 border-white/20 from-white/10 to-white/0",
+              "!bg-green-500 !shadow-green-500 !rounded-full !text-white !shadow-lg !border-2 !border-white/20 !from-white/10 !to-white/0",
           },
           error: {
             className:
-              "bg-red-500 shadow-red-500 rounded-full text-white shadow-lg border-2 border-white/20 from-white/10 to-white/0",
+              "!bg-red-500 !shadow-red-500 !rounded-full !text-white !shadow-lg !border-2 !border-white/20 !from-white/10 !to-white/0",
           },
           loading: {
             className:
-              "bg-purple-500 shadow-purple-500 rounded-full text-white shadow-xl border-2 border-white/20 from-white/10 to-white/0",
+              "!bg-purple-500 !shadow-purple-500 !rounded-full !text-white !shadow-xl !border-2 !border-white/20 !from-white/10 !to-white/0",
           },
         }}
       />
@@ -83,7 +83,7 @@ const CForm = () => {
         <div className="z-0 h-[300px] w-[300px] animate-[bounce_15s_linear_infinite] rounded-[50%] bg-gradient-to-b from-[#71D57C] to-[#E8C483]/[0.94] opacity-[0.75] blur-[3px]" />
       </div>
 
-      <div className="absolute right-0 top-0 z-0 h-[50vh] w-1/2 rounded-full bg-[#F2F2F2] opacity-[0.94] blur-[130px]" />
+      <div className="absolute right-0 top-0 z-0 h-[50vh] w-1/2 rounded-full bg-[#F2F2F2] opacity-[0.54] blur-[130px]" />
 
       {/* contact form */}
       <div className="glass relative z-10 mx-auto max-w-3xl rounded-[69px] text-white">

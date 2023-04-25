@@ -127,6 +127,61 @@ export const quotes = [
   },
 ]
 
+export const logos = [
+  {
+    src: "nickolodeon.png",
+    alt: "Nickelodeon",
+  },
+  {
+    src: "mcdonalds.webp",
+    alt: "McDonald's",
+  },
+  {
+    src: "amazon.png",
+    alt: "Amazon",
+  },
+  {
+    src: "apple.svg",
+    alt: "Apple",
+  },
+  {
+    src: "gucci.png",
+    alt: "Gucci",
+  },
+  {
+    src: "toysrus.png",
+    alt: "Toys R Us",
+  },
+  {
+    src: "netflix.png",
+    alt: "Netflix",
+  },
+  {
+    src: "nbc.png",
+    alt: "NBC",
+  },
+  {
+    src: "nike.png",
+    alt: "Nike",
+  },
+  {
+    src: "adidas.png",
+    alt: "Adidas",
+  },
+  {
+    src: "fortnite.svg",
+    alt: "Fortnite",
+  },
+  {
+    src: "roblox.svg",
+    alt: "Roblox",
+  },
+  {
+    src: "sears.png",
+    alt: "Sears",
+  },
+]
+
 export const slideInAnimation = (direction, type, delay) => ({
   initial: {
     opacity: 0,

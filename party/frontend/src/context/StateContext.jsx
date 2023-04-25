@@ -50,6 +50,24 @@ export const StateContext = ({ children }) => {
     return cartItems.reduce((total, item) => total + item.quantity, 0)
   }
 
+  const calculateSubtotalPrice = () => {
+    return cartItems.reduce((total, product) => {
+      return total + product.price * product.quantity
+    }, 0)
+  }
+
+  const calculateTaxes = () => {
+    const subtotal = calculateSubtotalPrice()
+    const taxRate = 0.069
+    return subtotal * taxRate
+  }
+
+  const calculateTotalPrice = () => {
+    const subtotal = calculateSubtotalPrice()
+    const taxes = calculateTaxes()
+    return subtotal + taxes
+  }
+
   return (
     <Context.Provider
       value={{
@@ -74,6 +92,9 @@ export const StateContext = ({ children }) => {
         updateCartItemQuantity,
         removeFromCart,
         getTotalQuantity,
+        calculateSubtotalPrice,
+        calculateTaxes,
+        calculateTotalPrice,
       }}
     >
       {children}

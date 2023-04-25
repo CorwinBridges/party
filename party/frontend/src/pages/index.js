@@ -7,11 +7,16 @@ import Process from "../pages/About/Process"
 import Start from "../pages/About/Start"
 import Story from "../pages/About/Story"
 import Team from "../pages/About/Team"
-import CForm from "../pages/Contact/CForm"
-import CInfo from "../pages/Contact/CInfo"
+// Checkout
+import Checkout from "../pages/Checkout/Checkout"
+import Order from "../pages/Checkout/Order"
+import Payment from "../pages/Checkout/Payment"
+import Thanks from "../pages/Checkout/Thanks"
 // Contact
 import Contact from "../pages/Contact/Contact"
 import Review from "../pages/Contact/Review"
+import CForm from "../pages/Contact/CForm"
+import CInfo from "../pages/Contact/CInfo"
 // Home
 import Benefits from "../pages/Home/Benefits"
 import CTA from "../pages/Home/CTA"
@@ -67,4 +72,8 @@ export {
   Shipping,
   Returns,
   Review,
+  Checkout,
+  Order,
+  Payment,
+  Thanks,
 }

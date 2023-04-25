@@ -11,7 +11,9 @@ import {
   Terms,
   Privacy,
   Returns,
-  Shipping
+  Shipping,
+  Checkout,
+  Thanks
 } from "./pages"
 
 const App = () => {
@@ -25,11 +27,13 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route exact path="/shop" element={<Shop />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/shipping" element={<Shipping />} />
           <Route path="/returns" element={<Returns />} />
+          <Route path="/thanks" element={<Thanks />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

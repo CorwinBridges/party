@@ -1,16 +1,11 @@
-import { useEffect } from "react";
-import { HiChevronUp, HiChevronDown } from "react-icons/hi";
+import { useEffect } from "react"
+import { HiChevronUp, HiChevronDown } from "react-icons/hi"
 
+import { Disclosure, Menu } from "@headlessui/react"
+import axios from "axios"
+import { motion, AnimatePresence } from "framer-motion"
 
-
-import { Disclosure, Menu } from "@headlessui/react";
-import axios from "axios";
-import { motion, AnimatePresence } from "framer-motion";
-
-
-
-import { useStateContext } from "../../context/StateContext";
-
+import { useStateContext } from "../../context/StateContext"
 
 const filters = [
   {
@@ -69,7 +64,6 @@ const Filter = () => {
     }
     getProducts()
   }, [])
-
 
   const handleInputChange = (option, isChecked) => {
     const matchingValues = isChecked

@@ -14,31 +14,23 @@ const OrdersSchema = new mongoose.Schema({
     required: true,
   },
   shipZipCode: {
-    type: Number,
+    type: String,
     required: true,
   },
   shipState: {
     type: String,
     required: true,
   },
-  shipCountry: {
+  creditCardNumber: {
     type: String,
     required: true,
   },
-  creditCardNumber: {
-    type: Number,
-    required: true,
-  },
-  creditCardNumber: {
-    type: Number,
-    required: true,
-  },
   creditCardExpiration: {
-    type: Number,
+    type: Date,
     required: true,
   },
   creditCardCVV: {
-    type: Number,
+    type: String,
     required: true,
   },
   firstName: {

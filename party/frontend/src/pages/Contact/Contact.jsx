@@ -11,7 +11,7 @@ const Contact = () => {
         <CForm />
       </div>
       <div className="section-container">
-        <Review/>
+        <Review />
       </div>
     </>
   )

@@ -5,9 +5,9 @@ Shop
 - [x] make filters work
 - [x] make sort work
 - [x] make shop search work
-- [ ] cart animation
-- [ ] toast
-- [ ] make best seller responsive
+- [x] cart animation
+- [x] toast
+- [x] make best seller responsive
 
 - [x] style products
 - [x] style filters and sort
@@ -18,3 +18,10 @@ Miscellaneous
 
 - [x] edit icons and descriptions
 - [ ] transfer repo to corwin
+
+Anna's Todo
+- [x] make best seller tag responsive
+- [x] style reviews
+- [x] style review box
+- [x] style checkout page and responsiveness
+- [x] gradients for Checkout

@@ -103,7 +103,7 @@ const Footer = () => {
     [makeShot]
   )
 
-  const { open, setOpen } = useStateContext()
+  const { setOpen } = useStateContext()
 
   return (
     <footer className="relative z-10 bg-[#190039]/[.70] text-white">

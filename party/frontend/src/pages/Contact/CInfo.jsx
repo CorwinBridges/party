@@ -8,6 +8,10 @@ const CInfo = () => {
         company's customer service team should be able to assist you with any
         inquiries or issues you may have.
       </div>
+      <div className="flex items-center px-10 py-10 text-center text-lg font-medium text-blue-400 lg:px-60 lg:text-2xl">
+        If looking to give a review, please scroll down for the form! When
+        submitted, your review will be viewed by everyone.
+      </div>
     </section>
   )
 }

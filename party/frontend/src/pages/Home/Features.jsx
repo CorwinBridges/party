@@ -62,7 +62,7 @@ const Features = () => {
             </motion.div>
           ))}
         </div>
-                {/* title and description */}
+        {/* title and description */}
         <div className="order-first mt-8 xl:order-last xl:col-span-3">
           <motion.h1
             variants={slideInAnimation("up", "spring", isXl ? 0.8 : 0)}

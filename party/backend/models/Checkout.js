@@ -1,22 +1,17 @@
 const mongoose = require("mongoose")
 
 const CheckoutSchema = new mongoose.Schema({
-  orderID: {
-    type: String,
-    required: true,
-  },
-  orderItems: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-    required: true,
-  },
-  message: {
-    type: String,
-    required: true,
-  },
+  orderId: { type: String, required: true, unique: true },
+  cartItems: [
+    {
+      title: { type: String, required: true },
+      price: { type: Number, required: true },
+      quantity: { type: Number, required: true }
+    },
+  ],
+  totalQuantity: { type: Number, required: true },
+  totalPrice: { type: Number, required: true },
+  createdAt: { type: Date, default: Date.now },
 })
 
 const CheckoutModel = mongoose.model("checkout", CheckoutSchema)

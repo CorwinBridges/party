@@ -1,4 +1,5 @@
 import { IoClose } from "react-icons/io5"
+import { Link } from "react-router-dom"
 
 import { motion, AnimatePresence } from "framer-motion"
 
@@ -12,20 +13,9 @@ const Cart = () => {
     toggleCart,
     getTotalQuantity,
     isCartVisible,
+    calculateSubtotalPrice,
+    setOpen,
   } = useStateContext()
-
-  const calculateTotalPrice = () => {
-    return cartItems.reduce((total, product) => {
-      return total + product.price * product.quantity
-    }, 0)
-  }
-
-  const handleBlur = (e, productId) => {
-    const value = parseInt(e.target.value)
-    if (value < 1) {
-      updateCartItemQuantity(productId, 1)
-    }
-  }
 
   const slideInVariants = {
     hidden: { x: "100%" },
@@ -66,71 +56,78 @@ const Cart = () => {
                   {/* Cart Items */}
                   <div className="flex-grow overflow-y-auto">
                     <div className="px-4 py-6 sm:px-6">
-                      <ul className="-my-6 divide-y-2 divide-white">
-                        {cartItems.map((product) => (
-                          <li key={product._id} className="flex py-6">
-                            <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-2xl bg-gradient-to-bl from-red-400 via-pink-500 to-violet-500 p-2">
-                              <img
-                                src={`/src/assets/boxes/${product.image}`}
-                                alt={product.title}
-                                className="h-full w-full object-cover object-center"
-                              />
-                            </div>
+                      {cartItems.length === 0 ? (
+                        <div className="py-8 text-center text-xl font-medium text-white">
+                          Bag is empty
+                        </div>
+                      ) : (
+                        <ul className="-my-6 divide-y-2 divide-white">
+                          {cartItems.map((product) => (
+                            <li key={product._id} className="flex py-6">
+                              <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-2xl bg-gradient-to-bl from-red-400 via-pink-500 to-violet-500 p-2">
+                                <img
+                                  src={`/src/assets/boxes/${product.image}`}
+                                  alt={product.title}
+                                  className="h-full w-full object-cover object-center"
+                                />
+                              </div>
 
-                            <div className="ml-4 flex flex-1 flex-col">
-                              <div>
-                                <div className="flex justify-between text-xl font-medium text-white">
-                                  <h3>{product.title}</h3>
-                                  <p className="ml-4">
-                                    ${" "}
-                                    {(product.price * product.quantity).toFixed(
-                                      2
-                                    )}
+                              <div className="ml-4 flex flex-1 flex-col">
+                                <div>
+                                  <div className="flex justify-between text-xl font-medium text-white">
+                                    <h3>{product.title}</h3>
+                                    <p className="ml-4">
+                                      ${" "}
+                                      {(
+                                        product.price * product.quantity
+                                      ).toFixed(2)}
+                                    </p>
+                                  </div>
+                                  <p className="mt-1 text-sm text-purple-300">
+                                    {product.category}
                                   </p>
                                 </div>
-                                <p className="mt-1 text-sm text-purple-300">
-                                  {product.category}
-                                </p>
-                              </div>
-                              <div className="flex flex-1 items-end justify-between text-sm">
-                                <div className="text-purple-300">
-                                  <label
-                                    htmlFor={`quantity-${product._id}`}
-                                    className="mr-2"
-                                  >
-                                    Qty
-                                  </label>
-                                  <input
-                                    id={`quantity-${product._id}`}
-                                    type="number"
-                                    className="glass h-8 w-16 border-2 bg-transparent text-center focus:border-pink-500 focus:ring-0"
-                                    value={product.quantity}
-                                    min="1"
-                                    max="69"
-                                    onChange={(e) =>
-                                      updateCartItemQuantity(
-                                        product._id,
-                                        parseInt(e.target.value)
-                                      )
-                                    }
-                                    onBlur={(e) => handleBlur(e, product._id)}
-                                  />
-                                </div>
+                                <div className="flex flex-1 items-end justify-between text-sm">
+                                  <div className="text-purple-300">
+                                    <label
+                                      htmlFor={`quantity-${product._id}`}
+                                      className="mr-2"
+                                    >
+                                      Qty
+                                    </label>
+                                    <input
+                                      id={`quantity-${product._id}`}
+                                      type="number"
+                                      className="glass h-8 w-16 border-2 bg-transparent text-center focus:border-pink-500 focus:ring-0"
+                                      value={product.quantity}
+                                      min="1"
+                                      max="69"
+                                      onChange={(e) =>
+                                        updateCartItemQuantity(
+                                          product._id,
+                                          parseInt(e.target.value)
+                                        )
+                                      }
+                                    />
+                                  </div>
 
-                                <div className="flex">
-                                  <button
-                                    type="button"
-                                    onClick={() => removeFromCart(product._id)}
-                                    className="font-medium text-pink-500 hover:text-pink-400"
-                                  >
-                                    Remove
-                                  </button>
+                                  <div className="flex">
+                                    <button
+                                      type="button"
+                                      onClick={() =>
+                                        removeFromCart(product._id)
+                                      }
+                                      className="font-medium text-pink-500 hover:text-pink-400"
+                                    >
+                                      Remove
+                                    </button>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          </li>
-                        ))}
-                      </ul>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
                   </div>
 
@@ -138,18 +135,22 @@ const Cart = () => {
                   <div className="flex-shrink-0 border-t-2 border-white px-4 py-6 sm:px-6">
                     <div className="flex justify-between text-xl font-medium text-white">
                       <p>Subtotal</p>
-                      <p>${calculateTotalPrice().toFixed(2)}</p>
+                      <p>${calculateSubtotalPrice().toFixed(2)}</p>
                     </div>
                     <p className="mt-0.5 text-sm text-purple-300">
                       Shipping and taxes calculated at checkout.
                     </p>
                     <div className="mt-6">
-                      <a
-                        href="#"
+                      <Link
+                        to="/checkout"
+                        onClick={() => {
+                          toggleCart()
+                          setOpen(false)
+                        }}
                         className="flex items-center justify-center rounded-md border border-transparent bg-pink-500 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-pink-600"
                       >
                         Checkout
-                      </a>
+                      </Link>
                     </div>
                     <div className="mt-6 flex justify-center text-center text-sm text-purple-300">
                       <p>
