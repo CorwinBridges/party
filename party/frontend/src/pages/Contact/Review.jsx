@@ -67,7 +67,6 @@ const Review = () => {
     }
   }
 
-
   const renderStarRating = (rating) => {
     const fullStars = Math.floor(rating)
     const hasHalfStar = rating % 1 >= 0.5
@@ -88,18 +87,19 @@ const Review = () => {
 
   const fetchReviews = async () => {
     try {
-      const response = await axios.get(localUrl)
+      const response = await axios.get(websiteUrl)
       setReviews(response.data)
     } catch (error) {
-      console.error("Error fetching reviews from localUrl:", error)
+      console.error("Error fetching reviews from websiteUrl:", error)
       try {
-        const response = await axios.get(websiteUrl)
+        const response = await axios.get(localUrl)
         setReviews(response.data)
       } catch (error) {
-        console.error("Error fetching reviews from websiteUrl:", error)
+        console.error("Error fetching reviews from localUrl:", error)
       }
     }
   }
+
 
   useEffect(() => {
     fetchReviews()
