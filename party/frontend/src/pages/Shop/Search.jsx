@@ -25,7 +25,7 @@ const Search = () => {
   }, [isSm])
 
   const searchItems = async (query) => {
-    const schoolUrl = "http://10.64.32.244:6968/api/products"
+    const websiteUrl = "https://partyinaboxserver.vercel.app/api/products"
     const localUrl = "http://localhost:6968/api/products"
     try {
       const res = await axios.get(localUrl)
@@ -36,13 +36,13 @@ const Search = () => {
     } catch (err) {
       console.error("Error fetching search results from localUrl:", err)
       try {
-        const res = await axios.get(schoolUrl)
+        const res = await axios.get(websiteUrl)
         const filteredResults = res.data.filter((item) =>
           item.title.toLowerCase().includes(query.toLowerCase())
         )
         setSearchResults(filteredResults)
       } catch (err) {
-        console.error("Error fetching search results from schoolUrl:", err)
+        console.error("Error fetching search results from websiteUrl:", err)
       }
     }
   }

@@ -1,10 +1,13 @@
-import { useState, useEffect } from "react"
-import toast from "react-hot-toast"
-import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa"
+import { useState, useEffect } from "react";
+import toast from "react-hot-toast";
+import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 
-import axios from "axios"
-import { Formik, Field, Form, ErrorMessage } from "formik"
-import * as Yup from "yup"
+
+
+import axios from "axios";
+import { Formik, Field, Form, ErrorMessage } from "formik";
+import * as Yup from "yup";
+
 
 const validationSchema = Yup.object().shape({
   firstName: Yup.string()
@@ -35,7 +38,7 @@ const initialValues = {
 const Review = () => {
   const [reviews, setReviews] = useState([])
 
-  const schoolUrl = "http://10.64.32.244:6968/api/reviews"
+  const websiteUrl = "https://partyinaboxserver.vercel.app/api/reviews"
   const localUrl = "http://localhost:6968/api/reviews"
   const onSubmit = async (values, { setSubmitting, resetForm }) => {
     let promise = null
@@ -48,12 +51,12 @@ const Review = () => {
     } catch (error) {
       console.error("Error submitting review to localUrl:", error)
       try {
-        const response = await axios.post(schoolUrl, values)
+        const response = await axios.post(websiteUrl, values)
         toast.success("Review submitted successfully!", { id: promise })
         setReviews([...reviews, response.data])
         resetForm()
       } catch (error) {
-        console.error("Error submitting review to schoolUrl:", error)
+        console.error("Error submitting review to websiteUrl:", error)
         toast.error("Error submitting review", { id: promise })
       }
     } finally {
@@ -86,10 +89,10 @@ const Review = () => {
     } catch (error) {
       console.error("Error fetching reviews from localUrl:", error)
       try {
-        const response = await axios.get(schoolUrl)
+        const response = await axios.get(websiteUrl)
         setReviews(response.data)
       } catch (error) {
-        console.error("Error fetching reviews from schoolUrl:", error)
+        console.error("Error fetching reviews from websiteUrl:", error)
       }
     }
   }

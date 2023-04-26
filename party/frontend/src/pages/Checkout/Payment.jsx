@@ -1,12 +1,17 @@
-import toast from "react-hot-toast"
-import { useNavigate } from "react-router-dom"
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
-import axios from "axios"
-import { Formik, Field, Form, ErrorMessage } from "formik"
-import { nanoid } from "nanoid"
-import * as Yup from "yup"
 
-import { useStateContext } from "../../context/StateContext"
+
+import axios from "axios";
+import { Formik, Field, Form, ErrorMessage } from "formik";
+import { nanoid } from "nanoid";
+import * as Yup from "yup";
+
+
+
+import { useStateContext } from "../../context/StateContext";
+
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -91,9 +96,10 @@ const Payment = () => {
   const navigate = useNavigate()
 
   const onSubmit = async (values, { setSubmitting, resetForm }) => {
-    const schoolUrl = "http://10.64.32.244:6968/api/orders"
+    const websiteUrl = "https://partyinaboxserver.vercel.app/api/orders"
     const localUrl = "http://localhost:6968/api/orders"
-    const schoolUrlCheckouts = "http://10.64.32.244:6968/api/checkouts"
+    const websiteUrlCheckouts =
+      "https://partyinaboxserver.vercel.app/api/checkouts"
     const localUrlCheckouts = "http://localhost:6968/api/checkouts"
     let promise = null
     const totalQuantity = getTotalQuantity()
@@ -135,9 +141,9 @@ const Payment = () => {
       try {
         promise = toast.loading("Submitting payment...") // Add loading toast
 
-        const responseOrders = await axios.post(schoolUrl, checkoutData)
+        const responseOrders = await axios.post(websiteUrl, checkoutData)
         const responseCheckouts = await axios.post(
-          schoolUrlCheckouts,
+          websiteUrlCheckouts,
           checkoutData
         )
 
@@ -149,7 +155,7 @@ const Payment = () => {
         emptyCart()
 
       } catch (error) {
-        console.error("Error submitting payment to schoolUrl(s):", error)
+        console.error("Error submitting payment to websiteUrl(s):", error)
         toast.dismiss(promise)
         toast.error("Error submitting payment")
       }

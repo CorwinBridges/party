@@ -1,11 +1,16 @@
-import { useEffect } from "react"
-import { HiChevronUp, HiChevronDown } from "react-icons/hi"
+import { useEffect } from "react";
+import { HiChevronUp, HiChevronDown } from "react-icons/hi";
 
-import { Disclosure, Menu } from "@headlessui/react"
-import axios from "axios"
-import { motion, AnimatePresence } from "framer-motion"
 
-import { useStateContext } from "../../context/StateContext"
+
+import { Disclosure, Menu } from "@headlessui/react";
+import axios from "axios";
+import { motion, AnimatePresence } from "framer-motion";
+
+
+
+import { useStateContext } from "../../context/StateContext";
+
 
 const filters = [
   {
@@ -48,7 +53,7 @@ const Filter = () => {
   } = useStateContext()
 
   useEffect(() => {
-    const schoolUrl = "http://10.64.32.244:6968/api/products"
+    const websiteUrl = "https://partyinaboxserver.vercel.app/api/products"
     const localUrl = "http://localhost:6968/api/products"
     const getProducts = async () => {
       try {
@@ -57,7 +62,7 @@ const Filter = () => {
         setFilteredProducts(response.data)
       } catch (error) {
         console.error("Error fetching products from localUrl:", error)
-        const response = await axios.get(schoolUrl)
+        const response = await axios.get(websiteUrl)
         setProducts(response.data)
         setFilteredProducts(response.data)
       }
