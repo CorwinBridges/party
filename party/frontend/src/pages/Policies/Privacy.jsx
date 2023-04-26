@@ -118,4 +118,4 @@ const Privacy = () => {
   )
 }
 
-export default PageWrapper(Privacy)
+export default PageWrapper(Privacy, "Privacy")

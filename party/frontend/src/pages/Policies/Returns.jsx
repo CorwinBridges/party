@@ -37,4 +37,4 @@ const Returns = () => {
   )
 }
 
-export default PageWrapper(Returns)
+export default PageWrapper(Returns, "Returns")

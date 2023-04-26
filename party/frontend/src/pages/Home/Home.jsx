@@ -39,4 +39,4 @@ const Home = () => {
   )
 }
 
-export default PageWrapper(Home)
+export default PageWrapper(Home, "Home")

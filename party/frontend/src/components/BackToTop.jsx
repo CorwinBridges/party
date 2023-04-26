@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useLayoutEffect } from "react"
 import { FaArrowUp } from "react-icons/fa"
 
 import { motion } from "framer-motion"
@@ -22,7 +22,7 @@ const BackToTop = () => {
     })
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     window.addEventListener("scroll", handleScroll)
     return () => {
       window.removeEventListener("scroll", handleScroll)

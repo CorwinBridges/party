@@ -18,4 +18,4 @@ const Checkout = () => {
   )
 }
 
-export default PageWrapper(Checkout)
+export default PageWrapper(Checkout, "Checkout")

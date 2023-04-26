@@ -121,4 +121,4 @@ const Terms = () => {
   )
 }
 
-export default PageWrapper(Terms)
+export default PageWrapper(Terms, "Terms")

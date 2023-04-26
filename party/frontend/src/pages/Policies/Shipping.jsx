@@ -112,4 +112,4 @@ const Shipping = () => {
   )
 }
 
-export default PageWrapper(Shipping)
+export default PageWrapper(Shipping, "Shipping")

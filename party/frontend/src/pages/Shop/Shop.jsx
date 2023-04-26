@@ -34,4 +34,4 @@ const Shop = () => {
   )
 }
 
-export default PageWrapper(Shop)
+export default PageWrapper(Shop, "Shop")

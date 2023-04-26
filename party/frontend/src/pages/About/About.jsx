@@ -29,4 +29,4 @@ const About = () => {
   )
 }
 
-export default PageWrapper(About)
+export default PageWrapper(About, "About")
