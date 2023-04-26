@@ -1,6 +1,7 @@
-const mongoose = require("mongoose");
+"use strict";
 
-const FormSchema = new mongoose.Schema({
+var mongoose = require("mongoose");
+var FormSchema = new mongoose.Schema({
   firstName: {
     type: String,
     required: true
@@ -18,6 +19,5 @@ const FormSchema = new mongoose.Schema({
     required: true
   }
 });
-
-const ContactModel = mongoose.model("contacts", FormSchema);
+var ContactModel = mongoose.model("contacts", FormSchema);
 module.exports = ContactModel;

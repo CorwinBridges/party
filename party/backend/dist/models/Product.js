@@ -1,6 +1,7 @@
-const mongoose = require("mongoose");
+"use strict";
 
-const ProductSchema = new mongoose.Schema({
+var mongoose = require("mongoose");
+var ProductSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true
@@ -34,6 +35,5 @@ const ProductSchema = new mongoose.Schema({
     required: true
   }
 });
-
-const ProductModel = mongoose.model("products", ProductSchema);
+var ProductModel = mongoose.model("products", ProductSchema);
 module.exports = ProductModel;

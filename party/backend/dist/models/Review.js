@@ -1,6 +1,7 @@
-const mongoose = require("mongoose");
+"use strict";
 
-const ReviewSchema = new mongoose.Schema({
+var mongoose = require("mongoose");
+var ReviewSchema = new mongoose.Schema({
   firstName: {
     type: String,
     required: true
@@ -18,6 +19,5 @@ const ReviewSchema = new mongoose.Schema({
     required: true
   }
 });
-
-const ReviewModel = mongoose.model("reviews", ReviewSchema);
+var ReviewModel = mongoose.model("reviews", ReviewSchema);
 module.exports = ReviewModel;
