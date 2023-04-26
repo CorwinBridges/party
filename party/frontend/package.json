@@ -5,9 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host --port 6969",
-    "build": "NODE_ENV=production react-scripts build",
-    "build:css": "postcss src/index.css -o build/static/css/index.css",
-    "prebuild": "npm run build:css"
+    "build": "vite build"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.7",
@@ -30,14 +28,11 @@
     "yup": "^1.0.2"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^5.0.0",
     "@trivago/prettier-plugin-sort-imports": "^4.0.0",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
     "@vitejs/plugin-react": "^3.0.0",
     "autoprefixer": "^10.4.13",
-    "cssnano": "^6.0.0",
-    "gh-pages": "^5.0.0",
     "postcss": "^8.4.21",
     "prettier": "^2.8.3",
     "prettier-plugin-tailwindcss": "^0.2.2",
