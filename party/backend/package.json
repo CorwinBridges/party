@@ -12,7 +12,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "build": "./node_modules/.bin/babel src -d dist"
+    "build": "babel src -d dist"
   },
   "author": "",
   "license": "ISC",
