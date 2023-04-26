@@ -35,8 +35,8 @@ const initialValues = {
 const Review = () => {
   const [reviews, setReviews] = useState([])
 
-  const schoolUrl = "http://10.64.32.244:6968/reviews"
-  const localUrl = "http://localhost:6968/reviews"
+  const schoolUrl = "http://10.64.32.244:6968/api/reviews"
+  const localUrl = "http://localhost:6968/api/reviews"
   const onSubmit = async (values, { setSubmitting, resetForm }) => {
     let promise = null
     try {

@@ -91,10 +91,10 @@ const Payment = () => {
   const navigate = useNavigate()
 
   const onSubmit = async (values, { setSubmitting, resetForm }) => {
-    const schoolUrl = "http://10.64.32.244:6968/orders"
-    const localUrl = "http://localhost:6968/orders"
-    const schoolUrlCheckouts = "http://10.64.32.244:6968/checkouts"
-    const localUrlCheckouts = "http://localhost:6968/checkouts"
+    const schoolUrl = "http://10.64.32.244:6968/api/orders"
+    const localUrl = "http://localhost:6968/api/orders"
+    const schoolUrlCheckouts = "http://10.64.32.244:6968/api/checkouts"
+    const localUrlCheckouts = "http://localhost:6968/api/checkouts"
     let promise = null
     const totalQuantity = getTotalQuantity()
     const subtotalPrice = calculateSubtotalPrice()

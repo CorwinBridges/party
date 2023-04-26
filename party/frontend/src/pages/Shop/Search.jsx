@@ -25,8 +25,8 @@ const Search = () => {
   }, [isSm])
 
   const searchItems = async (query) => {
-    const schoolUrl = "http://10.64.32.244:6968/products"
-    const localUrl = "http://localhost:6968/products"
+    const schoolUrl = "http://10.64.32.244:6968/api/products"
+    const localUrl = "http://localhost:6968/api/products"
     try {
       const res = await axios.get(localUrl)
       const filteredResults = res.data.filter((item) =>

@@ -28,8 +28,8 @@ const initialValues = {
 }
 
 const onSubmit = async (values, { setSubmitting, resetForm }) => {
-  const schoolUrl = "http://10.64.32.244:6968/contacts"
-  const localUrl = "http://localhost:6968/contacts"
+  const schoolUrl = "http://10.64.32.244:6968/api/contacts"
+  const localUrl = "http://localhost:6968/api/contacts"
   let promise = null
   try {
     promise = toast.loading("Submitting form...")

@@ -48,8 +48,8 @@ const Filter = () => {
   } = useStateContext()
 
   useEffect(() => {
-    const schoolUrl = "http://10.64.32.244:6968/products"
-    const localUrl = "http://localhost:6968/products"
+    const schoolUrl = "http://10.64.32.244:6968/api/products"
+    const localUrl = "http://localhost:6968/api/products"
     const getProducts = async () => {
       try {
         const response = await axios.get(localUrl)
