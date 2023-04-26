@@ -138,7 +138,7 @@ const Navbar = () => {
     setDuration(0.3)
     setTimeout(() => {
       setDuration(0)
-    }, 300)
+    }, 369)
   }
 
   return (

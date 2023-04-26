@@ -83,10 +83,10 @@ const Thanks = () => {
         <div className="relative -top-[250px] z-0 aspect-square h-[300px] animate-[bounce_.8s_linear_infinite] rounded-[50%] bg-gradient-to-b from-[#C194EA] to-[#EE77C7]/[0.94] opacity-[0.60] blur-[3px] lg:h-[400px]" />
       </div>
       {/* Right blur circle */}
-      <div className=" absolute top-0 -right-8 z-0 h-[50vh] w-1/2 animate-[spin_1s_linear_infinite] rounded-full bg-[#527CF4] opacity-[0.54] blur-[130px]" />
+      <div className="absolute -right-8 top-0 z-0 h-[50vh] w-1/2 animate-reverse-spin rounded-full bg-[#527CF4] opacity-[0.54] blur-[130px]" />
 
       {/* Right blur circle */}
-      <div className=" absolute top-0 -left-8 z-0 h-[50vh] w-1/2 animate-[spin_1s_linear_infinite] rounded-full bg-[#F97FC8] opacity-[0.54] blur-[130px]" />
+      <div className="absolute -left-8 top-0 z-0 h-[50vh] w-1/2 animate-[spin_1.05s_linear_infinite] rounded-full bg-[#F97FC8] opacity-[0.54] blur-[130px]" />
       <ReactCanvasConfetti refConfetti={getInstance} style={canvasStyles} />
       <div className="relative z-10">
         <h1 className="mb-8 text-center text-7xl font-bold">
@@ -96,7 +96,7 @@ const Thanks = () => {
           Your order has been processed and is on its way to you. We hope you
           enjoy your purchase and we look forward to your next visit. Thank you
           for choosing Party in a Box, and we hope to see you again soon. Your
-          party will be starting very soon!
+          party will be startying very soon!
         </p>
         <div className="flex justify-center">
           <button

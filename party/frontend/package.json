@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host --port 6969",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "vite build"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.7",

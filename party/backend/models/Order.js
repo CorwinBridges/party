@@ -26,7 +26,7 @@ const OrdersSchema = new mongoose.Schema({
     required: true,
   },
   creditCardExpiration: {
-    type: Date,
+    type: String,
     required: true,
   },
   creditCardCVV: {

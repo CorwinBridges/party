@@ -102,12 +102,15 @@ const Cart = () => {
                                       value={product.quantity}
                                       min="1"
                                       max="69"
-                                      onChange={(e) =>
+                                      onChange={(e) => {
+                                        const newValue = parseInt(
+                                          e.target.value
+                                        )
                                         updateCartItemQuantity(
                                           product._id,
-                                          parseInt(e.target.value)
+                                          newValue > 69 ? 69 : newValue
                                         )
-                                      }
+                                      }}
                                     />
                                   </div>
 

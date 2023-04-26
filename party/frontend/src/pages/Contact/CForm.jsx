@@ -1,4 +1,4 @@
-import toast, { Toaster } from "react-hot-toast"
+import toast from "react-hot-toast"
 
 import axios from "axios"
 import { Formik, Field, Form, ErrorMessage } from "formik"
@@ -54,23 +54,6 @@ const onSubmit = async (values, { setSubmitting, resetForm }) => {
 const CForm = () => {
   return (
     <section className="py-16">
-      {/* Toast */}
-      <Toaster
-        toastOptions={{
-          success: {
-            className:
-              "!bg-green-500 !shadow-green-500 !rounded-full !text-white !shadow-lg !border-2 !border-white/20 !from-white/10 !to-white/0",
-          },
-          error: {
-            className:
-              "!bg-red-500 !shadow-red-500 !rounded-full !text-white !shadow-lg !border-2 !border-white/20 !from-white/10 !to-white/0",
-          },
-          loading: {
-            className:
-              "!bg-purple-500 !shadow-purple-500 !rounded-full !text-white !shadow-xl !border-2 !border-white/20 !from-white/10 !to-white/0",
-          },
-        }}
-      />
       {/* background circles */}
       <div className="absolute -left-20 -top-20">
         <div className="relative bottom-0 z-0 h-[400px] w-[400px] animate-[bounce_15s_linear_infinite] rounded-[50%] bg-gradient-to-b from-[#C2A0F0]/[0.54] to-[#E25D67]/[0.68] opacity-[0.75] blur-[3px]" />

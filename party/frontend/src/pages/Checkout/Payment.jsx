@@ -1,4 +1,4 @@
-import toast, { Toaster } from "react-hot-toast"
+import toast from "react-hot-toast"
 import { useNavigate } from "react-router-dom"
 
 import axios from "axios"
@@ -36,9 +36,22 @@ const validationSchema = Yup.object().shape({
       "Invalid credit card number format. Use xxxx-xxxx-xxxx-xxxx"
     )
     .required("Credit card number is required"),
-  creditCardExpiration: Yup.date()
-    .required("Credit card expiration is required")
-    .min(new Date(), "Credit card expiration date must be in the future"),
+  creditCardExpiration: Yup.string()
+    .matches(/^([01]?[0-9])\/([0-9]{2})$/, "Invalid expiration date")
+    .test(
+      "expirationDate",
+      "Expiration date must be in the future",
+      function (value) {
+        const today = new Date()
+        const [month, year] = value.split("/")
+        const expirationDate = new Date(
+          parseInt(`20${year}`, 10),
+          parseInt(month, 10) - 1
+        )
+        return expirationDate > today
+      }
+    )
+    .required("Expiration date is required"),
   creditCardCVV: Yup.string()
     .matches(/^\d{3}$/, "Invalid CVV format. Must be 3 digits")
     .required("Credit card CVV is required"),
@@ -66,8 +79,15 @@ const initialValues = {
 }
 
 const Payment = () => {
-  const { cartItems, getTotalQuantity, calculateTotalPrice, setOpen } =
-    useStateContext()
+  const {
+    cartItems,
+    getTotalQuantity,
+    calculateSubtotalPrice,
+    calculateTotalPrice,
+    calculateTaxes,
+    setOpen,
+    emptyCart
+  } = useStateContext()
   const navigate = useNavigate()
 
   const onSubmit = async (values, { setSubmitting, resetForm }) => {
@@ -77,18 +97,26 @@ const Payment = () => {
     const localUrlCheckouts = "http://localhost:6968/checkouts"
     let promise = null
     const totalQuantity = getTotalQuantity()
+    const subtotalPrice = calculateSubtotalPrice()
+    const taxes = calculateTaxes()
+    const shipping = 0.0
     const totalPrice = calculateTotalPrice()
 
     const checkoutData = {
-      orderId: nanoid(),
+      orderId: nanoid(10, "0123456789"),
       cartItems,
       totalQuantity,
+      subtotalPrice,
+      taxes,
+      shipping,
       totalPrice,
       createdAt: new Date(),
       ...values,
     }
 
     try {
+      promise = toast.loading("Submitting payment...") // Add loading toast
+
       const responseOrders = await axios.post(localUrl, checkoutData)
       const responseCheckouts = await axios.post(
         localUrlCheckouts,
@@ -100,10 +128,13 @@ const Payment = () => {
       resetForm()
       navigate("/thanks")
       setOpen(false)
+      emptyCart()
     } catch (error) {
       console.error("Error submitting payment to localUrl(s):", error)
 
       try {
+        promise = toast.loading("Submitting payment...") // Add loading toast
+
         const responseOrders = await axios.post(schoolUrl, checkoutData)
         const responseCheckouts = await axios.post(
           schoolUrlCheckouts,
@@ -115,6 +146,8 @@ const Payment = () => {
         resetForm()
         navigate("/thanks")
         setOpen(false)
+        emptyCart()
+
       } catch (error) {
         console.error("Error submitting payment to schoolUrl(s):", error)
         toast.dismiss(promise)
@@ -127,23 +160,6 @@ const Payment = () => {
 
   return (
     <section className="px-10 py-16 md:px-0">
-      {/* Toast */}
-      <Toaster
-        toastOptions={{
-          success: {
-            className:
-              "!bg-green-500 !shadow-green-500 !rounded-full !text-white !shadow-lg !border-2 !border-white/20 !from-white/10 !to-white/0",
-          },
-          error: {
-            className:
-              "!bg-red-500 !shadow-red-500 !rounded-full !text-white !shadow-lg !border-2 !border-white/20 !from-white/10 !to-white/0",
-          },
-          loading: {
-            className:
-              "!bg-purple-500 !shadow-purple-500 !rounded-full !text-white !shadow-xl !border-2 !border-white/20 !from-white/10 !to-white/0",
-          },
-        }}
-      />
       {/* background circles */}
       <div className="absolute -right-20 top-[58rem]">
         <div className="relative bottom-0 z-0 h-[400px] w-[400px] animate-[bounce_15s_linear_infinite] rounded-[50%] bg-gradient-to-b from-[#C2A0F0]/[0.54] to-[#E25D67]/[0.68] opacity-[0.75] blur-[3px]" />
@@ -241,8 +257,8 @@ const Payment = () => {
                     </label>
                     <Field
                       name="creditCardExpiration"
-                      type="date"
-                      className="glass w-full rounded-[69px] bg-inherit px-3 py-1 leading-8 text-white outline-none transition-colors duration-200 ease-in-out [color-scheme:dark] focus:border-pink-500 focus:ring-0"
+                      placeholder="MM/YY"
+                      className="glass w-full rounded-[69px] bg-inherit px-3 py-1 leading-8 text-white outline-none transition-colors duration-200 ease-in-out placeholder:text-white/70 focus:border-pink-500 focus:ring-0"
                     />
                     <div className="text-pink-500">
                       <ErrorMessage name="creditCardExpiration" />

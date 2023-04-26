@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import toast, { Toaster } from "react-hot-toast"
+import toast from "react-hot-toast"
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa"
 
 import axios from "axios"
@@ -107,23 +107,6 @@ const Review = () => {
       <div className="absolute right-40 ">
         <div className="relative bottom-40 z-0 h-[300px] w-[300px] animate-[bounce_15s_linear_infinite] rounded-[50%] bg-gradient-to-b from-[#4C6DDF]/[0.54] to-[#E46EC7]/[0.68] opacity-[0.75] blur-[3px]" />
       </div>
-      {/* Toast */}
-      <Toaster
-        toastOptions={{
-          success: {
-            className:
-              "!bg-green-500 !shadow-green-500 !rounded-full !text-white !shadow-lg !border-2 !border-white/20 !from-white/10 !to-white/0",
-          },
-          error: {
-            className:
-              "!bg-red-500 !shadow-red-500 !rounded-full !text-white !shadow-lg !border-2 !border-white/20 !from-white/10 !to-white/0",
-          },
-          loading: {
-            className:
-              "!bg-purple-500 !shadow-purple-500 !rounded-full !text-white !shadow-xl !border-2 !border-white/20 !from-white/10 !to-white/0",
-          },
-        }}
-      />
       {/* review form */}
       <div className="glass relative z-10 mx-auto rounded-[69px] text-white">
         <div className="p-4 xs:p-8">
@@ -223,29 +206,31 @@ const Review = () => {
         </Formik>
       </div>
 
-      <div className=" mt-48 bg-gradient-to-bl from-purple-500 to-blue-500 bg-clip-text pb-10 text-center text-5xl font-bold text-transparent">
-        Reviews
-      </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-10 xl:grid-cols-3">
-        {[...reviews].reverse().map((review, index) => (
-          <div key={index} className="glass my-4 rounded-2xl p-6 text-white">
-            <h3>
-              <span className="pr-3 text-red-500">Name:</span>
-              {review.firstName} {review.lastName}
-            </h3>
-            <div className="flex items-center">
-              <div className="mr-1">
-                <span className="pr-3 text-red-500">Rating:</span>
-                {review.rating}
+      <div className="relative z-10">
+        <div className="mt-48 bg-gradient-to-bl from-purple-500 to-blue-500 bg-clip-text pb-10 text-center text-5xl font-bold text-transparent">
+          Reviews
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-10 xl:grid-cols-3">
+          {[...reviews].reverse().map((review, index) => (
+            <div key={index} className="glass my-4 rounded-2xl p-6 text-white">
+              <h3>
+                <span className="pr-3 text-red-500">Name:</span>
+                {review.firstName} {review.lastName}
+              </h3>
+              <div className="flex items-center">
+                <div className="mr-1">
+                  <span className="pr-3 text-red-500">Rating:</span>
+                  {review.rating}
+                </div>
+                <div>{renderStarRating(review.rating)}</div>
               </div>
-              <div>{renderStarRating(review.rating)}</div>
+              <p>
+                <span className="pr-3 text-red-500">Message:</span>
+                {review.review}
+              </p>
             </div>
-            <p>
-              <span className="pr-3 text-red-500">Message:</span>
-              {review.review}
-            </p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
       {/* blur */}
       <div className="absolute -left-60 bottom-[1000px] z-0 h-[50vh] w-1/2 rounded-full bg-[#F2F2F2] opacity-[0.34] blur-[130px]" />

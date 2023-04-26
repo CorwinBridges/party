@@ -15,7 +15,7 @@ const Order = () => {
       <div className="mb-4 bg-gradient-to-bl from-purple-500 to-red-500 bg-clip-text text-2xl font-medium text-transparent md:text-3xl">
         Order Summary:
       </div>
-      <div className="flex max-h-[48rem] flex-col rounded-3xl bg-purple-600/50 p-4">
+      <div className="relative z-10 flex max-h-[48rem] flex-col rounded-3xl bg-purple-600/50 p-4">
         {/* Cart items */}
         <div className="flex-grow overflow-y-auto">
           <div className="px-4 py-6 sm:px-6">
@@ -62,12 +62,13 @@ const Order = () => {
                             value={product.quantity}
                             min="1"
                             max="69"
-                            onChange={(e) =>
+                            onChange={(e) => {
+                              const newValue = parseInt(e.target.value)
                               updateCartItemQuantity(
                                 product._id,
-                                parseInt(e.target.value)
+                                newValue > 69 ? 69 : newValue
                               )
-                            }
+                            }}
                           />
                         </div>
 

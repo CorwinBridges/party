@@ -25,11 +25,17 @@ export const StateContext = ({ children }) => {
 
     if (itemIndex === -1) {
       setCartItems([...cartItems, { ...product, quantity: 1 }])
+      return true
     } else {
       const newCartItems = [...cartItems]
-      newCartItems[itemIndex].quantity += 1
-      setCartItems(newCartItems)
+
+      if (newCartItems[itemIndex].quantity < 69) {
+        newCartItems[itemIndex].quantity += 1
+        setCartItems(newCartItems)
+        return true
+      }
     }
+    return false
   }
 
   const updateCartItemQuantity = (productId, newQuantity) => {
@@ -68,6 +74,10 @@ export const StateContext = ({ children }) => {
     return subtotal + taxes
   }
 
+  const emptyCart = () => {
+    setCartItems([])
+  }
+
   return (
     <Context.Provider
       value={{
@@ -95,6 +105,7 @@ export const StateContext = ({ children }) => {
         calculateSubtotalPrice,
         calculateTaxes,
         calculateTotalPrice,
+        emptyCart,
       }}
     >
       {children}

@@ -1,3 +1,4 @@
+import { Toaster } from "react-hot-toast"
 import { Route, Routes } from "react-router-dom"
 
 import { Footer, Navbar, BackToTop, NotFound } from "./components"
@@ -13,7 +14,7 @@ import {
   Returns,
   Shipping,
   Checkout,
-  Thanks
+  Thanks,
 } from "./pages"
 
 const App = () => {
@@ -38,6 +39,23 @@ const App = () => {
         </Routes>
         <Footer />
         <BackToTop />
+        {/* Toast */}
+        <Toaster
+          toastOptions={{
+            success: {
+              className:
+                "!bg-green-500 !shadow-green-500 !rounded-full !text-white !shadow-lg !border-2 !border-white/20 !from-white/10 !to-white/0",
+            },
+            error: {
+              className:
+                "!bg-red-500 !shadow-red-500 !rounded-full !text-white !shadow-lg !border-2 !border-white/20 !from-white/10 !to-white/0",
+            },
+            loading: {
+              className:
+                "!bg-purple-500 !shadow-purple-500 !rounded-full !text-white !shadow-xl !border-2 !border-white/20 !from-white/10 !to-white/0",
+            },
+          }}
+        />
       </div>
     </StateContext>
   )

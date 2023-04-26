@@ -1,4 +1,4 @@
-import toast, { Toaster } from "react-hot-toast"
+import toast from "react-hot-toast"
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa"
 
 import { MotionConfig, motion } from "framer-motion"
@@ -32,18 +32,23 @@ const Product = () => {
 
   const handleAddToCart = (e, product) => {
     e.stopPropagation()
-    addToCart(product)
-    toast(`Added ${product.title} Box to Cart`, {
-      duration: 2000,
-      className:
-        "!bg-purple-500 !shadow-purple-500 !rounded-full !text-white !shadow-xl !border-2 !border-white/20 !from-white/10 !to-white/0",
-    })
+
+    const success = addToCart(product)
+
+    if (success) {
+      toast.success(`Added ${product.title} Box to Cart`, {
+        duration: 2000,
+      })
+    } else {
+      toast.error(`Max limit reached for the ${product.title} Box`, {
+        duration: 2000,
+      })
+    }
   }
 
   return (
     <>
       {/* circle */}
-      <Toaster />
       <div className="absolute -right-20">
         <div className="relative top-80 z-10 h-[400px] w-[400px] animate-[bounce_15s_linear_infinite] rounded-[50%] bg-gradient-to-b from-[#527CF4]/[0.54] to-[#7AEF7D]/[0.68] opacity-[0.75] blur-[3px]" />
       </div>
