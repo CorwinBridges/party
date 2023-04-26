@@ -1,17 +1,12 @@
-import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast"
+import { useNavigate } from "react-router-dom"
 
+import axios from "axios"
+import { Formik, Field, Form, ErrorMessage } from "formik"
+import { nanoid } from "nanoid"
+import * as Yup from "yup"
 
-
-import axios from "axios";
-import { Formik, Field, Form, ErrorMessage } from "formik";
-import { nanoid } from "nanoid";
-import * as Yup from "yup";
-
-
-
-import { useStateContext } from "../../context/StateContext";
-
+import { useStateContext } from "../../context/StateContext"
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -91,7 +86,7 @@ const Payment = () => {
     calculateTotalPrice,
     calculateTaxes,
     setOpen,
-    emptyCart
+    emptyCart,
   } = useStateContext()
   const navigate = useNavigate()
 
@@ -121,10 +116,11 @@ const Payment = () => {
     }
 
     try {
+      promise = toast.loading("Submitting payment...")
 
-      const responseOrders = await axios.post(localUrl, checkoutData)
+      const responseOrders = await axios.post(websiteUrl, checkoutData)
       const responseCheckouts = await axios.post(
-        localUrlCheckouts,
+        websiteUrlCheckouts,
         checkoutData
       )
 
@@ -135,14 +131,14 @@ const Payment = () => {
       setOpen(false)
       emptyCart()
     } catch (error) {
-      console.error("Error submitting payment to localUrl(s):", error)
+      console.error("Error submitting payment to websiteUrl(s):", error)
 
       try {
         promise = toast.loading("Submitting payment...")
 
-        const responseOrders = await axios.post(websiteUrl, checkoutData)
+        const responseOrders = await axios.post(localUrl, checkoutData)
         const responseCheckouts = await axios.post(
-          websiteUrlCheckouts,
+          localUrlCheckouts,
           checkoutData
         )
 
@@ -152,9 +148,8 @@ const Payment = () => {
         navigate("/thanks")
         setOpen(false)
         emptyCart()
-
       } catch (error) {
-        console.error("Error submitting payment to websiteUrl(s):", error)
+        console.error("Error submitting payment to localUrl(s):", error)
         toast.dismiss(promise)
         toast.error("Error submitting payment")
       }

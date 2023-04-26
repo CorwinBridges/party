@@ -40,29 +40,33 @@ const Review = () => {
 
   const websiteUrl = "https://partyinaboxserver.vercel.app/api/reviews"
   const localUrl = "http://localhost:6968/api/reviews"
+
   const onSubmit = async (values, { setSubmitting, resetForm }) => {
     let promise = null
+
     try {
       promise = toast.loading("Submitting review...")
-      const response = await axios.post(localUrl, values)
+      const response = await axios.post(websiteUrl, values)
       toast.success("Review submitted successfully!", { id: promise })
       setReviews([...reviews, response.data])
       resetForm()
     } catch (error) {
-      console.error("Error submitting review to localUrl:", error)
+      console.error("Error submitting review to websiteUrl:", error)
+
       try {
-        const response = await axios.post(websiteUrl, values)
+        const response = await axios.post(localUrl, values)
         toast.success("Review submitted successfully!", { id: promise })
         setReviews([...reviews, response.data])
         resetForm()
       } catch (error) {
-        console.error("Error submitting review to websiteUrl:", error)
+        console.error("Error submitting review to localUrl:", error)
         toast.error("Error submitting review", { id: promise })
       }
     } finally {
       setSubmitting(false)
     }
   }
+
 
   const renderStarRating = (rating) => {
     const fullStars = Math.floor(rating)

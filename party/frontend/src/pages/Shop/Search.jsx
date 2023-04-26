@@ -27,22 +27,24 @@ const Search = () => {
   const searchItems = async (query) => {
     const websiteUrl = "https://partyinaboxserver.vercel.app/api/products"
     const localUrl = "http://localhost:6968/api/products"
+
     try {
-      const res = await axios.get(localUrl)
+      const res = await axios.get(websiteUrl)
       const filteredResults = res.data.filter((item) =>
         item.title.toLowerCase().includes(query.toLowerCase())
       )
       setSearchResults(filteredResults)
     } catch (err) {
-      console.error("Error fetching search results from localUrl:", err)
+      console.error("Error fetching search results from websiteUrl:", err)
+
       try {
-        const res = await axios.get(websiteUrl)
+        const res = await axios.get(localUrl)
         const filteredResults = res.data.filter((item) =>
           item.title.toLowerCase().includes(query.toLowerCase())
         )
         setSearchResults(filteredResults)
       } catch (err) {
-        console.error("Error fetching search results from websiteUrl:", err)
+        console.error("Error fetching search results from localUrl:", err)
       }
     }
   }

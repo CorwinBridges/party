@@ -55,20 +55,28 @@ const Filter = () => {
   useEffect(() => {
     const websiteUrl = "https://partyinaboxserver.vercel.app/api/products"
     const localUrl = "http://localhost:6968/api/products"
+
     const getProducts = async () => {
       try {
-        const response = await axios.get(localUrl)
-        setProducts(response.data)
-        setFilteredProducts(response.data)
-      } catch (error) {
-        console.error("Error fetching products from localUrl:", error)
         const response = await axios.get(websiteUrl)
         setProducts(response.data)
         setFilteredProducts(response.data)
+      } catch (error) {
+        console.error("Error fetching products from websiteUrl:", error)
+
+        try {
+          const response = await axios.get(localUrl)
+          setProducts(response.data)
+          setFilteredProducts(response.data)
+        } catch (error) {
+          console.error("Error fetching products from localUrl:", error)
+        }
       }
     }
+
     getProducts()
   }, [])
+
 
   const handleInputChange = (option, isChecked) => {
     const matchingValues = isChecked

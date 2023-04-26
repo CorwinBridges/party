@@ -1,11 +1,8 @@
-import toast from "react-hot-toast";
+import toast from "react-hot-toast"
 
-
-
-import axios from "axios";
-import { Formik, Field, Form, ErrorMessage } from "formik";
-import * as Yup from "yup";
-
+import axios from "axios"
+import { Formik, Field, Form, ErrorMessage } from "formik"
+import * as Yup from "yup"
 
 const validationSchema = Yup.object().shape({
   firstName: Yup.string()
@@ -34,19 +31,21 @@ const onSubmit = async (values, { setSubmitting, resetForm }) => {
   const websiteUrl = "https://partyinaboxserver.vercel.app/api/contacts"
   const localUrl = "http://localhost:6968/api/contacts"
   let promise = null
+
   try {
     promise = toast.loading("Submitting form...")
-    const response = await axios.post(localUrl, values)
+    const response = await axios.post(websiteUrl, values)
     toast.success("Form submitted successfully!", { id: promise })
     resetForm()
   } catch (error) {
-    console.error("Error submitting form to localUrl:", error)
+    console.error("Error submitting form to websiteUrl:", error)
+
     try {
-      const response = await axios.post(websiteUrl, values)
+      const response = await axios.post(localUrl, values)
       toast.success("Form submitted successfully!", { id: promise })
       resetForm()
     } catch (error) {
-      console.error("Error submitting form to websiteUrl:", error)
+      console.error("Error submitting form to localUrl:", error)
       toast.error("Error submitting form", { id: promise })
     }
   } finally {
