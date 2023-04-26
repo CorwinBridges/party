@@ -10,12 +10,11 @@ dbConnect()
 app.use(express.json())
 app.use(cors())
 
-const productsRouter = require("./dist/routes/products")
-const contactsRouter = require("./dist/routes/contacts")
-const ordersRouter = require("./dist/routes/orders")
-const checkoutsRouter = require("./dist/routes/checkouts")
-const reviewsRouter = require("./dist/routes/reviews")
-
+const productsRouter = require("./src/routes/products")
+const contactsRouter = require("./src/routes/contacts")
+const ordersRouter = require("./src/routes/orders")
+const checkoutsRouter = require("./src/routes/checkouts")
+const reviewsRouter = require("./src/routes/reviews")
 
 app.use("/products", productsRouter)
 app.use("/contacts", contactsRouter)
