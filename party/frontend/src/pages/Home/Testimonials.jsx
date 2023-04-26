@@ -100,7 +100,7 @@ const Testimonials = () => {
                   <div ref={localRef} className="absolute p-8">
                     <div className="aspect-square w-20 overflow-hidden rounded-full">
                       <img
-                        src={`/testimonials/${quote.profilepic}`}
+                        src={`/assets/testimonials/${quote.profilepic}`}
                         alt={quote.reviewer}
                         className="h-full w-full object-cover object-center"
                       />

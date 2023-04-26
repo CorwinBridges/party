@@ -19,7 +19,7 @@ const Logos = () => {
             {logos.map((logo) => (
               <img
                 key={logo.alt}
-                src={`/logos/${logo.src}`}
+                src={`/assets/logos/${logo.src}`}
                 alt={logo.alt}
                 className="mx-10"
               />

@@ -72,7 +72,7 @@ const Carousel = () => {
               <div className=" w-full px-4 lg:px-0">
                 <div className="glass mb-12 h-[50vh] rounded-[50px] bg-purple-600/50 p-6 shadow-none lg:-mb-24 lg:h-[60vh]">
                   <img
-                    src={`/carousel/${slide.image}`}
+                    src={`/assets/carousel/${slide.image}`}
                     alt={slide.title}
                     className="h-full w-full rounded-[50px] object-cover"
                   />
