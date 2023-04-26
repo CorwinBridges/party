@@ -2,18 +2,18 @@ import { useRef } from "react"
 
 import { motion, useScroll, useTransform } from "framer-motion"
 
-import { worldcup, smitty } from "../../assets"
+import { smitty, nobelpeace, medalofhonor } from "../../assets"
 
 const awards = [
   {
     name: "Nobel Peace Prize",
     award:
-      "https://upload.wikimedia.org/wikipedia/en/thumb/e/ed/Nobel_Prize.png/220px-Nobel_Prize.png",
+      nobelpeace,
   },
   {
     name: "Medal of Honor",
     award:
-      "https://www.mohconvention.com/media/images/medals/tab-navy-medal.png",
+      medalofhonor,
   },
   {
     name: "Smitty Werbenjagermanjensen",

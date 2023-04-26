@@ -95,7 +95,7 @@ const Product = () => {
                     <motion.img
                       className="mx-auto mb-4 max-h-24 rounded-3xl bg-purple-600/50 p-4 lg:max-h-44 xl:max-h-52"
                       layout
-                      src={`/src/assets/boxes/${product.image}`}
+                      src={`/boxes/${product.image}`}
                       alt={product.title}
                     />
                     <motion.div
