@@ -121,7 +121,6 @@ const Payment = () => {
     }
 
     try {
-      promise = toast.loading("Submitting payment...") // Add loading toast
 
       const responseOrders = await axios.post(localUrl, checkoutData)
       const responseCheckouts = await axios.post(
@@ -139,7 +138,7 @@ const Payment = () => {
       console.error("Error submitting payment to localUrl(s):", error)
 
       try {
-        promise = toast.loading("Submitting payment...") // Add loading toast
+        promise = toast.loading("Submitting payment...")
 
         const responseOrders = await axios.post(websiteUrl, checkoutData)
         const responseCheckouts = await axios.post(
