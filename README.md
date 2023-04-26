@@ -2,7 +2,7 @@
 ## Meet Our Team
 We are a group of 3 seniors from Madison Academic High School. We are formally known as the BIG MACS!!!
 - Corwin Bridges - Fullstack Developer
-- Anna Weissenflug - Frontend Developer
+- Anna Weissenfluh - Frontend Developer
 - Madison Griffin - Backend Developer
 
 ## Notable Features
