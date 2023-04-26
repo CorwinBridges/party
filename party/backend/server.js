@@ -16,11 +16,11 @@ const ordersRouter = require("./src/routes/orders")
 const checkoutsRouter = require("./src/routes/checkouts")
 const reviewsRouter = require("./src/routes/reviews")
 
-app.use("/products", productsRouter)
-app.use("/contacts", contactsRouter)
-app.use("/orders", ordersRouter)
-app.use("/checkouts", checkoutsRouter)
-app.use("/reviews", reviewsRouter)
+app.use("/api/products", productsRouter)
+app.use("/api/contacts", contactsRouter)
+app.use("/api/orders", ordersRouter)
+app.use("/api/checkouts", checkoutsRouter)
+app.use("/api/reviews", reviewsRouter)
 
 const port = process.env.PORT || 6968
 app.listen(port, () => {
