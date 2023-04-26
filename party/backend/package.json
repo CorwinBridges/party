@@ -11,15 +11,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
-    "build": "babel server.js -d dist"
+    "start": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
-  "description": "",
-  "devDependencies": {
-    "@babel/cli": "^7.21.0",
-    "@babel/core": "^7.21.4",
-    "@babel/preset-env": "^7.21.4"
-  }
+  "description": ""
 }
