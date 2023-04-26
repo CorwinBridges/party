@@ -1,10 +1,14 @@
-import { useLayoutEffect } from "react"
+import { useEffect } from "react"
+import { animateScroll } from "react-scroll"
 
-const PageWrapper = (WrappedComponent, pageTitle) => {
+const PageWrapper = (WrappedComponent) => {
   return (props) => {
-    useLayoutEffect(() => {
-      window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
-      document.title = `${pageTitle} | Party in a Box`
+    useEffect(() => {
+      animateScroll.scrollToTop({
+        duration: 500,
+        smooth: true,
+      })
+      document.title = `${WrappedComponent.name} | Party in a Box`
     }, [])
 
     return <WrappedComponent {...props} />

@@ -1,5 +1,6 @@
-import { useState, useLayoutEffect } from "react"
+import { useState, useEffect } from "react"
 import { FaArrowUp } from "react-icons/fa"
+import { animateScroll } from "react-scroll"
 
 import { motion } from "framer-motion"
 
@@ -16,13 +17,13 @@ const BackToTop = () => {
   }
 
   const handleBackToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
+    animateScroll.scrollToTop({
+      duration: 500,
+      smooth: true,
     })
   }
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.addEventListener("scroll", handleScroll)
     return () => {
       window.removeEventListener("scroll", handleScroll)
