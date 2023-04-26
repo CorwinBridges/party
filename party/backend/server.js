@@ -22,7 +22,7 @@ app.use("/orders", ordersRouter)
 app.use("/checkouts", checkoutsRouter)
 app.use("/reviews", reviewsRouter)
 
-const port = process.env.port || 6968
+const port = process.env.PORT || 6968
 app.listen(port, () => {
   console.log(`Listening on ${port}...`)
 })
