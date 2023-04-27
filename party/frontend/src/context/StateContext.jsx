@@ -1,5 +1,4 @@
-import { createContext, useContext, useState } from "react";
-
+import { createContext, useContext, useState } from "react"
 
 const Context = createContext()
 
@@ -103,8 +102,6 @@ export const StateContext = ({ children }) => {
     }
   }
 
-
-
   return (
     <Context.Provider
       value={{
@@ -134,7 +131,7 @@ export const StateContext = ({ children }) => {
         calculateTotalPrice,
         emptyCart,
         increaseQuantity,
-        decreaseQuantity
+        decreaseQuantity,
       }}
     >
       {children}

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import toast from "react-hot-toast"
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa"
 
@@ -9,6 +9,7 @@ import { useStateContext } from "../../context/StateContext"
 const Product = () => {
   const { selectedProduct, handleCardClick, filteredProducts, addToCart } =
     useStateContext()
+  const [imageLoaded, setImageLoaded] = useState({})
 
   const duration = 0.3
 
@@ -58,120 +59,120 @@ const Product = () => {
       </div>
       {/* product boxes */}
       <div className="grid grid-cols-1 gap-5 px-10 text-white sm:grid-cols-2 lg:px-0 xl:grid-cols-3">
-        {filteredProducts.map((product) => {
-          const [imageLoaded, setImageLoaded] = useState(false)
-          return (
-            <div key={product._id}>
-              <MotionConfig transition={{ duration: duration }}>
-                <motion.div
-                  className={`glass p-8 text-2xl ${
-                    selectedProduct === product
-                      ? "fixed bottom-0 left-0 right-0 top-0 m-auto flex h-fit w-2/3 flex-col items-center "
-                      : "relative min-h-full hover:bg-purple-500/20"
-                  }`}
-                  style={{ borderRadius: 69 }}
-                  animate={
-                    selectedProduct === product
-                      ? { zIndex: 45 }
-                      : {
-                          zIndex: 10,
-                          transition: {
-                            delay: duration,
-                          },
-                        }
-                  }
-                  layout
-                  onClick={() => {
-                    handleCardClick(product)
-                  }}
-                >
-                  <div className="mb-4 w-full gap-8 md:flex md:justify-center">
-                    <div className="relative flex-shrink-0">
-                      {product.best_seller && (
-                        <motion.div
-                          layout
-                          className="absolute -right-4 -top-3 z-50 mx-auto mb-4 rounded-2xl bg-fuchsia-600 px-4 py-2 text-xs font-bold text-white md:-right-12 md:-top-4 md:text-sm lg:text-base"
-                        >
-                          Best Seller
-                        </motion.div>
+        {filteredProducts.map((product) => (
+          <div key={product._id}>
+            <MotionConfig transition={{ duration: duration }}>
+              <motion.div
+                className={`glass p-8 text-2xl ${
+                  selectedProduct === product
+                    ? "fixed bottom-0 left-0 right-0 top-0 m-auto flex h-fit w-2/3 flex-col items-center "
+                    : "relative min-h-full hover:bg-purple-500/20"
+                }`}
+                style={{ borderRadius: 69 }}
+                animate={
+                  selectedProduct === product
+                    ? { zIndex: 45 }
+                    : {
+                        zIndex: 10,
+                        transition: {
+                          delay: duration,
+                        },
+                      }
+                }
+                layout
+                onClick={() => {
+                  handleCardClick(product)
+                }}
+              >
+                <div className="mb-4 w-full gap-8 md:flex md:justify-center">
+                  <div className="relative flex-shrink-0">
+                    {product.best_seller && (
+                      <motion.div
+                        layout
+                        className="absolute -right-4 -top-3 z-50 mx-auto mb-4 rounded-2xl bg-fuchsia-600 px-4 py-2 text-xs font-bold text-white md:-right-12 md:-top-4 md:text-sm lg:text-base"
+                      >
+                        Best Seller
+                      </motion.div>
+                    )}
+                    <div className="relative">
+                      {!imageLoaded[product._id] && (
+                        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
+                          <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent text-pink-500 motion-reduce:animate-[spin_1.5s_linear_infinite]" />
+                        </div>
                       )}
-                      <div className="relative">
-                        {!imageLoaded && (
-                          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
-                            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent text-pink-500 motion-reduce:animate-[spin_1.5s_linear_infinite]" />
-                          </div>
-                        )}
-                        <motion.img
-                          className={`mx-auto mb-4 h-44 rounded-3xl ${
-                            !imageLoaded ? "animate-pulse" : ""
-                          } aspect-square bg-purple-600/50 p-4 xl:h-52`}
-                          layout
-                          src={`/assets/boxes/${product.image}`}
-                          alt={product.title}
-                          onLoad={() => {
-                            setImageLoaded(true)
-                          }}
-                        />
-                      </div>
+                      <motion.img
+                        className={`mx-auto mb-4 h-44 rounded-3xl ${
+                          !imageLoaded[product._id] ? "animate-pulse" : ""
+                        } aspect-square bg-purple-600/50 p-4 xl:h-52`}
+                        layout
+                        src={`/assets/boxes/${product.image}`}
+                        alt={product.title}
+                        onLoad={() => {
+                          setImageLoaded((prev) => ({
+                            ...prev,
+                            [product._id]: true,
+                          }))
+                        }}
+                      />
+                    </div>
 
-                      <motion.div
-                        layout="position"
-                        className="mb-2 text-center text-2xl font-bold lg:text-3xl"
-                      >
-                        <motion.span
-                          layout="position"
-                          className="bg-gradient-to-r from-red-400 to-pink-500 bg-clip-text text-transparent"
-                        >
-                          {product.title}
-                        </motion.span>
-                      </motion.div>
-                      <motion.div
-                        layout="position"
-                        className="mb-2 text-center text-xl font-medium lg:text-2xl "
-                      >
-                        <motion.span
-                          className="bg-gradient-to-r from-red-400 to-pink-500 bg-clip-text text-transparent"
-                          layout="position"
-                        >
-                          <span className="mr-1">$</span>
-                          {product.price}
-                        </motion.span>
-                      </motion.div>
-                      <motion.div
-                        layout="position"
-                        className="col-span-1 mb-2 flex justify-center text-center text-xl font-light lg:text-2xl"
-                      >
-                        <span className="mr-2 text-yellow-500">
-                          {product.rating}
-                        </span>
-                        <span className="mr-2 flex items-center">
-                          {renderStarRating(product.rating)}
-                        </span>
-                      </motion.div>
-                    </div>
-                    <div
-                      className={`flex items-center text-center text-base font-normal sm:text-lg md:text-xl lg:text-2xl ${
-                        selectedProduct === product ? "" : "hidden"
-                      }`}
-                    >
-                      {product.description}
-                    </div>
-                  </div>
-                  {/* Add to Cart */}
-                  <motion.div className="flex justify-end" layout="position">
-                    <motion.button
+                    <motion.div
                       layout="position"
-                      className="glass px-4 py-2 text-center text-sm font-normal shadow-pink-500/30 ease-in-out md:text-lg lg:text-xl"
-                      onClick={(e) => handleAddToCart(e, product)}
+                      className="mb-2 text-center text-2xl font-bold lg:text-3xl"
                     >
-                      Add to Cart
-                    </motion.button>
-                  </motion.div>
+                      <motion.span
+                        layout="position"
+                        className="bg-gradient-to-r from-red-400 to-pink-500 bg-clip-text text-transparent"
+                      >
+                        {product.title}
+                      </motion.span>
+                    </motion.div>
+                    <motion.div
+                      layout="position"
+                      className="mb-2 text-center text-xl font-medium lg:text-2xl "
+                    >
+                      <motion.span
+                        className="bg-gradient-to-r from-red-400 to-pink-500 bg-clip-text text-transparent"
+                        layout="position"
+                      >
+                        <span className="mr-1">$</span>
+                        {product.price}
+                      </motion.span>
+                    </motion.div>
+                    <motion.div
+                      layout="position"
+                      className="col-span-1 mb-2 flex justify-center text-center text-xl font-light lg:text-2xl"
+                    >
+                      <span className="mr-2 text-yellow-500">
+                        {product.rating}
+                      </span>
+                      <span className="mr-2 flex items-center">
+                        {renderStarRating(product.rating)}
+                      </span>
+                    </motion.div>
+                  </div>
+                  <div
+                    className={`flex items-center text-center text-base font-normal sm:text-lg md:text-xl lg:text-2xl ${
+                      selectedProduct === product ? "" : "hidden"
+                    }`}
+                  >
+                    {product.description}
+                  </div>
+                </div>
+                {/* Add to Cart */}
+                <motion.div className="flex justify-end" layout="position">
+                  <motion.button
+                    layout="position"
+                    className="glass px-4 py-2 text-center text-sm font-normal shadow-pink-500/30 ease-in-out md:text-lg lg:text-xl"
+                    onClick={(e) => handleAddToCart(e, product)}
+                  >
+                    Add to Cart
+                  </motion.button>
                 </motion.div>
-              </MotionConfig>
-            </div>
-          )
-        })}
+              </motion.div>
+            </MotionConfig>
+          </div>
+        ))}
         <motion.div
           className={`pointer-events-auto absolute left-0 top-0 block h-full w-full bg-black opacity-0 ${
             selectedProduct ? "z-40" : "-z-10"
