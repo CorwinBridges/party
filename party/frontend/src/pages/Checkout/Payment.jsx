@@ -159,7 +159,7 @@ const Payment = () => {
   }
 
   return (
-    <section className="px-10 py-16 md:px-0">
+    <section>
       {/* background circles */}
       <div className="absolute -right-20 top-[58rem]">
         <div className="relative bottom-0 z-0 h-[400px] w-[400px] animate-[bounce_15s_linear_infinite] rounded-[50%] bg-gradient-to-b from-[#C2A0F0]/[0.54] to-[#E25D67]/[0.68] opacity-[0.75] blur-[3px]" />

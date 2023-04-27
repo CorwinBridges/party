@@ -1,3 +1,4 @@
+import { HiOutlineTrash } from "react-icons/hi"
 import { IoClose } from "react-icons/io5"
 import { Link } from "react-router-dom"
 
@@ -15,6 +16,8 @@ const Cart = () => {
     isCartVisible,
     calculateSubtotalPrice,
     setOpen,
+    increaseQuantity,
+    decreaseQuantity,
   } = useStateContext()
 
   const slideInVariants = {
@@ -38,7 +41,7 @@ const Cart = () => {
             onClick={toggleCart}
           >
             <div className="absolute inset-0 overflow-hidden">
-              <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+              <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-6">
                 <div
                   className="pointer-events-auto flex w-screen max-w-md flex-col bg-purple-700 shadow-xl"
                   onClick={(e) => e.stopPropagation()}
@@ -64,7 +67,7 @@ const Cart = () => {
                         <ul className="-my-6 divide-y-2 divide-white">
                           {cartItems.map((product) => (
                             <li key={product._id} className="flex py-6">
-                              <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-2xl bg-gradient-to-bl from-red-400 via-pink-500 to-violet-500 p-2">
+                              <div className="aspect-square w-20 flex-shrink-0 overflow-hidden rounded-2xl bg-gradient-to-bl from-red-400 via-pink-500 to-violet-500 p-1 xs:w-24 xs:p-2">
                                 <img
                                   src={`/assets/boxes/${product.image}`}
                                   alt={product.title}
@@ -74,10 +77,10 @@ const Cart = () => {
 
                               <div className="ml-4 flex flex-1 flex-col">
                                 <div>
-                                  <div className="flex justify-between text-xl font-medium text-white">
+                                  <div className="flex justify-between font-medium text-white xs:text-lg sm:text-xl">
                                     <h3>{product.title}</h3>
                                     <p className="ml-4">
-                                      ${" "}
+                                      <span className="mr-1">$</span>
                                       {(
                                         product.price * product.quantity
                                       ).toFixed(2)}
@@ -88,17 +91,26 @@ const Cart = () => {
                                   </p>
                                 </div>
                                 <div className="flex flex-1 items-end justify-between text-sm">
-                                  <div className="text-purple-300">
+                                  <div className="flex items-center text-purple-300">
                                     <label
                                       htmlFor={`quantity-${product._id}`}
-                                      className="mr-2"
+                                      className="mr-1.5"
                                     >
-                                      Qty
+                                      Qty:
                                     </label>
+                                    <button
+                                      className="mr-1.5 text-2xl text-pink-500"
+                                      onClick={() =>
+                                        increaseQuantity(product._id)
+                                      }
+                                    >
+                                      +
+                                    </button>
                                     <input
                                       id={`quantity-${product._id}`}
                                       type="number"
-                                      className="glass h-8 w-16 border-2 bg-transparent text-center focus:border-pink-500 focus:ring-0"
+                                      inputMode="decimal"
+                                      className="glass h-6 w-12 border-2 bg-transparent text-center focus:border-pink-500 focus:ring-0"
                                       value={product.quantity}
                                       min="1"
                                       max="69"
@@ -112,17 +124,25 @@ const Cart = () => {
                                         )
                                       }}
                                     />
+                                    <button
+                                      className="ml-1.5 text-2xl text-pink-500"
+                                      onClick={() =>
+                                        decreaseQuantity(product._id)
+                                      }
+                                    >
+                                      -
+                                    </button>
                                   </div>
 
-                                  <div className="flex">
+                                  <div className="flex items-center">
                                     <button
                                       type="button"
                                       onClick={() =>
                                         removeFromCart(product._id)
                                       }
-                                      className="font-medium text-pink-500 hover:text-pink-400"
+                                      className="my-auto mb-1 text-lg text-pink-500 hover:text-pink-400"
                                     >
-                                      Remove
+                                      <HiOutlineTrash />
                                     </button>
                                   </div>
                                 </div>
@@ -138,7 +158,10 @@ const Cart = () => {
                   <div className="flex-shrink-0 border-t-2 border-white px-4 py-6 sm:px-6">
                     <div className="flex justify-between text-xl font-medium text-white">
                       <p>Subtotal</p>
-                      <p>${calculateSubtotalPrice().toFixed(2)}</p>
+                      <p>
+                        <span className="mr-1">$</span>
+                        {calculateSubtotalPrice().toFixed(2)}
+                      </p>
                     </div>
                     <p className="mt-0.5 text-sm text-purple-300">
                       Shipping and taxes calculated at checkout.

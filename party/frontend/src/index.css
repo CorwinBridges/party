@@ -51,6 +51,12 @@ body, label {
   border-radius: 50px;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 a,
 button,
 div.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal, span.swiper-pagination-bullet, div.swiper-slide,

@@ -1,4 +1,5 @@
-import { createContext, useContext, useState } from "react"
+import { createContext, useContext, useState } from "react";
+
 
 const Context = createContext()
 
@@ -78,6 +79,32 @@ export const StateContext = ({ children }) => {
     setCartItems([])
   }
 
+  const increaseQuantity = (productId) => {
+    const itemIndex = cartItems.findIndex((item) => item._id === productId)
+
+    if (itemIndex !== -1) {
+      const newCartItems = [...cartItems]
+      if (newCartItems[itemIndex].quantity < 69) {
+        newCartItems[itemIndex].quantity += 1
+        setCartItems(newCartItems)
+      }
+    }
+  }
+
+  const decreaseQuantity = (productId) => {
+    const itemIndex = cartItems.findIndex((item) => item._id === productId)
+
+    if (itemIndex !== -1) {
+      const newCartItems = [...cartItems]
+      if (newCartItems[itemIndex].quantity > 1) {
+        newCartItems[itemIndex].quantity -= 1
+        setCartItems(newCartItems)
+      }
+    }
+  }
+
+
+
   return (
     <Context.Provider
       value={{
@@ -106,6 +133,8 @@ export const StateContext = ({ children }) => {
         calculateTaxes,
         calculateTotalPrice,
         emptyCart,
+        increaseQuantity,
+        decreaseQuantity
       }}
     >
       {children}

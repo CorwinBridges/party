@@ -1,16 +1,9 @@
-import { useEffect } from "react";
-import { HiChevronUp, HiChevronDown } from "react-icons/hi";
+import { HiChevronUp, HiChevronDown } from "react-icons/hi"
 
+import { Disclosure, Menu } from "@headlessui/react"
+import { motion, AnimatePresence } from "framer-motion"
 
-
-import { Disclosure, Menu } from "@headlessui/react";
-import axios from "axios";
-import { motion, AnimatePresence } from "framer-motion";
-
-
-
-import { useStateContext } from "../../context/StateContext";
-
+import { useStateContext } from "../../context/StateContext"
 
 const filters = [
   {
@@ -44,39 +37,12 @@ const filters = [
 const Filter = () => {
   const {
     products,
-    setProducts,
     setFilteredProducts,
     checkedValues,
     setCheckedValues,
     checkedState,
     setCheckedState,
   } = useStateContext()
-
-  useEffect(() => {
-    const websiteUrl = "https://partyinaboxserver.vercel.app/api/products"
-    const localUrl = "http://localhost:6968/api/products"
-
-    const getProducts = async () => {
-      try {
-        const response = await axios.get(websiteUrl)
-        setProducts(response.data)
-        setFilteredProducts(response.data)
-      } catch (error) {
-        console.error("Error fetching products from websiteUrl:", error)
-
-        try {
-          const response = await axios.get(localUrl)
-          setProducts(response.data)
-          setFilteredProducts(response.data)
-        } catch (error) {
-          console.error("Error fetching products from localUrl:", error)
-        }
-      }
-    }
-
-    getProducts()
-  }, [])
-
 
   const handleInputChange = (option, isChecked) => {
     const matchingValues = isChecked
@@ -228,7 +194,7 @@ const Filter = () => {
       <div className="block lg:hidden">
         <Menu as="div" className="relative inline-block text-left">
           <div className="flex items-center">
-            <span className="mr-2 hidden xs:block text-xl">Filter:</span>
+            <span className="mr-2 hidden text-xl xs:block">Filter:</span>
             <Menu.Button className="glass inline-flex w-full items-center justify-center px-4 py-2 font-medium text-white">
               Filter{" "}
               <HiChevronDown
