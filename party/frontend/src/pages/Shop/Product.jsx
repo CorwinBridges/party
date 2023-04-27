@@ -58,7 +58,7 @@ const Product = () => {
         <div className="relative -bottom-[500px] z-10 h-[250px] w-[250px] animate-[bounce_15s_linear_infinite] rounded-[50%] bg-gradient-to-b from-[#527CF4]/[0.54] to-[#7AEF7D]/[0.68] opacity-[0.75] blur-[3px]" />
       </div>
       {/* product boxes */}
-      <div className="grid grid-cols-1 gap-5 px-10 text-white sm:grid-cols-2 lg:px-0 xl:grid-cols-3">
+      <div className="grid grid-cols-1 gap-5 text-white sm:grid-cols-2 xl:grid-cols-3">
         {filteredProducts.map((product) => (
           <div key={product._id}>
             <MotionConfig transition={{ duration: duration }}>
