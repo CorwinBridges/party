@@ -204,7 +204,7 @@ const Filter = () => {
             </Menu.Button>
           </div>
 
-          <Menu.Items className="glass absolute left-14 z-20 mt-2 w-56 rounded-2xl bg-violet-800/50 p-1">
+          <Menu.Items className="glass absolute xs:left-14 z-20 mt-2 w-56 rounded-2xl bg-violet-800/50 p-1">
             {filters.map((section, index) => (
               <div
                 key={section.name}
