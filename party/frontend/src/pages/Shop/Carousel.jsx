@@ -70,14 +70,14 @@ const Carousel = () => {
           {slide_images.map((slide, index) => (
             <SwiperSlide key={index}>
               <div className=" w-full px-4 lg:px-0">
-                <div className="glass mb-12 h-[50vh] max-h-[50rem] rounded-[50px] bg-purple-600/50 p-6 shadow-none lg:-mb-24 lg:h-[60vh]">
+                <div className="glass mb-12 h-[50vh] max-h-[50rem] rounded-[50px] bg-purple-600/50 p-6 shadow-none sm:h-[60vh] lg:-mb-24">
                   <img
                     src={`/assets/carousel/${slide.image}`}
                     alt={slide.title}
                     className="h-full w-full rounded-[50px] object-cover"
                   />
                 </div>
-                <div className="glass xl:1/4 relative -left-20 bottom-12 z-10 hidden aspect-square w-2/5 max-w-[250px] items-center  justify-center rounded-[50px] p-4 text-center text-white lg:flex">
+                <div className="glass relative -left-20 bottom-12 z-10 hidden aspect-square w-2/5 max-w-[250px] items-center justify-center rounded-[50px] p-4 text-center text-white lg:flex">
                   <h1 className="mx-auto text-xl font-bold text-purple-300 xl:text-3xl 2xl:text-4xl">
                     <span className="bg-gradient-to-r from-red-400 to-pink-500 bg-clip-text text-transparent">
                       {slide.title}
