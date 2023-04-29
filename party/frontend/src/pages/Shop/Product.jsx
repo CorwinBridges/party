@@ -119,39 +119,22 @@ const Product = () => {
                       />
                     </div>
 
-                    <motion.div
-                      layout="position"
-                      className="mb-2 text-center text-2xl font-bold lg:text-3xl"
-                    >
-                      <motion.span
-                        layout="position"
-                        className="bg-gradient-to-r from-red-400 to-pink-500 bg-clip-text text-transparent"
-                      >
+                    <motion.div layout="position">
+                      <div className="mb-2 bg-gradient-to-r from-red-400 to-pink-500 bg-clip-text text-center text-2xl font-bold text-transparent lg:text-3xl">
                         {product.title}
-                      </motion.span>
-                    </motion.div>
-                    <motion.div
-                      layout="position"
-                      className="mb-2 text-center text-xl font-medium lg:text-2xl "
-                    >
-                      <motion.span
-                        className="bg-gradient-to-r from-red-400 to-pink-500 bg-clip-text text-transparent"
-                        layout="position"
-                      >
+                      </div>
+                      <div className="mb-2 bg-gradient-to-r from-red-400 to-pink-500 bg-clip-text text-center text-xl font-medium text-transparent lg:text-2xl">
                         <span className="mr-1">$</span>
                         {product.price}
-                      </motion.span>
-                    </motion.div>
-                    <motion.div
-                      layout="position"
-                      className="col-span-1 mb-2 flex justify-center text-center text-xl font-light lg:text-2xl"
-                    >
-                      <span className="mr-2 text-yellow-500">
-                        {product.rating}
-                      </span>
-                      <span className="mr-2 flex items-center">
-                        {renderStarRating(product.rating)}
-                      </span>
+                      </div>
+                      <div className="col-span-1 mb-2 flex justify-center text-center text-xl font-light lg:text-2xl">
+                        <span className="mr-2 text-yellow-500">
+                          {product.rating}
+                        </span>
+                        <span className="mr-2 flex items-center">
+                          {renderStarRating(product.rating)}
+                        </span>
+                      </div>
                     </motion.div>
                   </div>
                   <div
