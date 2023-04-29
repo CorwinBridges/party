@@ -1,7 +1,6 @@
 import { useState } from "react"
 import toast from "react-hot-toast"
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa"
-import useMeasure from "react-use-measure"
 
 import { MotionConfig, motion } from "framer-motion"
 
@@ -11,7 +10,6 @@ const Product = () => {
   const { selectedProduct, handleCardClick, filteredProducts, addToCart } =
     useStateContext()
   const [imageLoaded, setImageLoaded] = useState({})
-  const [ref, { height }] = useMeasure()
 
   const duration = 0.3
 
@@ -62,7 +60,10 @@ const Product = () => {
       {/* product boxes */}
       <div className="grid grid-cols-1 gap-5 text-white sm:grid-cols-2 xl:grid-cols-3">
         {filteredProducts.map((product) => (
-          <div key={product._id} ref={ref} style={{ height: height || "auto" }}>
+          <div
+            key={product._id}
+            className="h-[26.25rem] md:h-[27.25rem] lg:h-[28rem] xl:h-[30rem]"
+          >
             <MotionConfig transition={{ duration: duration }}>
               <motion.div
                 className={`glass p-8 text-2xl ${
