@@ -70,7 +70,7 @@ const Carousel = () => {
           {slide_images.map((slide, index) => (
             <SwiperSlide key={index}>
               <div className=" w-full px-4 lg:px-0">
-                <div className="glass mb-12 h-[50vh] rounded-[50px] bg-purple-600/50 p-6 shadow-none lg:-mb-24 lg:h-[60vh]">
+                <div className="glass mb-12 h-[50vh] max-h-[50rem] rounded-[50px] bg-purple-600/50 p-6 shadow-none lg:-mb-24 lg:h-[60vh]">
                   <img
                     src={`/assets/carousel/${slide.image}`}
                     alt={slide.title}
