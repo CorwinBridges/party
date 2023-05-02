@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 
 import axios from "axios"
 import { Formik, Field, Form, ErrorMessage } from "formik"
-import { nanoid } from "nanoid"
+import { customAlphabet } from "nanoid"
 import * as Yup from "yup"
 
 import { useStateContext } from "../../context/StateContext"
@@ -102,9 +102,10 @@ const Payment = () => {
     const taxes = calculateTaxes()
     const shipping = 0.0
     const totalPrice = calculateTotalPrice()
+    const nanoid = customAlphabet("1234567890abcdef", 10)
 
     const checkoutData = {
-      orderId: nanoid(10, "0123456789"),
+      orderId: "69" + nanoid(),
       cartItems,
       totalQuantity,
       subtotalPrice,
