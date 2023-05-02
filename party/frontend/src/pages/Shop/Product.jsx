@@ -68,7 +68,7 @@ const Product = () => {
               <motion.div
                 className={`glass p-8 text-2xl ${
                   selectedProduct === product
-                    ? "fixed bottom-0 left-0 right-0 top-0 m-auto flex h-fit w-fit flex-col items-center"
+                    ? "fixed bottom-0 left-0 right-0 top-0 m-auto flex h-fit w-fit max-w-[calc(100%-2rem)] flex-col items-center"
                     : "relative hover:bg-purple-500/20"
                 }`}
                 style={{ borderRadius: 69 }}
@@ -138,7 +138,7 @@ const Product = () => {
                     </motion.div>
                   </div>
                   <div
-                    className={`flex items-center text-center text-base font-normal sm:text-lg md:text-xl lg:text-2xl max-w-2xl ${
+                    className={`flex max-w-2xl items-center text-center text-base font-normal sm:text-lg md:text-xl lg:text-2xl ${
                       selectedProduct === product ? "" : "hidden"
                     }`}
                   >
